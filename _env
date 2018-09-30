@@ -1,0 +1,11 @@
+PUID=1000
+PGID=999
+TZ=Australia/Melbourne
+USERDIR=/home/navydons
+SERVER1=/media/navydons/Server1
+SERVER2=/media/navydons/Server2
+HTTP_USERNAME=navydons
+HTTP_PASSWORD=*****
+DOMAINNAME=*****.com.au
+CLOUDFLARE_EMAIL=*****@gmail.com
+CLOUDFLARE_API_KEY=*****

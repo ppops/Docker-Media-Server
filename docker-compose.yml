@@ -6,12 +6,15 @@ version: "3.3"
 services:
 
 
-# Glances - Monitoring
+# Glances
   glances:
     image: vimagick/glances
     container_name: glances
 #    ports:
 #      - "61208:61208"
+    volumes:
+      - ./data:/etc/glances
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - GLANCES_OPT=-w
     pid: 'host'
@@ -36,7 +39,7 @@ services:
 
 
 
-# Watchtower - Docker Update
+# Watchtower
   watchtower:
     container_name: watchtower
     restart: always
@@ -47,7 +50,7 @@ services:
 
 
 
-# Portainer - WebUI for Containers
+# Portainer
   portainer:
     image: portainer/portainer
     hostname: portainer
@@ -82,7 +85,7 @@ services:
 
 
 
-# SABnzbd – Usenet (NZB) Downloader
+# SABnzbd
   sabnzbd:
     image: "linuxserver/sabnzbd"
     hostname: sabnzbd
@@ -119,7 +122,7 @@ services:
 
 
 
-# Radarr – Movie Download and Management
+# Radarr
   radarr:
     image: "linuxserver/radarr"
     hostname: radarr
@@ -157,7 +160,7 @@ services:
 
 
 
-# Sonarr – TV Show Download and Management
+# Sonarr
   sonarr:
     image: "linuxserver/sonarr"
     hostname: sonarr
@@ -193,6 +196,40 @@ services:
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
 
+
+
+  hydra:
+    image: "linuxserver/hydra2"
+    container_name: "hydra"
+    volumes:
+      - ${USERDIR}/docker/hydra:/config
+      - ${SERVER2}/Downloads/completed:/downloads
+      - ${USERDIR}/docker/shared:/shared
+#    ports:
+#      - "5076:5076"
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=hydra"
+      - "traefik.frontend.rule=Host:hydra.${DOMAINNAME}"
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /hydra"
+      - "traefik.port=5076"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=example.com"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
 
 
 # Plex
