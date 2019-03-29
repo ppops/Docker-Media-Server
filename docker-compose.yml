@@ -236,7 +236,7 @@ services:
   plexms:
     container_name: plexms
     restart: always
-    image: plexinc/pms-docker
+    image: "plexinc/pms-docker:plexpass"
     volumes:
       - ${USERDIR}/docker/plexms:/config
       - ${SERVER2}/Downloads/plex_tmp:/transcode
