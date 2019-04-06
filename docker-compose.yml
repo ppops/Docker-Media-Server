@@ -320,7 +320,7 @@ services:
 # Unifi
   unifi:
     hostname: unifi
-    image: linuxserver/unifi:latest
+    image: linuxserver/unifi-controller:latest
     restart: always
     container_name: "unifi"
     volumes:
