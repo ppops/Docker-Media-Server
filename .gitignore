@@ -1,0 +1,11 @@
+.env
+hydra/
+plexms/
+portainer/
+radarr/
+shared/
+sonarr/
+tautulli/
+traefik/
+unifi/
+unifistats/
