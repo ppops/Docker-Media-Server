@@ -409,7 +409,8 @@ services:
       - "traefik.frontend.headers.SSLHost=example.com"
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
+#      - "traefik.frontend.headers.frameDeny=true"
+      - "traefik.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*"
 
 
 
