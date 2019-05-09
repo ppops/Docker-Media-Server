@@ -6,6 +6,8 @@ version: "3.3"
 services:
 
 
+
+
 # Glances
   glances:
     image: vimagick/glances
@@ -39,6 +41,7 @@ services:
 
 
 
+
 # Watchtower
   watchtower:
     container_name: watchtower
@@ -47,6 +50,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --schedule "0 0 4 * * *" --cleanup
+
 
 
 
@@ -85,6 +89,7 @@ services:
 
 
 
+
 # SABnzbd
   sabnzbd:
     image: "linuxserver/sabnzbd"
@@ -119,6 +124,7 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
+
 
 
 
@@ -160,6 +166,7 @@ services:
 
 
 
+
 # Sonarr
   sonarr:
     image: "linuxserver/sonarr"
@@ -198,6 +205,8 @@ services:
 
 
 
+
+# Hydra
   hydra:
     image: "linuxserver/hydra2"
     container_name: "hydra"
@@ -230,6 +239,8 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
+
+
 
 
 # Plex
@@ -283,6 +294,7 @@ services:
 
 
 
+# UniFi Stats
   unifistats:
     build: 
       context: ${USERDIR}/docker/unifistats/bin/webserver
@@ -312,6 +324,8 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
+
+
 
 
 # Tautulli
@@ -349,7 +363,8 @@ services:
 
 
 
-# Unifi
+
+# UniFi
   unifi:
     hostname: unifi
     image: linuxserver/unifi-controller:latest
@@ -414,6 +429,8 @@ services:
 
 
 
+
+# Ombi
   ombi:
     container_name: ombi
     restart: always
@@ -445,6 +462,44 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
+
+
+
+
+# Heimdall
+  heimdall:
+    container_name: heimdall
+    restart: unless-stopped
+    image: linuxserver/heimdall
+    volumes:
+      - ${USERDIR}/docker/heimdall:/config
+      - ${USERDIR}/docker/shared:/shared
+#    ports:
+#      - "80:80"
+#      - "443:443"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=heimdall"
+      - "traefik.frontend.rule=Host:heimdall.${DOMAINNAME}"
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /heimdall"
+      - "traefik.port=80"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=example.com"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
+
 
 
 
@@ -484,6 +539,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${USERDIR}/docker/traefik:/etc/traefik
       - ${USERDIR}/docker/shared:/shared
+
 
 
 
