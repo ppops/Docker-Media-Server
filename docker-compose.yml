@@ -488,7 +488,7 @@ services:
       - "traefik.backend=heimdall"
       - "traefik.frontend.rule=Host:heimdall.${DOMAINNAME}"
 #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /heimdall"
-      - "traefik.port=80"
+      - "traefik.port=443"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
