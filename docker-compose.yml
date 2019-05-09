@@ -171,7 +171,7 @@ services:
   sonarr:
     image: "linuxserver/sonarr"
     hostname: sonarr
-    container_name: "sonarr"
+    container_name: "sonarr:latest"
     volumes:
       - ${USERDIR}/docker/sonarr:/config
       - ${SERVER2}/Downloads/completed:/downloads
