@@ -169,7 +169,7 @@ services:
 
 # Sonarr
   sonarr:
-    image: "linuxserver/sonarr:latest"
+    image: "linuxserver/sonarr:preview"
     hostname: sonarr
     container_name: "sonarr"
     volumes:
