@@ -17,6 +17,10 @@ services:
     volumes:
       - ./data:/etc/glances
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./:/main
+      - ${SERVER1}/:/server1
+      - ${SERVER2}/:/server2
+      - ${SERVER3}/:/server3
     environment:
       - GLANCES_OPT=-w
     pid: 'host'
