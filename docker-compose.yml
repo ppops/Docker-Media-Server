@@ -254,7 +254,7 @@ services:
     image: "plexinc/pms-docker:plexpass"
     volumes:
       - ${USERDIR}/docker/plexms:/config
-      - ${SERVER2}/Downloads/plex_tmp:/transcode
+      - ${RAMDRIVE}/:/transcode
       - /mnt/:/media
       - ${USERDIR}/docker/shared:/shared
     ports:
