@@ -507,6 +507,53 @@ services:
 
 
 
+# Pi-hole
+  pihole:
+    container_name: pihole
+    domainname: docker
+    hostname: pihole
+    image: pihole/pihole:latest
+    ports:
+      - '53:53/tcp'
+      - '53:53/udp'
+      # - '67:67/udp'
+      - '8182:80'
+      - '8183:443'
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/pihole/pihole:/etc/pihole
+      - ${USERDIR}/docker/pihole/pihole.log:/var/log/pihole.log
+      - ${USERDIR}/docker/pihole/dnsmasq.d:/etc/dnsmasq.d
+    # cap_add:
+      # - NET_ADMIN
+    environment:
+      - ServerIP=${SERVER_IP}
+      - PROXY_LOCATION=pihole
+      - VIRTUAL_HOST=pihole.${DOMAINNAME}
+      - VIRTUAL_PORT=80
+      - TZ=${TZ}
+      - WEBPASSWORD=PIHOLEWEBPASSWORD
+      - DNS1=127.0.0.1
+      - DNS2=1.1.1.1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=pihole"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=HostRegexp:pihole.${DOMAINNAME},{catchall:.*}"
+      - "traefik.frontend.priority=1"
+      - traefik.frontend.headers.SSLRedirect=true
+      - traefik.frontend.headers.STSSeconds=315360000
+      - traefik.frontend.headers.browserXSSFilter=true
+      - traefik.frontend.headers.contentTypeNosniff=true
+      - traefik.frontend.headers.forceSTSHeader=true
+      - traefik.frontend.headers.SSLHost=${DOMAINNAME}
+      - traefik.frontend.headers.STSIncludeSubdomains=true
+      - traefik.frontend.headers.STSPreload=true
+      - traefik.frontend.headers.frameDeny=true
+
+
+
+
 # Traefik
   traefik:
     hostname: traefik
