@@ -524,8 +524,6 @@ services:
       - ${USERDIR}/docker/pihole/pihole:/etc/pihole
       - ${USERDIR}/docker/pihole/pihole.log:/var/log/pihole.log
       - ${USERDIR}/docker/pihole/dnsmasq.d:/etc/dnsmasq.d
-    # cap_add:
-      # - NET_ADMIN
     environment:
       - ServerIP=${SERVER_IP}
       - PROXY_LOCATION=pihole
@@ -533,7 +531,7 @@ services:
       - VIRTUAL_PORT=80
       - TZ=${TZ}
       - WEBPASSWORD=${PIHOLEWEBPASSWORD}
-      - DNS1=8.8.8.8
+      - DNS1=127.0.0.1
       - DNS2=8.8.4.4
     labels:
       - "traefik.enable=true"
