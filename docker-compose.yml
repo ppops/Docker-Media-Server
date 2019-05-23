@@ -534,7 +534,7 @@ services:
       - TZ=${TZ}
       - WEBPASSWORD=${PIHOLEWEBPASSWORD}
       - DNS1=127.0.0.1
-      - DNS2=1.1.1.1
+      - DNS2=8.8.8.8
     labels:
       - "traefik.enable=true"
       - "traefik.backend=pihole"
