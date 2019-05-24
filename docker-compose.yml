@@ -535,6 +535,7 @@ services:
       - WEBPASSWORD=${PIHOLEWEBPASSWORD}
       - DNS1=127.0.0.1
       - DNS2=8.8.8.8
+      - DNSMASQ_LISTENING=all
     labels:
       - "traefik.enable=true"
       - "traefik.backend=pihole"
