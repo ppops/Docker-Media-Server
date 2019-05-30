@@ -12,5 +12,5 @@ unifistats/
 ombi/
 heimdall/
 pihole/
-homeassistant/
-!*/homeassistant/configuration.yaml
+homeassistant/*
+!homeassistant/configuration.yaml
