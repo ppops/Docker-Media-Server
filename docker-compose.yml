@@ -556,6 +556,7 @@ services:
 
 # Homebridge
   homebridge:
+    container_name: homebridge
     image: oznu/homebridge:latest
     restart: always
     network_mode: host
