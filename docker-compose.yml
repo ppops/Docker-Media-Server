@@ -554,23 +554,6 @@ services:
 
 
 
-# Homebridge
-  homebridge:
-    container_name: homebridge
-    image: oznu/homebridge:latest
-    restart: always
-    network_mode: host
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - HOMEBRIDGE_CONFIG_UI_PORT=51826
-    volumes:
-      - ${USERDIR}/docker/homebridge:/homebridge
-
-
-
-
 # Traefik
   traefik:
     hostname: traefik
