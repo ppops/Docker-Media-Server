@@ -561,10 +561,7 @@ services:
     container_name: homebridge
     domainname: homebridge
     restart: always
-    networks:
-      - host
-      - default
-      - traefik_proxy
+    network_mode: host
     ports:
       - "80:80"
       - "443:443"
