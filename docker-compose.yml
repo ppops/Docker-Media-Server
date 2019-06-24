@@ -554,6 +554,49 @@ services:
 
 
 
+# Homebridge
+  homebridge:
+    hostname: homebridge
+    image: oznu/homebridge:latest
+    container_name: homebridge
+    domainname: homebridge
+    restart: always
+    network_mode: host
+    networks:
+      - default
+      - traefik_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+#      - "XXXX:51826"
+    environment:
+      - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
+      - CLOUDFLARE_API_KEY=${CLOUDFLARE_API_KEY}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - HOMEBRIDGE_CONFIG_UI_PORT=51826
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=traefik"
+      - "traefik.frontend.rule=Host:homebridge.${DOMAINNAME}"
+      - "traefik.port=51826"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=example.com"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
+    volumes:
+      - ${USERDIR}/docker/homebridge:/homebridge
+
+
+
+
 # Traefik
   traefik:
     hostname: traefik
