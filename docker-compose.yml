@@ -339,7 +339,7 @@ services:
     image: linuxserver/tautulli
     volumes:
       - ${USERDIR}/docker/tautulli/config:/config
-      - ${USERDIR}/docker/tautulli/logs:/logs:ro
+      - '${USERDIR}/docker/plexms/Library/Application Support/Plex Media Server/Logs:/logs:ro'
       - ${USERDIR}/docker/shared:/shared
 #    ports:
 #      - "8181:8181"
