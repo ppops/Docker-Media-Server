@@ -132,6 +132,44 @@ services:
 
 
 
+# Transmission
+  transmission:
+    image: "linuxserver/transmission"
+    hostname: transmission
+    container_name: "transmission"
+    volumes:
+      - ${SERVER2}/docker/transmission:/config
+      - ${SERVER2}/Downloads/transmission:/downloads
+#    ports:
+#        - "9091:9091"
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - USER=${TRANSMISSION_USERNAME}
+      - PASS=${TRANSMISSION_PASSWORD}
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=transmission"
+      - "traefik.frontend.rule=Host:transmission.${DOMAINNAME}"
+      - "traefik.port=9091"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=example.com"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
+
+
+
+
 # Radarr
   radarr:
     image: "linuxserver/radarr"
@@ -339,7 +377,7 @@ services:
     image: linuxserver/tautulli
     volumes:
       - ${USERDIR}/docker/tautulli/config:/config
-      - ${USERDIR}/docker/tautulli/logs:/logs:ro
+      - '${USERDIR}/docker/plexms/Library/Application Support/Plex Media Server/Logs:/logs:ro'
       - ${USERDIR}/docker/shared:/shared
 #    ports:
 #      - "8181:8181"
@@ -557,7 +595,7 @@ services:
 # Traefik
   traefik:
     hostname: traefik
-    image: traefik:latest
+    image: traefik:v1.7
     container_name: traefik
     restart: always
     domainname: ${DOMAINNAME}
