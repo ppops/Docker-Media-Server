@@ -101,7 +101,7 @@ services:
     container_name: "sabnzbd"
     volumes:
       - ${SERVER2}/docker/sabnzbd:/config
-      - ${SERVER2}/Downloads/completed:/downloads
+      - ${SERVER2}/Downloads/complete:/downloads
       - ${SERVER2}/Downloads/incomplete:/incomplete-downloads
       - ${SERVER2}/docker/shared:/shared
 #    ports:
@@ -139,7 +139,7 @@ services:
     container_name: "transmission"
     volumes:
       - ${SERVER2}/docker/transmission:/config
-      - ${SERVER2}/Downloads/transmission:/downloads
+      - ${SERVER2}/Downloads:/downloads
 #    ports:
 #        - "9091:9091"
     restart: always
@@ -177,7 +177,7 @@ services:
     container_name: "radarr"
     volumes:
       - ${USERDIR}/docker/radarr:/config
-      - ${SERVER2}/Downloads/completed:/downloads
+      - ${SERVER2}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
@@ -216,7 +216,7 @@ services:
     container_name: "sonarr"
     volumes:
       - ${USERDIR}/docker/sonarr:/config
-      - ${SERVER2}/Downloads/completed:/downloads
+      - ${SERVER2}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
@@ -254,7 +254,7 @@ services:
     container_name: "hydra"
     volumes:
       - ${USERDIR}/docker/hydra:/config
-      - ${SERVER2}/Downloads/completed:/downloads
+      - ${SERVER2}/Downloads/complete:/downloads
       - ${USERDIR}/docker/shared:/shared
 #    ports:
 #      - "5076:5076"
