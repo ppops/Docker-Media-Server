@@ -296,8 +296,7 @@ services:
     volumes:
       - ${USERDIR}/docker/plexms:/config
       - ${RAMDRIVE}/:/transcode
-      - /mnt/:/media
-      - ${USERDIR}/Downloads/complete:/downloads
+      - /mnt/:/data
       - ${USERDIR}/docker/shared:/shared
     ports:
       - "32400:32400/tcp"
