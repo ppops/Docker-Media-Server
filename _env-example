@@ -5,6 +5,7 @@ USERDIR=/home/navydons
 SERVER1=/media/navydons/Server1
 SERVER2=/media/navydons/Server2
 SERVER3=/media/navydons/Server3
+SERVER4=/media/navydons/Server4
 RAMDRIVE=/dev/shm
 HTTP_USERNAME=navydons
 HTTP_PASSWORD=*****

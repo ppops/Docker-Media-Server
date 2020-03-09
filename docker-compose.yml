@@ -21,6 +21,7 @@ services:
       - ${SERVER1}/:/server1
       - ${SERVER2}/:/server2
       - ${SERVER3}/:/server3
+      - ${SERVER4}/:/server4
     environment:
       - GLANCES_OPT=-w
     pid: 'host'
@@ -100,10 +101,10 @@ services:
     hostname: sabnzbd
     container_name: "sabnzbd"
     volumes:
-      - ${SERVER2}/docker/sabnzbd:/config
-      - ${SERVER2}/Downloads/complete:/downloads
-      - ${SERVER2}/Downloads/incomplete:/incomplete-downloads
-      - ${SERVER2}/docker/shared:/shared
+      - ${USERDIR}/docker/sabnzbd:/config
+      - ${USERDIR}/docker/shared:/shared
+      - ${USERDIR}/Downloads/complete:/downloads
+      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
 #    ports:
 #        - "8080:8080"
     restart: always
@@ -138,8 +139,8 @@ services:
     hostname: transmission
     container_name: "transmission"
     volumes:
-      - ${SERVER2}/docker/transmission:/config
-      - ${SERVER2}/Downloads:/downloads
+      - ${USERDIR}/docker/transmission:/config
+      - ${USERDIR}/Downloads:/downloads
 #    ports:
 #        - "9091:9091"
     restart: always
@@ -177,8 +178,9 @@ services:
     container_name: "radarr"
     volumes:
       - ${USERDIR}/docker/radarr:/config
-      - ${SERVER2}/Downloads/complete:/downloads
+      - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
 #    ports:
@@ -216,8 +218,9 @@ services:
     container_name: "sonarr"
     volumes:
       - ${USERDIR}/docker/sonarr:/config
-      - ${SERVER2}/Downloads/complete:/downloads
+      - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
 #    ports:
@@ -254,7 +257,7 @@ services:
     container_name: "hydra"
     volumes:
       - ${USERDIR}/docker/hydra:/config
-      - ${SERVER2}/Downloads/complete:/downloads
+      - ${USERDIR}/Downloads/complete:/downloads
       - ${USERDIR}/docker/shared:/shared
 #    ports:
 #      - "5076:5076"
