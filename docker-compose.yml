@@ -314,7 +314,7 @@ services:
       - PLEX_CLAIM="claim-EzpiqYyHLK68cirjcZXT"
       - PLEX_UID=${PUID}
       - PLEX_GID=${PGID}
-      - ADVERTISE_IP="http://192.168.0.29:32400/"
+      - ADVERTISE_IP="http://192.168.1.10:32400/"
     devices:
       - /dev/dri/:/dev/dri/
     networks:
