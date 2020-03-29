@@ -594,40 +594,6 @@ services:
 
 
 
-# Homebridge
-  homebridge:
-    image: oznu/homebridge:latest
-    container_name: homebridge
-    restart: always
-    volumes:
-      - ${USERDIR}/docker/homebridge:/homebridge
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - HOMEBRIDGE_CONFIG_UI=1
-      - HOMEBRIDGE_CONFIG_UI_PORT=8080
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=homebridge"
-      - "traefik.frontend.rule=Host:homebridge.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /homebridge"
-      - "traefik.port=8080"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
-
-
-
 
 # Traefik
   traefik:
