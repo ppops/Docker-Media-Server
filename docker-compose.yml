@@ -253,7 +253,7 @@ services:
 
 # Hydra
   hydra:
-    image: "linuxserver/docker-nzbhydra2"
+    image: "linuxserver/nzbhydra2"
     container_name: "hydra"
     volumes:
       - ${USERDIR}/docker/hydra:/config
