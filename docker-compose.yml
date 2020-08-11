@@ -173,7 +173,7 @@ services:
 
 # Radarr
   radarr:
-    image: "linuxserver/radarr"
+    image: "linuxserver/radarr:preview"
     hostname: radarr
     container_name: "radarr"
     volumes:
@@ -311,7 +311,7 @@ services:
     environment:
       - TZ=${TZ}
       - HOSTNAME="Docker Plex"
-      - PLEX_CLAIM="claim-EzpiqYyHLK68cirjcZXT"
+      - PLEX_CLAIM="claim-2pwqm8YiyaxEKWjinrFN"
       - PLEX_UID=${PUID}
       - PLEX_GID=${PGID}
       - ADVERTISE_IP="http://192.168.1.10:32400/"

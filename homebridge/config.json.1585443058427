@@ -1,0 +1,163 @@
+{
+  "bridge":{
+    "name":"Homebridge",
+    "username":"CD:22:3D:E3:CE:30",
+    "port":51826,
+    "pin":"031-45-154"
+  },
+  "description":"Homebridge",
+  "accessories":[
+    
+  ],
+
+  "platforms":[
+    {
+        "platform": "yeelight",
+        "name": "Yeelight"
+    },
+    {
+      "platform": "homebridge-plex-sensors.Plex",
+      "logSeenPlayersAndUsers": true,
+      "sensors": [
+        {
+          "name": "Movie Playing",
+          "types": ["movie"],
+          "players": ["Living Room"]
+        },
+        {
+          "name": "TV Playing",
+          "types": ["episode"],
+          "players": ["Living Room"]
+        }
+      ]
+    },
+    {
+      "platform":"BroadlinkRM",
+      "name":"Broadlink - Bedroom",
+      "hideScanFrequencyButton": true,
+      "hideLearnButton": true,
+      "hideWelcomeMessage": true,
+      "accessories":[
+        {
+          "name":"Air Purifier",
+          "type":"fan",
+"host":"192.168.1.221",
+          "hideSwingMode": false,
+          "hideRotationDirection": true,
+          "data":{
+            "on":"26004000451a161b121d141d1631151b161a1718181b153217191719161a151c16191818171a171a1633151b143217311700067f461b14341500068a471a173017000d050000000000000000",
+            "off":"2600400047191819161a161a1631171a161a161a161b1532161918191819161a161a161b151a17191930171a1631171a16000699461917321600068b461a163117000d050000000000000000",
+            "swingToggle": "260040004619171a1719171917311818171917191818173119171818192f1830181918181731173117191830171918181900068e481719301700068a4718183019000d050000000000000000"
+          }
+        },
+        {
+          "name":"AirCon - Bedroom",
+          "type":"air-conditioner",
+"host":"192.168.1.221",
+          "ignoreTemperatureWhenOff":true,
+          "sendOnWhenOff":true,
+          "preventResendHex":true,
+          "pseudoDeviceTemperature":24,
+	  "maxTemperature": 28,
+          "minTemperature": 10,
+          "allowResend": true,
+	  "defaultCoolTemperature": 24,
+	  "defaultHeatTemperature": 22,
+          "data":{ "off":"260076006c350e0e0e0d0f280e0d0e290e0d0e0e0e0d0f280e280e0e0e0d0e0e0e280f270f0d0e0e0e0d0e0e0e0d0e0e0e0e0e0d0e0e0e0d0e0e0e0d0f0d0e280f0d0e0d0f0d0e0e0e0d0e0e0e0d0f280e0d0e0e0e0d0f0d0e280f0d0e0e0e0d0e0e0e0d0e0e0e280e0e0e280e280f280e280e280f280e000d050000",
+            "temperature28":{
+              "pseudo-mode":"cool", "data":"260006016b360d0f0d0e0d2a0e0d0d290e0e0d0f0d0e0d2a0d290d0f0d0e0d0f0d290d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0e290d290d290e290d290d290e290d290d0f0d0e0d2a0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d290d0f0d0e0d2a0d0e0d0f0d0e0d0f0d0f0d290d290d2a0e0d0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d0e0d0f0d0e0e0e0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d290d0e0e290d290d290e0e0d290e290d000d050000"
+            },
+            "temperature27":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0f0d290d0f0d290d0e0e0e0d0f0d290d290d0f0d0f0d0e0d290e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d0f0d0e0d0f0d290d290e290d290d290e290d290d290e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0f0d290d0e0e0e0d0f0d290d290d0f0d290d2a0e0d0d0f0d0e0d0f0d0f0d0e0d0f0d0e0e0e0d0e0e0e0d0f0d0e0d0f0d0e0e290d290d290e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d2a0d0e0d0f0d290d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d290e290d0e0e0e0d0f0d290d0e0e290d000d050000"
+            },
+            "temperature26":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0e0e290d0e0e290e0d0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0e280e280e290e280e280d2a0d290e280e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0e0d0e0e0d0f0d290e280d0f0d0e0e290d0e0e0e0d0f0d0e0d290e0e0d290e290e0d0e0e0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d0f0d290d290e290e0d0d0f0e0d0e0e0d0f0d290d0e0e0e0d0f0d0e0e0e0d0f0d0e0d0f0e280d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d0e0d0f0d290e0e0d290e280e0e0d290d000d050000"
+            },
+            "temperature25":{
+              "pseudo-mode":"cool", "data":"260006016b360f0d0d0f0f270d0e0e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0f0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d0f0d0e0d0f0d290d290d2a0d290f270e290d290d290e0e0d0f0d290d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e290d0e0e0e0d0f0d290d0e0e0e0d290e290f0c0d0f0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d2a0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0d0f0d0f0d0e0d290e290d290d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d2a0d290d290d2a0d0e0d0f0d290d290e000d050000"
+            },
+            "temperature24":{
+              "pseudo-mode":"cool", "data":"260006016b370d0e0d0f0d290d0f0f270d0f0f0c0d0f0d290d290f0d0d0f0d0e0d2a0d290f0d0f0c0d0f0d0e0e0e0d0f0d0e0d0f0f0c100c0d0f0e0d0d0f0d290f0d0d0e0d0f0d0e0e0e0d0f0f0c0d290e0e0d0f0d0e0f0d0d290f280f270f270d2a0d290f270d2a0d0e0d0f0f270d0f0d0e0d0f0d0f0d0e0d0f0f0c0f0d0d290f280e0d0d0f0d290d0f0d0e0d0f0d0f0d0e0d0f0d290d290f0d0d0f0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0f0c0d0f0d0f0d0e0d290e0e0d0f0f0c0d0f0d290d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d290f270f0d0f0d0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d2a0d0e0d0f0d0e0e290d290f270e290f0c0d0f0d0f0d000d050000"
+            },
+            "temperature23":{
+              "pseudo-mode":"cool", "data":"260006016b360d0e0e0e0d290e0e0d290f0d0d0f0d0e0d290e290f0c0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290f0d0d0f0d0e0d0f0d0e0d0f0d0f0d290d0e0e0e0d0f0d0e0d2a0d290d290d290e290d290d290e290d0e0e0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e290d0e0e0e0d290e0e0d0f0d0e0d290e290d290d0f0d290d0f0d0e0d0f0d0e0e0e0f0d0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0f0c0e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d2a0d0e0d0f0d290d290e290d290d0f0d290d0f0d0e0f000d050000"
+            },
+            "temperature22":{
+              "pseudo-mode":"cool", "data":"260006016b370d0e0d0f0d290d0f0d290d0f0d0e0d0f0d290f270e0e0d0f0d0e0f280f270d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d0f0d0f0e0d0f0d0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0f0d0d290d2a0d290d290d290e290d290d2a0d0e0d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0f270d290e0e0d0f0d290d0f0d0e0d0f0d0e0f280f270d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d0f0d0e0f280d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d290d290f280d290d290e290d0e0d0f0d000d050000"
+            },
+            "temperature21":{
+              "pseudo-mode":"cool", "data":"260006016b360d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d2a0d290d0e0e0e0d0f0d290d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0e290d290d290e290d290d290d2a0d290d0f0d0e0d290e0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d290d0f0d0e0d290e0e0d0f0d0e0d2a0d0e0d290e0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0f0d0d0e0d0f0d290f0d0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e290d0f0c0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d290e290d290d290e0e0d0f0d290f0d0d000d050000"
+            },
+            "temperature20":{
+              "pseudo-mode":"cool", "data":"260006016c360f0c0d0f0d290f0d0d290f0d0d0e0f0d0d290f270f0d0f0d0f0c0d2a0d290f0d0d0e0d0f0d0e0d0f0f0d0e0d0d0f0d0e0f0d0f0d0d0e0f0d0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0f0c0d0f0d0e0e0e0f270f280f270f270f280f270d290d2a0f0c0d0f0f270d0f0f0c0d0f0d0f0e0d0d0f0d0e0d0f0d290d290e0e0d0f0d290d0f0f0c0d0f0d0e0e0e0d290e0e0f270d0f0f0d0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d0f0d0e0e0e0f0d0d0e0d0f0d0e0e0e0d290f0d0d0f0d0e0f0d0d290d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0f0d0e0d0f0f0c0d0f0d0f0e280f0c0e0e0d0f0d0e0d0f0d0e0e0e0d290e290f0c0d000d050000"
+            },
+            "temperature19":{
+              "pseudo-mode":"cool", "data":"260006016b360d0e0e0e0d290e0e0d290d0f0d0f0d0e0d290e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d290e290d290d290e290d290d290e290d0e0e0e0d290e0e0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d290e290d0e0e0e0d290d0f0d0f0d0e0d290e290d0e0d0f0d290d0f0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d0e0e0e0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e290d290d290e0e0d000d050000"
+            },
+            "temperature18":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0f0d290d0e0e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d290d290d2a0d290d290d2a0d290d290d0f0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e290d0e0e0e0d0f0d0e0d290e0e0d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d000d050000"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "platform":"BroadlinkRM",
+      "name":"Broadlink - Nursery",
+      "hideScanFrequencyButton": true,
+      "hideLearnButton": true,
+      "hideWelcomeMessage": true,
+      "accessories":[
+        {
+          "name":"AirCon - Nursery",
+          "type":"air-conditioner",
+"host":"192.168.1.249",
+          "ignoreTemperatureWhenOff":true,
+          "sendOnWhenOff":true,
+          "preventResendHex":true,
+          "pseudoDeviceTemperature":24,
+	  "maxTemperature": 28,
+          "minTemperature": 10,
+          "allowResend": true,
+	  "defaultCoolTemperature": 24,
+	  "defaultHeatTemperature": 22,
+          "data":{ "off":"260076006c350e0e0e0d0f280e0d0e290e0d0e0e0e0d0f280e280e0e0e0d0e0e0e280f270f0d0e0e0e0d0e0e0e0d0e0e0e0e0e0d0e0e0e0d0e0e0e0d0f0d0e280f0d0e0d0f0d0e0e0e0d0e0e0e0d0f280e0d0e0e0e0d0f0d0e280f0d0e0e0e0d0e0e0e0d0e0e0e280e0e0e280e280f280e280e280f280e000d050000",
+            "temperature28":{
+              "pseudo-mode":"cool", "data":"260006016b360d0f0d0e0d2a0e0d0d290e0e0d0f0d0e0d2a0d290d0f0d0e0d0f0d290d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0e290d290d290e290d290d290e290d290d0f0d0e0d2a0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d290d0f0d0e0d2a0d0e0d0f0d0e0d0f0d0f0d290d290d2a0e0d0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d0e0d0f0d0e0e0e0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d290d0e0e290d290d290e0e0d290e290d000d050000"
+            },
+            "temperature27":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0f0d290d0f0d290d0e0e0e0d0f0d290d290d0f0d0f0d0e0d290e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d0f0d0e0d0f0d290d290e290d290d290e290d290d290e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0f0d290d0e0e0e0d0f0d290d290d0f0d290d2a0e0d0d0f0d0e0d0f0d0f0d0e0d0f0d0e0e0e0d0e0e0e0d0f0d0e0d0f0d0e0e290d290d290e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d2a0d0e0d0f0d290d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d290e290d0e0e0e0d0f0d290d0e0e290d000d050000"
+            },
+            "temperature26":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0e0e290d0e0e290e0d0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0e280e280e290e280e280d2a0d290e280e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0e0d0e0e0d0f0d290e280d0f0d0e0e290d0e0e0e0d0f0d0e0d290e0e0d290e290e0d0e0e0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d0f0d290d290e290e0d0d0f0e0d0e0e0d0f0d290d0e0e0e0d0f0d0e0e0e0d0f0d0e0d0f0e280d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d0e0d0f0d290e0e0d290e280e0e0d290d000d050000"
+            },
+            "temperature25":{
+              "pseudo-mode":"cool", "data":"260006016b360f0d0d0f0f270d0e0e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0f0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d0f0d0e0d0f0d290d290d2a0d290f270e290d290d290e0e0d0f0d290d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e290d0e0e0e0d0f0d290d0e0e0e0d290e290f0c0d0f0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d2a0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0d0f0d0f0d0e0d290e290d290d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d2a0d290d290d2a0d0e0d0f0d290d290e000d050000"
+            },
+            "temperature24":{
+              "pseudo-mode":"cool", "data":"260006016b370d0e0d0f0d290d0f0f270d0f0f0c0d0f0d290d290f0d0d0f0d0e0d2a0d290f0d0f0c0d0f0d0e0e0e0d0f0d0e0d0f0f0c100c0d0f0e0d0d0f0d290f0d0d0e0d0f0d0e0e0e0d0f0f0c0d290e0e0d0f0d0e0f0d0d290f280f270f270d2a0d290f270d2a0d0e0d0f0f270d0f0d0e0d0f0d0f0d0e0d0f0f0c0f0d0d290f280e0d0d0f0d290d0f0d0e0d0f0d0f0d0e0d0f0d290d290f0d0d0f0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0f0c0d0f0d0f0d0e0d290e0e0d0f0f0c0d0f0d290d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d290f270f0d0f0d0d0e0d0f0d0e0f0d0d0f0d0e0d0f0d0e0d2a0d0e0d0f0d0e0e290d290f270e290f0c0d0f0d0f0d000d050000"
+            },
+            "temperature23":{
+              "pseudo-mode":"cool", "data":"260006016b360d0e0e0e0d290e0e0d290f0d0d0f0d0e0d290e290f0c0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290f0d0d0f0d0e0d0f0d0e0d0f0d0f0d290d0e0e0e0d0f0d0e0d2a0d290d290d290e290d290d290e290d0e0e0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e290d0e0e0e0d290e0e0d0f0d0e0d290e290d290d0f0d290d0f0d0e0d0f0d0e0e0e0f0d0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0f0c0e0e0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d2a0d0e0d0f0d290d290e290d290d0f0d290d0f0d0e0f000d050000"
+            },
+            "temperature22":{
+              "pseudo-mode":"cool", "data":"260006016b370d0e0d0f0d290d0f0d290d0f0d0e0d0f0d290f270e0e0d0f0d0e0f280f270d0f0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d0f0d0f0e0d0f0d0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0f0d0d290d2a0d290d290d290e290d290d2a0d0e0d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0f270d290e0e0d0f0d290d0f0d0e0d0f0d0e0f280f270d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d0f0d0e0f280d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d290d290f280d290d290e290d0e0d0f0d000d050000"
+            },
+            "temperature21":{
+              "pseudo-mode":"cool", "data":"260006016b360d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d2a0d290d0e0e0e0d0f0d290d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d0f0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d0f0d0e0e290d290d290e290d290d290d2a0d290d0f0d0e0d290e0e0d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d290d0f0d0e0d290e0e0d0f0d0e0d2a0d0e0d290e0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0f0d0d0e0d0f0d290f0d0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e290d0f0c0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d0f0d0e0d290e290d290d290e0e0d0f0d290f0d0d000d050000"
+            },
+            "temperature20":{
+              "pseudo-mode":"cool", "data":"260006016c360f0c0d0f0d290f0d0d290f0d0d0e0f0d0d290f270f0d0f0d0f0c0d2a0d290f0d0d0e0d0f0d0e0d0f0f0d0e0d0d0f0d0e0f0d0f0d0d0e0f0d0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0f0c0d0f0d0e0e0e0f270f280f270f270f280f270d290d2a0f0c0d0f0f270d0f0f0c0d0f0d0f0e0d0d0f0d0e0d0f0d290d290e0e0d0f0d290d0f0f0c0d0f0d0e0e0e0d290e0e0f270d0f0f0d0d0e0d0f0d0e0d0f0d0f0e0d0d0f0d0e0d0f0d0e0e0e0f0d0d0e0d0f0d0e0e0e0d290f0d0d0f0d0e0f0d0d290d0f0d0e0d0f0d0f0d0e0d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0f0d0e0d0f0f0c0d0f0d0f0e280f0c0e0e0d0f0d0e0d0f0d0e0e0e0d290e290f0c0d000d050000"
+            },
+            "temperature19":{
+              "pseudo-mode":"cool", "data":"260006016b360d0e0e0e0d290e0e0d290d0f0d0f0d0e0d290e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d290e290d290d290e290d290d290e290d0e0e0e0d290e0e0d0e0e0e0d0f0d0e0d0f0d0f0d0e0d290e290d0e0e0e0d290d0f0d0f0d0e0d290e290d0e0d0f0d290d0f0d0f0d0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290e0e0d0f0d0e0e0e0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d2a0d0e0d290e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e290d290d290e0e0d000d050000"
+            },
+            "temperature18":{
+              "pseudo-mode":"cool", "data":"260006016b360e0e0d0f0d290d0e0e290d0e0e0e0d0f0d290d290d0f0d0e0e0e0d290e290d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d0f0d0e0e0e0d0f0d290d290d2a0d290d290d2a0d290d290d0f0d0f0d290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d290d290d0f0d0e0e290d0e0e0e0d0f0d0e0d290e0e0d0f0d290d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d0f0d290d0f0d0e0d0f0d0e0e290d0e0e0e0d0f0d0e0d0f0d0e0e0e0d290d0f0d290d0f0d0e0e0e0d0f0d0e0d0f0d0e0e0e0d0f0d0e0d290e0e0d0f0d0e0e0e0d0f0d0e0d0f0d0e0d0f0d290d000d050000"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

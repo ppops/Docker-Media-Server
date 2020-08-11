@@ -1,0 +1,40 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CD:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "description": "Homebridge",
+    "accessories": [],
+    "platforms": [
+        {
+            "platform": "yeelight",
+            "name": "Yeelight"
+        },
+        {
+            "platform": "homebridge-plex-sensors.Plex",
+            "logSeenPlayersAndUsers": true,
+            "sensors": [
+                {
+                    "name": "Movie Playing",
+                    "types": [
+                        "movie"
+                    ],
+                    "players": [
+                        "Living Room"
+                    ]
+                },
+                {
+                    "name": "TV Playing",
+                    "types": [
+                        "episode"
+                    ],
+                    "players": [
+                        "Living Room"
+                    ]
+                }
+            ]
+        }
+    ]
+}
