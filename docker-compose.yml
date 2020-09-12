@@ -61,7 +61,7 @@ services:
 
 # Portainer
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ce
     hostname: portainer
     container_name: portainer
     restart: always
