@@ -173,7 +173,7 @@ services:
 
 # Radarr
   radarr:
-    image: "linuxserver/radarr:preview"
+    image: "linuxserver/radarr:nightly"
     hostname: radarr
     container_name: "radarr"
     volumes:
