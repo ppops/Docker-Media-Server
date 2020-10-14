@@ -61,7 +61,7 @@ services:
 
 # Portainer
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ce
     hostname: portainer
     container_name: portainer
     restart: always
@@ -173,7 +173,7 @@ services:
 
 # Radarr
   radarr:
-    image: "linuxserver/radarr:preview"
+    image: "linuxserver/radarr:nightly"
     hostname: radarr
     container_name: "radarr"
     volumes:
@@ -544,6 +544,27 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
+
+
+
+
+# Homebridge
+  homebridge:
+    container_name: homebridge
+    restart: unless-stopped
+    image: oznu/homebridge:ubuntu
+    volumes:
+      - ${USERDIR}/docker/homebridge:/homebridge
+    ports:
+      - 51827:51827/tcp
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8787
+    network_mode: host
+
 
 
 
