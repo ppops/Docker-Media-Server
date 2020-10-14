@@ -548,6 +548,27 @@ services:
 
 
 
+# Homebridge
+  homebridge:
+    container_name: homebridge
+    restart: unless-stopped
+    image: oznu/homebridge:ubuntu
+    volumes:
+      - ${USERDIR}/docker/homebridge:/homebridge
+    ports:
+      - 51827:51827/tcp
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8787
+    network_mode: host
+
+
+
+
+
 # Pi-hole
   pihole:
     container_name: pihole
