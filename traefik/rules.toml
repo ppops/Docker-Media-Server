@@ -1,0 +1,16 @@
+# Putting non-docker apps behind traefik proxy.
+
+[backends]
+  [backends.backend-homebridge]
+    [backends.backend-homebridge.servers]
+      [backends.backend-homebridge.servers.server-homebridge-ext]
+        url = "http://192.168.1.10:8787"
+        weight = 0
+[frontends]
+  [frontends.frontend-homebridge]
+    backend = "backend-homebridge"
+    passHostHeader = true
+    [frontends.frontend-homebridge.routes]
+      [frontends.frontend-homebridge.routes.route-homebridge-ext]
+      rule = "Host:homebridge.paulamato.com.au"
+      

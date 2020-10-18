@@ -6,7 +6,6 @@ radarr/
 shared/
 sonarr/
 tautulli/
-traefik/
 unifi/
 unifistats/
 ombi/
@@ -15,3 +14,6 @@ pihole/
 sabnzbd/
 transmission/
 homebridge/
+traefik/traefik.toml
+traefik/acme/acme.json
+
