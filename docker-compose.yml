@@ -253,7 +253,7 @@ services:
 
 # Hydra
   hydra:
-    image: "linuxserver/nzbhydra2"
+    image: "linuxserver/nzbhydra2:dev"
     container_name: "hydra"
     volumes:
       - ${USERDIR}/docker/hydra:/config
@@ -552,7 +552,7 @@ services:
   homebridge:
     container_name: homebridge
     restart: unless-stopped
-    image: oznu/homebridge:ubuntu
+    image: oznu/homebridge:latest
     volumes:
       - ${USERDIR}/docker/homebridge:/homebridge
     ports:
