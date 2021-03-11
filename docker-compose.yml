@@ -559,7 +559,7 @@ services:
   ombi:
     container_name: ombi
     restart: always
-    image: linuxserver/ombi:development
+    image: linuxserver/ombi:latest
     volumes:
       - ${USERDIR}/docker/ombi:/config
       - ${USERDIR}/docker/shared:/shared
