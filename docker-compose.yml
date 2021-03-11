@@ -293,7 +293,7 @@ services:
 
 # Sonarr 4K
   sonarr4k:
-    image: "linuxserver/sonarr:preview"
+    image: "linuxserver/sonarr:latest"
     hostname: sonarr4k
     container_name: "sonarr4k"
     volumes:
