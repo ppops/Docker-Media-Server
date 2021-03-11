@@ -253,7 +253,7 @@ services:
 
 # Sonarr
   sonarr:
-    image: "linuxserver/sonarr:preview"
+    image: "linuxserver/sonarr:latest"
     hostname: sonarr
     container_name: "sonarr"
     volumes:
@@ -559,7 +559,7 @@ services:
   ombi:
     container_name: ombi
     restart: always
-    image: linuxserver/ombi:latest
+    image: linuxserver/ombi:development
     volumes:
       - ${USERDIR}/docker/ombi:/config
       - ${USERDIR}/docker/shared:/shared
