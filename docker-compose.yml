@@ -183,6 +183,7 @@ services:
       - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
+      - ${DATA}/:/data
 #    ports:
 #      - "7878:7878"
     restart: always
