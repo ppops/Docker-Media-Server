@@ -334,14 +334,14 @@ services:
 
 # Prowlarr
   prowlarr:
-    image: "linuxserver/prowlarr:develop"
+    image: "linuxserver/prowlarr:nightly"
     hostname: prowlarr
     container_name: "prowlarr"
     volumes:
       - ${USERDIR}/docker/prowlarr:/config
       - "/etc/localtime:/etc/localtime:ro"
 #    ports:
-#        - "8989:8990"
+#        - "9696:9696"
     restart: always
     environment:
       - PUID=${PUID}
