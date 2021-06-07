@@ -339,8 +339,6 @@ services:
     container_name: "prowlarr"
     volumes:
       - ${USERDIR}/docker/prowlarr:/config
-      - ${USERDIR}/Downloads/complete:/downloads
-      - ${USERDIR}/docker/shared:/shared
       - "/etc/localtime:/etc/localtime:ro"
 #    ports:
 #        - "8989:8990"
@@ -355,7 +353,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=prowlarr"
       - "traefik.frontend.rule=Host:prowlarr.${DOMAINNAME}"
-      - "traefik.port=9898"
+      - "traefik.port=9696"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
