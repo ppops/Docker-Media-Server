@@ -233,6 +233,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
+      - TP_ADDON=radarr-4k-logo
     networks:
       - traefik_proxy
     labels:
@@ -315,6 +316,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
+      - TP_ADDON=sonarr-4k-logo
     networks:
       - traefik_proxy
     labels:
