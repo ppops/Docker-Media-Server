@@ -264,6 +264,7 @@ services:
       - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
 #    ports:
 #        - "8989:8989"
     restart: always
