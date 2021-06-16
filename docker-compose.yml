@@ -191,6 +191,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
     networks:
       - traefik_proxy
     labels:
@@ -231,6 +232,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
     networks:
       - traefik_proxy
     labels:
@@ -312,6 +314,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
     networks:
       - traefik_proxy
     labels:
