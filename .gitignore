@@ -16,6 +16,7 @@ transmission/
 homebridge/
 sonarr4k/
 radarr4k/
+prowlarr/
 traefik/traefik.toml
 traefik/acme/acme.json
 

@@ -385,6 +385,7 @@ services:
       - ${RAMDRIVE}/:/transcode
       - /mnt/:/media
       - ${USERDIR}/docker/shared:/shared
+      - ${USERDIR}/docker/plexms/neo.sh:/etc/cont-init.d/neo.sh
     ports:
       - "32400:32400/tcp"
       - "3005:3005/tcp"
