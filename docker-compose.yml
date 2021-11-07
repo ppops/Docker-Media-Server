@@ -664,7 +664,7 @@ services:
       - "traefik.backend=tdarr"
       - "traefik.frontend.rule=Host:tdarr.${DOMAINNAME}"
 #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /tdarr"
-      - "traefik.port=80"
+      - "traefik.port=8265"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
