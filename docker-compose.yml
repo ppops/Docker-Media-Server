@@ -646,6 +646,7 @@ services:
       - ${USERDIR}/docker/tdarr/configs:/app/configs
       - ${USERDIR}/docker/tdarr/logs:/app/logs
       - ${SERVER2}/tvshows:/tv
+      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
 #    ports:
 #      - "80:80"
 #      - "443:443"
