@@ -697,9 +697,9 @@ services:
       - TZ=${TZ}
       - UMASK_SET=002
       - nodeID=MainNode
-      - nodeIP=0.0.0.0
+      - nodeIP=172.19.0.18
       - nodePort=8267
-      - serverIP=0.0.0.0
+      - serverIP=172.19.0.14
       - serverPort=8266
     networks:
       - traefik_proxy
