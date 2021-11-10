@@ -660,8 +660,6 @@ services:
       - serverIP=172.19.0.18
       - serverPort=8266
       - webUIPort=8265
-    devices:
-      - /dev/dri/:/dev/dri/
     networks:
       - traefik_proxy
     labels:
@@ -698,6 +696,8 @@ services:
 #    ports:
 #      - "80:80"
 #      - "443:443"
+    devices:
+      - /dev/dri/:/dev/dri/
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
