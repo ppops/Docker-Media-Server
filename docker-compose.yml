@@ -641,7 +641,7 @@ services:
   tdarr:
     container_name: tdarr
     restart: unless-stopped
-    image: haveagitgat/tdarr_aio:qsv
+    image: haveagitgat/tdarr:latest
     volumes:
       - ${USERDIR}/docker/tdarr/server:/app/server
       - ${USERDIR}/docker/tdarr/configs:/app/configs
