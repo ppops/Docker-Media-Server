@@ -661,8 +661,8 @@ services:
       - serverIP=172.19.0.14
       - serverPort=8266
       - webUIPort=8265
-      - LIBVA_DRIVERS_PATH:/usr/lib/x86_64-linux-gnu/dri
-      - LIBVA_DRIVER_NAME:iHD
+      - LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+      - LIBVA_DRIVER_NAME=iHD
     networks:
       - traefik_proxy
     labels:
@@ -711,8 +711,8 @@ services:
       - nodePort=8267
       - serverIP=172.19.0.14
       - serverPort=8266
-      - LIBVA_DRIVERS_PATH:/usr/lib/x86_64-linux-gnu/dri
-      - LIBVA_DRIVER_NAME:iHD
+      - LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+      - LIBVA_DRIVER_NAME=iHD
     networks:
       - traefik_proxy
 
