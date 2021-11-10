@@ -641,7 +641,7 @@ services:
   tdarr:
     container_name: tdarr
     restart: unless-stopped
-    image: haveagitgat/tdarr:latest
+    image: haveagitgat/tdarr_aio:qsv
     volumes:
       - ${USERDIR}/docker/tdarr/server:/app/server
       - ${USERDIR}/docker/tdarr/configs:/app/configs
@@ -660,6 +660,8 @@ services:
       - serverIP=172.19.0.18
       - serverPort=8266
       - webUIPort=8265
+    devices:
+      - /dev/dri/:/dev/dri/
     networks:
       - traefik_proxy
     labels:
