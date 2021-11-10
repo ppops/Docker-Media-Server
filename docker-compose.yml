@@ -648,7 +648,6 @@ services:
       - ${USERDIR}/docker/tdarr/logs:/app/logs
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
-      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
 #    ports:
 #      - "80:80"
 #      - "443:443"
@@ -657,7 +656,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - UMASK_SET=002
-      - serverIP=172.19.0.2
+      - serverIP=172.19.0.14
       - serverPort=8266
       - webUIPort=8265
     networks:
@@ -704,9 +703,9 @@ services:
       - TZ=${TZ}
       - UMASK_SET=002
       - nodeID=MainNode
-      - nodeIP=172.19.0.14
+      - nodeIP=172.19.0.2
       - nodePort=8267
-      - serverIP=172.19.0.2
+      - serverIP=172.19.0.14
       - serverPort=8266
     networks:
       - traefik_proxy
