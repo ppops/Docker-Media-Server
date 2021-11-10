@@ -657,7 +657,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - UMASK_SET=002
-      - serverIP=172.19.0.18
+      - serverIP=172.19.0.2
       - serverPort=8266
       - webUIPort=8265
     networks:
@@ -706,7 +706,7 @@ services:
       - nodeID=MainNode
       - nodeIP=172.19.0.14
       - nodePort=8267
-      - serverIP=172.19.0.18
+      - serverIP=172.19.0.2
       - serverPort=8266
     networks:
       - traefik_proxy
