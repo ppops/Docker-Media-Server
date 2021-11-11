@@ -600,7 +600,7 @@ services:
 
 
 # Bazarr
-  ombi:
+  bazarr:
     container_name: bazarr
     restart: always
     image: linuxserver/bazarr:latest
@@ -615,10 +615,12 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     networks:
-      - traefik_proxy
+#      - traefik_proxy
+      traefik_proxy:
+        ipv4_address: 192.168.1.252
     labels:
       - "traefik.enable=true"
-      - "traefik.backend=ombi"
+      - "traefik.backend=bazarr"
       - "traefik.frontend.rule=Host:bazarr.${DOMAINNAME}"
 #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /bazarr"
       - "traefik.port=6767"
