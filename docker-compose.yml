@@ -685,7 +685,7 @@ services:
       - ${USERDIR}/docker/tdarr/logs:/app/logs
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
-      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
+      - ${USERDIR}/transcode_cache:/temp
 #    ports:
 #      - "80:80"
 #      - "443:443"
@@ -732,7 +732,7 @@ services:
       - ${USERDIR}/docker/tdarr/logs:/app/logs
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
-      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
+      - ${USERDIR}/transcode_cache:/temp
 #    ports:
 #      - "80:80"
 #      - "443:443"
