@@ -615,9 +615,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     networks:
-#      - traefik_proxy
-      traefik_proxy:
-        ipv4_address: 172.19.0.88
+      - traefik_proxy
     labels:
       - "traefik.enable=true"
       - "traefik.backend=bazarr"
@@ -700,7 +698,9 @@ services:
       - serverPort=8266
       - webUIPort=8265
     networks:
-      - traefik_proxy
+#     - traefik_proxy
+      traefik_proxy:
+        ipv4_address: 172.19.0.8
     labels:
       - "traefik.enable=true"
       - "traefik.backend=tdarr"
@@ -747,7 +747,9 @@ services:
       - serverIP=172.19.0.8
       - serverPort=8266
     networks:
-      - traefik_proxy
+#     - traefik_proxy
+      traefik_proxy:
+        ipv4_address: 172.19.0.7
 
 
 
