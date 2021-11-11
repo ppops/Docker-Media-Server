@@ -717,7 +717,7 @@ services:
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
-      - "traefik.frontend.whiteList.sourceRange=192.168.0.0/16,122.199.61.31"
+#      - "traefik.frontend.whiteList.sourceRange=192.168.0.0/16,122.199.61.31"
 
 
 
