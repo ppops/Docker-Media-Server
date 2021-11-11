@@ -608,7 +608,6 @@ services:
       - ${USERDIR}/docker/bazarr:/config
       - ${SERVER1}/movies:/movies
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER4}/4K:/4K
 #    ports:
 #      - "6767:6767"
     environment:
