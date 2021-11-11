@@ -617,7 +617,7 @@ services:
     networks:
 #      - traefik_proxy
       traefik_proxy:
-        ipv4_address: 192.168.1.252
+        ipv4_address: 172.19.0.88
     labels:
       - "traefik.enable=true"
       - "traefik.backend=bazarr"
