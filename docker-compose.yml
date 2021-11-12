@@ -733,6 +733,7 @@ services:
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
       - ${USERDIR}/transcode_cache:/temp
+      - /dev/dri:/dev/dri
 #    ports:
 #      - "80:80"
 #      - "443:443"
@@ -746,6 +747,8 @@ services:
       - nodePort=8267
       - serverIP=172.19.0.8
       - serverPort=8266
+      - LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+      - LIBVA_DRIVER_NAME=iHD
     networks:
 #     - traefik_proxy
       traefik_proxy:
