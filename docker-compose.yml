@@ -749,7 +749,7 @@ services:
       - LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
       - LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${APP_DIR}
       - LIBVA_DRIVER_NAME=iHD
-      - ffmpegPath: /usr/lib/jellyfin-ffmpeg/ffmpeg
+      - ffmpegPath=/usr/lib/jellyfin-ffmpeg/ffmpeg
     devices:
       - /dev/dri/:/dev/dri/
     networks:
