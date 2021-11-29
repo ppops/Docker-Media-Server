@@ -682,7 +682,7 @@ services:
     volumes:
       - ${USERDIR}/docker/scrypted:/scrypted
     ports:
-      - 10443:10443/tcp
+      - 10080:10080/tcp
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
