@@ -695,7 +695,7 @@ services:
       - "traefik.backend=scrypted"
       - "traefik.frontend.rule=Host:scrypted.${DOMAINNAME}"
 #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /scrypted"
-      - "traefik.port=80"
+      - "traefik.port=10443"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
