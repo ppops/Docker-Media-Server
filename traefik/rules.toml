@@ -6,6 +6,11 @@
       [backends.backend-homebridge.servers.server-homebridge-ext]
         url = "http://192.168.1.10:8787"
         weight = 0
+  [backends.backend-scrypted]
+    [backends.backend-scrypted.servers]
+      [backends.backend-scrypted.servers.server-scrypted-ext]
+        url = "http://192.168.1.10:10443"
+        weight = 0
 [frontends]
   [frontends.frontend-homebridge]
     backend = "backend-homebridge"
@@ -13,4 +18,9 @@
     [frontends.frontend-homebridge.routes]
       [frontends.frontend-homebridge.routes.route-homebridge-ext]
       rule = "Host:homebridge.paulamato.com.au"
-      
+  [frontends.frontend-scrypted]
+    backend = "backend-scrypted"
+    passHostHeader = true
+    [frontends.frontend-scrypted.routes]
+      [frontends.frontend-scrypted.routes.route-scrypted-ext]
+      rule = "Host:scrypted.paulamato.com.au"
