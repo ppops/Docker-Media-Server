@@ -9,7 +9,7 @@
   [backends.backend-scrypted]
     [backends.backend-scrypted.servers]
       [backends.backend-scrypted.servers.server-scrypted-ext]
-        url = "http://192.168.1.10:10443"
+        url = "http://192.168.1.10:10080"
         weight = 0
 [frontends]
   [frontends.frontend-homebridge]
