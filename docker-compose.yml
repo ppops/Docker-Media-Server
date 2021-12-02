@@ -766,7 +766,7 @@ services:
       - serverIP=172.19.0.228
       - serverPort=8266
       - LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
-      - LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
+      - LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${APP_DIR}
       - LIBVA_DRIVER_NAME=iHD
       - ffmpegPath=/usr/lib/jellyfin-ffmpeg/ffmpeg
     devices:
