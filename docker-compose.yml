@@ -636,13 +636,13 @@ services:
 
 
 
-# Bazarr4K
-  bazarr4K:
-    container_name: bazarr4K
+# Bazarr4k
+  bazarr4k:
+    container_name: bazarr4k
     restart: always
     image: linuxserver/bazarr:latest
     volumes:
-      - ${USERDIR}/docker/bazarr4K:/config
+      - ${USERDIR}/docker/bazarr4k:/config
       - ${SERVER4}/4K/movies:/movies
       - ${SERVER4}/4K/tvshows:/tv
 #    ports:
@@ -655,9 +655,9 @@ services:
       - traefik_proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.backend=bazarr4K"
-      - "traefik.frontend.rule=Host:bazarr4K.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /bazarr4K"
+      - "traefik.backend=bazarr4k"
+      - "traefik.frontend.rule=Host:bazarr4k.${DOMAINNAME}"
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /bazarr4k"
       - "traefik.port=6767"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
