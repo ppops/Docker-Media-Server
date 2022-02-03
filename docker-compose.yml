@@ -440,7 +440,6 @@ services:
     ports:
       - "8096:8096/tcp"
       - "8920:8920/tcp"
-      - "1900:1900/udp"
       - "7359:7359/udp"
     environment:
       - JELLYFIN_PublishedServerUrl=https://jellyfin.paulamato.com.au
