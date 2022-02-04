@@ -444,7 +444,8 @@ services:
     environment:
       - JELLYFIN_PublishedServerUrl=https://jellyfin.paulamato.com.au
     devices:
-      - /dev/dri/:/dev/dri/
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
     networks:
       - traefik_proxy
     labels:
