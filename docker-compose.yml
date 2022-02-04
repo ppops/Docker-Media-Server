@@ -431,7 +431,7 @@ services:
   jellyfin:
     container_name: jellyfin
     restart: always
-    image: "jellyfin/jellyfin"
+    image: "linuxserver/jellyfin"
     volumes:
       - ${USERDIR}/docker/jellyfin:/config
       - ${RAMDRIVE}/:/transcode
@@ -443,6 +443,7 @@ services:
       - "7359:7359/udp"
     environment:
       - JELLYFIN_PublishedServerUrl=https://jellyfin.paulamato.com.au
+      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     devices:
       - /dev/dri/:/dev/dri/
     networks:
