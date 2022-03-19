@@ -105,6 +105,10 @@ services:
       - ${USERDIR}/docker/shared:/shared
       - ${USERDIR}/Downloads/complete:/downloads
       - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
+      - ${SERVER1}/:/server1
+      - ${SERVER2}/:/server2
+      - ${SERVER3}/:/server3
+      - ${SERVER4}/:/server4
 #    ports:
 #        - "8080:8080"
     restart: always
