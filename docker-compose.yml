@@ -608,16 +608,16 @@ services:
 
 
 
-# Ombi
-  ombi:
-    container_name: ombi
+# Overseerr
+  overseerr:
+    container_name: overseerr
     restart: always
-    image: linuxserver/ombi:development
+    image: sctx/overseerr:latest
     volumes:
-      - ${USERDIR}/docker/ombi:/config
+      - ${USERDIR}/docker/overseerr:/app/config
       - ${USERDIR}/docker/shared:/shared
 #    ports:
-#      - "3579:3579"
+#      - "5055:5055"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -626,10 +626,10 @@ services:
       - traefik_proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.backend=ombi"
-      - "traefik.frontend.rule=Host:ombi.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /ombi"
-      - "traefik.port=3579"
+      - "traefik.backend=overseerr"
+      - "traefik.frontend.rule=Host:overseerr.${DOMAINNAME}"
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /overseerr"
+      - "traefik.port=5055"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
