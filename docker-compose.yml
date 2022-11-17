@@ -759,7 +759,7 @@ services:
 # Scrypted
   scrypted:
     container_name: scrypted
-    restart: no
+    restart: unless-stopped
     image: koush/scrypted
     volumes:
       - ${USERDIR}/docker/scrypted:/server/volume
