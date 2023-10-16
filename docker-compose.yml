@@ -755,6 +755,43 @@ services:
 
 
 
+# Whisparr
+  whisparr:
+    container_name: whisparr
+    restart: unless-stopped
+    image: ghcr.io/hotio/whisparr
+    volumes:
+      - ${USERDIR}/docker/whisparr:/config
+      - ${USERDIR}/docker/shared:/shared
+      - ${SERVER2}/whisparr:/data
+#    ports:
+#      - "6969:6969"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=whisparr"
+      - "traefik.frontend.rule=Host:whisparr.${DOMAINNAME}"
+#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /whisparr"
+      - "traefik.port=80"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=example.com"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
+
+
+
+
 
 # Scrypted
   scrypted:
