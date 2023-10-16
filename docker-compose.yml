@@ -778,7 +778,7 @@ services:
       - "traefik.backend=whisparr"
       - "traefik.frontend.rule=Host:whisparr.${DOMAINNAME}"
 #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /whisparr"
-      - "traefik.port=80"
+      - "traefik.port=6969"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"
