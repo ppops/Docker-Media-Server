@@ -769,6 +769,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - UMASK_SET=002
       - TZ=${TZ}
     networks:
       - traefik_proxy
