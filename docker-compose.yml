@@ -764,6 +764,7 @@ services:
       - ${USERDIR}/docker/whisparr:/config
       - ${USERDIR}/docker/shared:/shared
       - ${SERVER2}/whisparr:/whisparr
+      - ${SERVER2}/nrop:/nrop
       - ${USERDIR}/Downloads/complete:/downloads
 #    ports:
 #      - "6969:6969"
