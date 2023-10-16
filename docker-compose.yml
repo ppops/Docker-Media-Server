@@ -764,6 +764,7 @@ services:
       - ${USERDIR}/docker/whisparr:/config
       - ${USERDIR}/docker/shared:/shared
       - ${SERVER2}/whisparr:/data
+      - ${SERVER2}/:/server2
 #    ports:
 #      - "6969:6969"
     environment:
