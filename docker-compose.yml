@@ -157,7 +157,7 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
-      - "7879:7879"
+      - "7879:7878"
     restart: always
     environment:
       - PUID=${PUID}
