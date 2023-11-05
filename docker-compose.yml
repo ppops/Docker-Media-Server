@@ -38,21 +38,6 @@ services:
       - GLANCES_OPT=-w
     pid: 'host'
     restart: always
-    # labels:
-    #   - "traefik.enable=true"
-    #   - "traefik.backend=glances"
-    #   - "traefik.frontend.rule=Host:glances.${DOMAINNAME}"
-    #   - "traefik.port=61208"
-    #   - "traefik.docker.network=traefik_proxy"
-    #   - "traefik.frontend.headers.SSLRedirect=true"
-    #   - "traefik.frontend.headers.STSSeconds=315360000"
-    #   - "traefik.frontend.headers.browserXSSFilter=true"
-    #   - "traefik.frontend.headers.contentTypeNosniff=true"
-    #   - "traefik.frontend.headers.forceSTSHeader=true"
-    #   - "traefik.frontend.headers.SSLHost=example.com"
-    #   - "traefik.frontend.headers.STSIncludeSubdomains=true"
-    #   - "traefik.frontend.headers.STSPreload=true"
-    #   - "traefik.frontend.headers.frameDeny=true"
 
 
 
@@ -126,23 +111,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    # networks:
-    #   - traefik_proxy
-    # labels:
-    #   - "traefik.enable=true"
-    #   - "traefik.backend=sabnzbd"
-    #   - "traefik.frontend.rule=Host:sabnzbd.${DOMAINNAME}"
-    #   - "traefik.port=8080"
-    #   - "traefik.docker.network=traefik_proxy"
-    #   - "traefik.frontend.headers.SSLRedirect=true"
-    #   - "traefik.frontend.headers.STSSeconds=315360000"
-    #   - "traefik.frontend.headers.browserXSSFilter=true"
-    #   - "traefik.frontend.headers.contentTypeNosniff=true"
-    #   - "traefik.frontend.headers.forceSTSHeader=true"
-    #   - "traefik.frontend.headers.SSLHost=example.com"
-    #   - "traefik.frontend.headers.STSIncludeSubdomains=true"
-    #   - "traefik.frontend.headers.STSPreload=true"
-    #   - "traefik.frontend.headers.frameDeny=true"
 
 
 
@@ -155,8 +123,8 @@ services:
     volumes:
       - ${USERDIR}/docker/transmission:/config
       - ${USERDIR}/Downloads:/downloads
-#    ports:
-#        - "9091:9091"
+    ports:
+        - "9091:9091"
     restart: always
     environment:
       - PUID=${PUID}
@@ -164,23 +132,6 @@ services:
       - TZ=${TZ}
       - USER=${TRANSMISSION_USERNAME}
       - PASS=${TRANSMISSION_PASSWORD}
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=transmission"
-      - "traefik.frontend.rule=Host:transmission.${DOMAINNAME}"
-      - "traefik.port=9091"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
