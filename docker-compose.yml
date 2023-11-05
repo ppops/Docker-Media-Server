@@ -38,8 +38,6 @@ services:
       - GLANCES_OPT=-w
     pid: 'host'
     restart: always
-    networks:
-      - glances
     # labels:
     #   - "traefik.enable=true"
     #   - "traefik.backend=glances"
@@ -990,5 +988,3 @@ networks:
       name: traefik_proxy
   default:
     driver: bridge
-    external:
-      name: glances
