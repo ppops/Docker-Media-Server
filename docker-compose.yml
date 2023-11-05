@@ -38,8 +38,8 @@ services:
       - GLANCES_OPT=-w
     pid: 'host'
     restart: always
-    # networks:
-    #   - traefik_proxy
+    networks:
+      - glances
     # labels:
     #   - "traefik.enable=true"
     #   - "traefik.backend=glances"
