@@ -303,7 +303,7 @@ services:
       - /mnt/:/media
       - ${USERDIR}/docker/shared:/shared
     ports:
-      - "8096:8096/tcp"
+      - "8096:8096"
       - "8920:8920/tcp"
       - "7359:7359/udp"
     environment:
