@@ -471,24 +471,6 @@ services:
 
 
 
-# Heimdall
-  heimdall:
-    container_name: heimdall
-    restart: unless-stopped
-    image: linuxserver/heimdall
-    volumes:
-      - ${USERDIR}/docker/heimdall:/config
-      - ${USERDIR}/docker/shared:/shared
-    ports:
-      - "4433:443"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-
-
-
-
 # Whisparr
   whisparr:
     container_name: whisparr
