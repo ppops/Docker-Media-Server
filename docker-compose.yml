@@ -387,30 +387,10 @@ services:
         published: 6789
         protocol: tcp
         mode: host
-    networks:
-      - traefik_proxy
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    labels:
-      - "traefik.enable=true"
-      - "traefik.tags=frontend"
-      - "traefik.frontend.passHostHeader=true"
-      - "traefik.admin.backend=unifi"
-      - "traefik.admin.frontend.rule=Host:unifi.${DOMAINNAME}"
-      - "traefik.admin.port=8443"
-      - "traefik.admin.protocol=https"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-#      - "traefik.frontend.headers.frameDeny=true"
-      - "traefik.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*"
 
 
 
