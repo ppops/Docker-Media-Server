@@ -311,24 +311,6 @@ services:
       - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     devices:
       - /dev/dri/:/dev/dri/
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=jellyfin"
-      - "traefik.frontend.rule=Host:jellyfin.${DOMAINNAME}"
-      - "traefik.port=8096"
-      - "traefik.protocol=http"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
