@@ -546,6 +546,40 @@ services:
 
 
 
+# Tdarr-Node
+  tdarr-node:
+    container_name: tdarr-node
+    restart: unless-stopped
+    image: haveagitgat/tdarr_node:latest
+    volumes:
+      - ${USERDIR}/docker/tdarr/configs:/app/configs
+      - ${USERDIR}/docker/tdarr/logs:/app/logs
+      - ${SERVER2}/tvshows:/tv
+      - ${SERVER1}/movies:/movies
+      - ${USERDIR}/transcode_cache:/temp
+#    ports:
+#      - "80:80"
+#      - "443:443"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - UMASK_SET=002
+      - nodeID=MainNode
+      - nodeIP=172.19.0.227
+      - nodePort=8267
+      - serverIP=172.19.0.228
+      - serverPort=8266
+    devices:
+      - /dev/dri/:/dev/dri/
+    networks:
+#     - traefik_proxy
+      traefik_proxy:
+        ipv4_address: 172.19.0.227
+
+
+
+
 
 # Homebridge
   homebridge:
