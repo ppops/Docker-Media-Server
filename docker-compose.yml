@@ -250,7 +250,7 @@ services:
       - ${USERDIR}/docker/shared:/shared
       - ${USERDIR}/docker/plexms/neo.sh:/etc/cont-init.d/neo.sh
     ports:
-      - "32400:32400/tcp"
+      - "32400:32400"
       - "3005:3005/tcp"
       - "8324:8324/tcp"
       - "32469:32469/tcp"
@@ -268,24 +268,6 @@ services:
       - ADVERTISE_IP="http://192.168.1.10:32400/"
     devices:
       - /dev/dri/:/dev/dri/
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=plexms"
-      - "traefik.frontend.rule=Host:plex.${DOMAINNAME}"
-      - "traefik.port=32400"
-      - "traefik.protocol=http"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
