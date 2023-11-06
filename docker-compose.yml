@@ -26,8 +26,8 @@ services:
   glances:
     image: vimagick/glances
     container_name: glances
-#    ports:
-#      - "61208:61208"
+    ports:
+      - "61208:61208"
     volumes:
       - ./data:/etc/glances
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -40,23 +40,6 @@ services:
       - GLANCES_OPT=-w
     pid: 'host'
     restart: always
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=glances"
-      - "traefik.frontend.rule=Host:glances.${DOMAINNAME}"
-      - "traefik.port=61208"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
