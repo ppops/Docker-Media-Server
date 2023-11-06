@@ -517,7 +517,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - UMASK_SET=002
-      - serverIP=172.19.0.228
+      - serverIP=172.18.0.22
       - serverPort=8266
       - webUIPort=8265
 
@@ -541,9 +541,9 @@ services:
       - TZ=${TZ}
       - UMASK_SET=002
       - nodeID=MainNode
-      - nodeIP=172.19.0.227
+      - nodeIP=172.18.0.21
       - nodePort=8267
-      - serverIP=172.19.0.228
+      - serverIP=172.18.0.22
       - serverPort=8266
     devices:
       - /dev/dri/:/dev/dri/
