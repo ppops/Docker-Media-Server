@@ -448,24 +448,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=bazarr"
-      - "traefik.frontend.rule=Host:bazarr.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /bazarr"
-      - "traefik.port=6767"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
@@ -479,30 +461,12 @@ services:
       - ${USERDIR}/docker/bazarr4k:/config
       - ${SERVER4}/4K/movies:/movies
       - ${SERVER4}/4K/tvshows:/tv
-#    ports:
-#      - "6767:6767"
+    ports:
+      - "6768:6767"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=bazarr4k"
-      - "traefik.frontend.rule=Host:bazarr4k.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /bazarr4k"
-      - "traefik.port=6767"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
