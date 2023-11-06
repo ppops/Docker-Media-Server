@@ -378,7 +378,6 @@ services:
       - target: 8443
         published: 8443
         protocol: tcp
-        mode: host
       - target: 8880
         published: 8880
         protocol: tcp
