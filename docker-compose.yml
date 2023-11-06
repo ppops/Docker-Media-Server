@@ -226,31 +226,14 @@ services:
     volumes:
       - ${USERDIR}/docker/prowlarr:/config
       - "/etc/localtime:/etc/localtime:ro"
-#    ports:
-#        - "9696:9696"
+    ports:
+        - "9696:9696"
     restart: always
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:prowlarr
-    networks:
-      - traefik_proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=prowlarr"
-      - "traefik.frontend.rule=Host:prowlarr.${DOMAINNAME}"
-      - "traefik.port=9696"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
 
 
 
