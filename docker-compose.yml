@@ -521,14 +521,15 @@ services:
     image: oznu/homebridge:latest
     volumes:
       - ${USERDIR}/docker/homebridge:/homebridge
-    ports:
-      - 51827:51827/tcp
+    # ports:
+    #   - 51827:51827/tcp
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8787
+    network_mode: host
 
 
 
