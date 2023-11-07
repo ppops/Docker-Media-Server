@@ -445,7 +445,7 @@ services:
   scrypted:
     container_name: scrypted
     restart: unless-stopped
-    image: koush/scrypted
+    image: "koush/scrypted:latest"
     volumes:
       - ${USERDIR}/docker/scrypted:/server/volume
     ports:
