@@ -354,30 +354,10 @@ services:
         published: 6789
         protocol: tcp
         mode: host
-    networks:
-      - traefik_proxy
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    labels:
-      - "traefik.enable=true"
-      - "traefik.tags=frontend"
-      - "traefik.frontend.passHostHeader=true"
-      - "traefik.admin.backend=unifi"
-      - "traefik.admin.frontend.rule=Host:unifi.${DOMAINNAME}"
-      - "traefik.admin.port=8443"
-      - "traefik.admin.protocol=https"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-#      - "traefik.frontend.headers.frameDeny=true"
-      - "traefik.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*"
 
 
 
@@ -563,68 +543,10 @@ services:
       - WEBPASSWORD=${PIHOLEWEBPASSWORD}
       - DNS1=127.0.0.1
       - DNS2=8.8.8.8
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=pihole"
-      - "traefik.port=80"
-      - "traefik.frontend.rule=HostRegexp:pihole.${DOMAINNAME},{catchall:.*}"
-      - "traefik.frontend.priority=1"
-      - traefik.frontend.headers.SSLRedirect=true
-      - traefik.frontend.headers.STSSeconds=315360000
-      - traefik.frontend.headers.browserXSSFilter=true
-      - traefik.frontend.headers.contentTypeNosniff=true
-      - traefik.frontend.headers.forceSTSHeader=true
-      - traefik.frontend.headers.SSLHost=${DOMAINNAME}
-      - traefik.frontend.headers.STSIncludeSubdomains=true
-      - traefik.frontend.headers.STSPreload=true
-      - traefik.frontend.headers.frameDeny=true
-
-
-
-
-# Traefik
-  traefik:
-    hostname: traefik
-    image: traefik:v1.7
-    container_name: traefik
-    restart: always
-    domainname: ${DOMAINNAME}
-    networks:
-      - default
-      - traefik_proxy
-    ports:
-      - "80:80"
-      - "443:443"
-#      - "XXXX:8080"
-    environment:
-      - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
-      - CLOUDFLARE_API_KEY=${CLOUDFLARE_API_KEY}
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=traefik"
-      - "traefik.frontend.rule=Host:traefik.${DOMAINNAME}"
-      - "traefik.port=8080"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ${USERDIR}/docker/traefik:/etc/traefik
-      - ${USERDIR}/docker/shared:/shared
 
 
 
 
 networks:
-  traefik_proxy:
-    external:
-      name: traefik_proxy
   default:
     driver: bridge
