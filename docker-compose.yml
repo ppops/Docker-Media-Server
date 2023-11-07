@@ -529,7 +529,6 @@ services:
       - TZ=${TZ}
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8787
-    network_mode: host
 
 
 
@@ -619,12 +618,3 @@ services:
       - ${USERDIR}/docker/traefik:/etc/traefik
       - ${USERDIR}/docker/shared:/shared
 
-
-
-
-networks:
-  traefik_proxy:
-    external:
-      name: traefik_proxy
-  default:
-    driver: bridge
