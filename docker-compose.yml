@@ -501,8 +501,9 @@ services:
 # Tdarr
   tdarr:
     container_name: tdarr
-    restart: unless-stopped
     image: haveagitgat/tdarr:latest
+    restart: unless-stopped
+    network_mode: bridge
     volumes:
       - ${USERDIR}/docker/tdarr/server:/app/server
       - ${USERDIR}/docker/tdarr/configs:/app/configs
@@ -510,72 +511,23 @@ services:
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
       - ${USERDIR}/transcode_cache:/temp
-#    ports:
-#      - "80:80"
-#      - "443:443"
+    ports:
+      - 8265:8265 # webUI port
+      - 8266:8266 # server port
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
       - UMASK_SET=002
-      - serverIP=172.19.0.228
+      - serverIP=0.0.0.0
       - serverPort=8266
       - webUIPort=8265
-    networks:
-#     - traefik_proxy
-      traefik_proxy:
-        ipv4_address: 172.19.0.228
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=tdarr"
-      - "traefik.frontend.rule=Host:tdarr.${DOMAINNAME}"
-#      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefix: /tdarr"
-      - "traefik.port=8265"
-      - "traefik.docker.network=traefik_proxy"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.frameDeny=true"
-#      - "traefik.frontend.whiteList.sourceRange=192.168.0.0/16,122.199.61.31"
-
-
-
-
-# Tdarr-Node
-  tdarr-node:
-    container_name: tdarr-node
-    restart: unless-stopped
-    image: haveagitgat/tdarr_node:latest
-    volumes:
-      - ${USERDIR}/docker/tdarr/configs:/app/configs
-      - ${USERDIR}/docker/tdarr/logs:/app/logs
-      - ${SERVER2}/tvshows:/tv
-      - ${SERVER1}/movies:/movies
-      - ${USERDIR}/transcode_cache:/temp
-#    ports:
-#      - "80:80"
-#      - "443:443"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - UMASK_SET=002
-      - nodeID=MainNode
-      - nodeIP=172.19.0.227
-      - nodePort=8267
-      - serverIP=172.19.0.228
-      - serverPort=8266
-    devices:
-      - /dev/dri/:/dev/dri/
-    networks:
-#     - traefik_proxy
-      traefik_proxy:
-        ipv4_address: 172.19.0.227
+      - internalNode=true
+      - inContainer=true
+      - ffmpegVersion=6
+      - nodeName=MyInternalNode
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
 
 
 
