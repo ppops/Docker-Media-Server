@@ -1,5 +1,4 @@
 .env
-hydra/
 plexms/
 portainer/
 radarr/
@@ -7,9 +6,6 @@ shared/
 sonarr/
 tautulli/
 unifi/
-unifistats/
-ombi/
-heimdall/
 pihole/
 sabnzbd/
 transmission/
@@ -17,6 +13,3 @@ homebridge/
 sonarr4k/
 radarr4k/
 prowlarr/
-traefik/traefik.toml
-traefik/acme/acme.json
-
