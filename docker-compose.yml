@@ -24,7 +24,7 @@ services:
 
 # Glances
   glances:
-    image: vimagick/glances
+    image: nicolargo/glances:latest-full
     container_name: glances
     ports:
       - "61208:61208"
@@ -39,6 +39,7 @@ services:
     environment:
       - GLANCES_OPT=-w
     pid: 'host'
+    privileged: true
     restart: always
 
 
