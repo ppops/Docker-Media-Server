@@ -29,7 +29,7 @@ services:
     ports:
       - "61208:61208"
     volumes:
-      - ./glances.conf:/glances/conf/glances.conf
+      - "./data/glances.conf:/glances/conf/glances.conf"
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./:/main
       - ${SERVER1}/:/server1
@@ -37,7 +37,7 @@ services:
       - ${SERVER3}/:/server3
       - ${SERVER4}/:/server4
     environment:
-      - GLANCES_OPT=-w
+      - "GLANCES_OPT=-/glances/conf/glances.conf -w"
     pid: 'host'
     privileged: true
     restart: always
