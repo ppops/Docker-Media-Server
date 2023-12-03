@@ -29,7 +29,7 @@ services:
     ports:
       - "61208:61208"
     volumes:
-      - ./data/glances.conf:/glances/conf/glances.conf
+      #- ./data/glances.conf:/glances/conf/glances.conf
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./:/main
       - ${SERVER1}/:/server1
