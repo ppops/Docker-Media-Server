@@ -39,7 +39,6 @@ services:
     environment:
       - GLANCES_OPT=-w
     pid: 'host'
-    privileged: true
     restart: always
 
 
