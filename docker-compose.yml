@@ -471,6 +471,7 @@ services:
       - ${USERDIR}/docker/tdarr/logs:/app/logs
       - ${SERVER2}/tvshows:/tv
       - ${SERVER1}/movies:/movies
+      - ${SERVER2}/whisparr:/whisparr
       - ${USERDIR}/transcode_cache:/temp
     ports:
       - 8265:8265 # webUI port
