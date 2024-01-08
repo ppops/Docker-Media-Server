@@ -31,14 +31,14 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
-      - "./data/glances.conf:/glances/conf/glances.conf"
+      #- "./data/glances.conf:/glances/conf/glances.conf"
       - ./:/main
       - ${SERVER1}/:/server1
       - ${SERVER2}/:/server2
       - ${SERVER3}/:/server3
       - ${SERVER4}/:/server4
-    environment:
-      - "GLANCES_OPT=-C /glances/conf/glances.conf -w"
+    #environment:
+      #- "GLANCES_OPT=-C /glances/conf/glances.conf -w"
     pid: 'host'
     restart: always
 
