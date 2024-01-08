@@ -24,7 +24,7 @@ services:
 
 # Glances
   glances:
-    image: nicolargo/glances:latest-full
+    image: nicolargo/glances:develop
     container_name: glances
     ports:
       - "61208:61208"
