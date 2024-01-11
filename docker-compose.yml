@@ -505,6 +505,40 @@ services:
 
 
 
+
+# Vaultwarden
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/vaultwarden:/data
+    ports:
+      - 8964:80
+    environment:
+      - DOMAIN=https://vaultwarden.paulamato.com.au
+      - LOGIN_RATELIMIT_MAX_BURST=10
+      - LOGIN_RATELIMIT_SECONDS=60
+      - ADMIN_RATELIMIT_MAX_BURST=10
+      - ADMIN_RATELIMIT_SECONDS=60
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - SENDS_ALLOWED=true
+      - EMERGENCY_ACCESS_ALLOWED=true
+      - WEB_VAULT_ENABLED=true
+      - SIGNUPS_ALLOWED=false
+      - SIGNUPS_VERIFY=true
+      - SIGNUPS_VERIFY_RESEND_TIME=3600
+      - SIGNUPS_VERIFY_RESEND_LIMIT=5
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+
+
+
+
+
 networks:
   default:
     driver: bridge
