@@ -505,6 +505,19 @@ services:
 
 
 
+# Uptime Kuma
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ${USERDIR}/docker/uptime-kuma:/app/data
+    ports:
+      - 3001:3001
+    restart: always
+
+
+
+
 
 # Vaultwarden
   vaultwarden:
