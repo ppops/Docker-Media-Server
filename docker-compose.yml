@@ -580,6 +580,7 @@ services:
       - /:/mnt/host:ro
     environment:
       DASHDOT_ENABLE_CPU_TEMPS: 'true'
+      DASHDOT_PORT: 3002
 
 
 
