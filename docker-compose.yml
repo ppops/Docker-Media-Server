@@ -552,6 +552,23 @@ services:
 
 
 
+# Homarr
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${USERDIR}/docker/homarr/configs:/app/data/configs
+      - ${USERDIR}/docker/homarr/icons:/app/public/icons
+      - ${USERDIR}/docker/homarr/data:/data
+    ports:
+      - '7575:7575'
+
+
+
+
+
 networks:
   default:
     driver: bridge
