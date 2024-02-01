@@ -581,7 +581,7 @@ services:
     environment:
       DASHDOT_ENABLE_CPU_TEMPS: 'true'
       DASHDOT_PORT: 3002
-      DASHDOT_OVERRIDE_STORAGE_TYPES: 'nvme0n1=Main NVMe,sda=Server 1,sdb=Server 2,sdc=Server 3,sdd=Server 3'
+      DASHDOT_OVERRIDE_STORAGE_TYPES: 'nvme0n1=Main NVMe,sda=Server 1,sdb=Server 2,sdc=Server 4,sdd=Server 3'
 
 
 
