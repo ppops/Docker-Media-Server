@@ -595,7 +595,6 @@ services:
       - KOMETA_RUN=true
       - KOMETA_CONFIG=/config/config.yml
       - KOMETA_OVERLAYS_ONLY=true
-      - KOMETA_RUN_LIBRARIES="4K Movies|4K TV Shows"
     volumes:
       - ${USERDIR}/docker/kometa/:/config
 
