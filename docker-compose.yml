@@ -598,7 +598,7 @@ services:
       - KOMETA_OVERLAYS_ONLY=true
       - TZ=${TZ}
     volumes:
-      - ${USERDIR}/docker/kometa/:/config
+      - ${USERDIR}/docker/kometa/:/config:rw
 
 
 
