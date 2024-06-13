@@ -590,11 +590,13 @@ services:
 # Kometa 
   kometa:
     image: kometateam/kometa
+    restart: unless-stopped
     container_name: kometa
     environment:
       - KOMETA_RUN=true
       - KOMETA_CONFIG=/config/config.yml
       - KOMETA_OVERLAYS_ONLY=true
+      - TZ=${TZ}
     volumes:
       - ${USERDIR}/docker/kometa/:/config
 
