@@ -596,7 +596,7 @@ services:
       - KOMETA_RUN=false
       - KOMETA_CONFIG=/config/config.yml
       - KOMETA_OVERLAYS_ONLY=true
-      - KOMETA_TIMES=01:00,07:30,11:14,16:00
+      - KOMETA_TIMES=01:00,07:30,11:18,16:00
       - TZ=${TZ}
     volumes:
       - ${USERDIR}/docker/kometa/:/config
