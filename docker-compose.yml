@@ -605,6 +605,26 @@ services:
 
 
 
+# Ownfoil 
+  ownfoil:
+    container_name: ownfoil
+    image: a1ex4/ownfoil
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - USERNAME=${OWNFOIL_USERNAME}
+      - PASSWORD=${OWNFOIL_PASSWORD}
+      - ROOT_DIR=/games
+      - SAVE_ENABLED=false
+    volumes:
+      - ${SERVER1}/switchgames:/games
+    ports:
+      - "8000:80"
+
+
+
+
+
 networks:
   default:
     driver: bridge
