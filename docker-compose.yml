@@ -620,7 +620,7 @@ services:
       - ${SERVER1}/switchgames:/games
       - ${USERDIR}/docker/ownfoil:/app/config
     ports:
-      - "8000:80"
+      - "8465:8465"
 
 
 
