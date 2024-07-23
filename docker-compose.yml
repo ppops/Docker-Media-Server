@@ -608,7 +608,7 @@ services:
 # Ownfoil 
   ownfoil:
     container_name: ownfoil
-    image: a1ex4/ownfoil
+    image: a1ex4/ownfoil:v2
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
