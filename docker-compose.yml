@@ -618,6 +618,7 @@ services:
       - SAVE_ENABLED=false
     volumes:
       - ${SERVER1}/switchgames:/games
+      - ${USERDIR}/docker/ownfoil:/app/config
     ports:
       - "8000:80"
 
