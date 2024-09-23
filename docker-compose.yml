@@ -642,3 +642,14 @@ services:
 networks:
   default:
     driver: bridge
+
+
+
+
+
+volumes:
+  vaultwarden-data:
+    name: vaultwarden-data
+  vaultwarden-rclone-data:
+    external: true
+    name: vaultwarden-rclone-data
