@@ -566,7 +566,7 @@ services:
       - BACKUP_ADD_ATTACHMENTS=true
       - BACKUP_ADD_CONFIG_JSON=true
       - TIMESTAMP=true
-      - CRON_TIME=*/1 * * * *
+      - CRON_TIME=*/5 * * * *
       - TZ=${TZ}
       - UID=${PUID}
       - GID=${PGID}
