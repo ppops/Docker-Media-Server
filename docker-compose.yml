@@ -552,6 +552,34 @@ services:
 
 
 
+  vaultwarden-backup:
+    image: bruceforce/vaultwarden-backup
+    restart: always
+    init: true
+    depends_on:
+      - vaultwarden
+    volumes:
+      - ${USERDIR}/docker/vaultwarden:/data
+      - ${USERDIR}/docker/vaultwarden-backup:/backup/
+    environment:
+      - BACKUP_ADD_DATABASE=true
+      - BACKUP_ADD_ATTACHMENTS=true
+      - BACKUP_ADD_CONFIG_JSON=true
+      - TIMESTAMP=true
+      - CRON_TIME=*/1 * * * *
+      - TZ=${TZ}
+      - UID=${PUID}
+      - GID=${PGID}
+      - BACKUP_DIR=/backup
+      - LOG_DIR=/backup/logs
+      - LOG_LEVEL=INFO
+      - LOG_CLEAR_AT_START=true
+      - BACKUP_ON_STARTUP=true
+
+
+
+
+
 # Homarr
   homarr:
     container_name: homarr
