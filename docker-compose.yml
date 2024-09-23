@@ -552,6 +552,18 @@ services:
 
 
 
+# Vaultwarden Backup
+  backup:
+    image: ttionya/vaultwarden-backup:latest
+    restart: always
+    volumes:
+      - ${USERDIR}/docker/vaultwarden:/bitwarden/data/
+      - ${USERDIR}/docker/vaultwarden-rclone-data:/config/
+
+
+
+
+
 # Homarr
   homarr:
     container_name: homarr
