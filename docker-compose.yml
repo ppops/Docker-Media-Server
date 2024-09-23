@@ -569,7 +569,7 @@ services:
       - BACKUP_ADD_RSA_KEY=true
       - BACKUP_ADD_SENDS=true
       - TIMESTAMP=true
-      - CRON_TIME=*/5 * * * *
+      - CRON_TIME=0 * * * *
       - TZ=${TZ}
       - UID=${PUID}
       - GID=${PGID}
