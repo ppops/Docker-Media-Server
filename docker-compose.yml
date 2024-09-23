@@ -565,6 +565,9 @@ services:
       - BACKUP_ADD_DATABASE=true
       - BACKUP_ADD_ATTACHMENTS=true
       - BACKUP_ADD_CONFIG_JSON=true
+      - BACKUP_ADD_ICON_CACHE=true
+      - BACKUP_ADD_RSA_KEY=true
+      - BACKUP_ADD_SENDS=true
       - TIMESTAMP=true
       - CRON_TIME=*/5 * * * *
       - TZ=${TZ}
