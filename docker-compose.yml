@@ -560,7 +560,7 @@ services:
       - vaultwarden
     volumes:
       - ${USERDIR}/docker/vaultwarden:/data
-      - ${USERDIR}/gdrive/vaultwarden-backup:/backup/
+      - ${USERDIR}/gdrive/vaultwarden:/backup/
     environment:
       - BACKUP_ADD_DATABASE=true
       - BACKUP_ADD_ATTACHMENTS=true
