@@ -13,7 +13,7 @@ services:
   tunnel:
     container_name: cloudflared-tunnel
     image: cloudflare/cloudflared
-    restart: unless-stopped
+    restart: always
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
@@ -277,7 +277,7 @@ services:
 # Jellyfin
   jellyfin:
     container_name: jellyfin
-    restart: "no"
+    restart: always
     image: "linuxserver/jellyfin"
     volumes:
       - ${USERDIR}/docker/jellyfin:/config
@@ -375,7 +375,7 @@ services:
 # Whisparr
   whisparr:
     container_name: whisparr
-    restart: unless-stopped
+    restart: always
     image: ghcr.io/hotio/whisparr
     volumes:
       - ${USERDIR}/docker/whisparr:/config
@@ -398,7 +398,7 @@ services:
 # Scrypted
   scrypted:
     container_name: scrypted
-    restart: "no"
+    restart: always
     image: "koush/scrypted:latest"
     volumes:
       - ${USERDIR}/docker/scrypted:/server/volume
@@ -417,7 +417,7 @@ services:
   tdarr:
     container_name: tdarr
     image: haveagitgat/tdarr:latest
-    restart: unless-stopped
+    restart: always
     network_mode: bridge
     volumes:
       - ${USERDIR}/docker/tdarr/server:/app/server
@@ -455,7 +455,7 @@ services:
 # Homebridge
   homebridge:
     container_name: homebridge
-    restart: unless-stopped
+    restart: always
     image: homebridge/homebridge:latest
     volumes:
       - ${USERDIR}/docker/homebridge:/homebridge
@@ -485,7 +485,7 @@ services:
       # - '67:67/udp'
       - '8182:80'
       - '8183:443'
-    restart: "no"
+    restart: always
     volumes:
       - ${USERDIR}/docker/pihole/pihole:/etc/pihole
       - ${USERDIR}/docker/pihole/pihole.log:/var/log/pihole.log
@@ -523,7 +523,7 @@ services:
   vaultwarden:
     container_name: vaultwarden
     image: vaultwarden/server:latest
-    restart: unless-stopped
+    restart: always
     volumes:
       - ${USERDIR}/docker/vaultwarden:/data
     ports:
@@ -587,7 +587,7 @@ services:
   homarr:
     container_name: homarr
     image: ghcr.io/ajnart/homarr:latest
-    restart: unless-stopped
+    restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${USERDIR}/docker/homarr/configs:/app/data/configs
@@ -603,7 +603,7 @@ services:
 # Dash
   dash:
     image: mauricenino/dashdot:latest
-    restart: unless-stopped
+    restart: always
     privileged: true
     ports:
       - '3002:3002'
@@ -621,7 +621,7 @@ services:
 # Kometa 
   kometa:
     image: kometateam/kometa
-    restart: unless-stopped
+    restart: always
     container_name: kometa
     environment:
       - KOMETA_RUN=false
