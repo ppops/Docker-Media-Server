@@ -575,7 +575,7 @@ services:
       - GID=${PGID}
       - BACKUP_DIR=/backup
       - BACKUP_DIR_PERMISSIONS=777
-      - DELETE_AFTER=1
+      - DELETE_AFTER=20
       - LOG_DIR=/backup/logs
       - LOG_LEVEL=INFO
       - LOG_CLEAR_AT_START=true
