@@ -548,6 +548,8 @@ services:
       - SMTP_USERNAME=${SMTP_USERNAME}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
       - UMASK=022
+      - PUID=${PUID}
+      - PGID=${PGID}
 
 
 
