@@ -485,7 +485,7 @@ services:
       # - '67:67/udp'
       - '8182:80'
       - '8183:443'
-    restart: unless-stopped
+    restart: "no"
     volumes:
       - ${USERDIR}/docker/pihole/pihole:/etc/pihole
       - ${USERDIR}/docker/pihole/pihole.log:/var/log/pihole.log
