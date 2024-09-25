@@ -277,7 +277,7 @@ services:
 # Jellyfin
   jellyfin:
     container_name: jellyfin
-    restart: always
+    restart: "no"
     image: "linuxserver/jellyfin"
     volumes:
       - ${USERDIR}/docker/jellyfin:/config
