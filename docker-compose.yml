@@ -571,13 +571,13 @@ services:
       - BACKUP_ADD_RSA_KEY=true
       - BACKUP_ADD_SENDS=true
       - TIMESTAMP=true
-      - CRON_TIME=0 * * * *
+      - CRON_TIME=0 */4 * * *
       - TZ=${TZ}
       - UID=${PUID}
       - GID=${PGID}
       - BACKUP_DIR=/backup
       - BACKUP_DIR_PERMISSIONS=777
-      - DELETE_AFTER=20
+      - DELETE_AFTER=7
       - LOG_DIR=/backup/logs
       - LOG_LEVEL=INFO
       - LOG_CLEAR_AT_START=true
