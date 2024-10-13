@@ -656,6 +656,20 @@ services:
       - ${USERDIR}/docker/ownfoil:/app/config
     ports:
       - "8465:8465"
+
+
+
+
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ${USERDIR}/docker/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
       
 
 
