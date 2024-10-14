@@ -390,24 +390,6 @@ services:
       - PGID=${PGID}
       - UMASK_SET=002
       - TZ=${TZ}
-
-
-
-
-
-# Scrypted
-  scrypted:
-    container_name: scrypted
-    restart: always
-    image: "koush/scrypted:latest"
-    volumes:
-      - ${USERDIR}/docker/scrypted:/server/volume
-    ports:
-      - 10080:10080/tcp
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
       
       
       
