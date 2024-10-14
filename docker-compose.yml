@@ -21,30 +21,6 @@ services:
 
 
 
-
-# Glances
-  glances:
-    image: nicolargo/glances:latest-full
-    container_name: glances
-    ports:
-      - "61208:61208"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
-      - "./data/glances.conf:/glances/conf/glances.conf"
-      - ./:/main
-      - ${SERVER1}/:/server1
-      - ${SERVER2}/:/server2
-      - ${SERVER3}/:/server3
-      - ${SERVER4}/:/server4
-    environment:
-      - "GLANCES_OPT=-C /glances/conf/glances.conf -w"
-    pid: 'host'
-    restart: always
-
-
-
-
 # Watchtower
   watchtower:
     container_name: watchtower
@@ -72,6 +48,30 @@ services:
       - ${USERDIR}/docker/shared:/shared
     environment:
       - TZ=${TZ}
+
+
+
+
+
+# Glances
+  glances:
+    image: nicolargo/glances:latest-full
+    container_name: glances
+    ports:
+      - "61208:61208"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
+      - "./data/glances.conf:/glances/conf/glances.conf"
+      - ./:/main
+      - ${SERVER1}/:/server1
+      - ${SERVER2}/:/server2
+      - ${SERVER3}/:/server3
+      - ${SERVER4}/:/server4
+    environment:
+      - "GLANCES_OPT=-C /glances/conf/glances.conf -w"
+    pid: 'host'
+    restart: always
 
 
 
@@ -450,61 +450,6 @@ services:
 
 
 
-
-
-# Homebridge
-  homebridge:
-    container_name: homebridge
-    restart: always
-    image: homebridge/homebridge:latest
-    volumes:
-      - ${USERDIR}/docker/homebridge:/homebridge
-    # ports:
-    #   - 51827:51827/tcp
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - HOMEBRIDGE_CONFIG_UI=1
-      - HOMEBRIDGE_CONFIG_UI_PORT=8787
-    network_mode: host
-
-
-
-
-
-# Pi-hole
-  pihole:
-    container_name: pihole
-    domainname: docker
-    hostname: pihole
-    image: pihole/pihole:latest
-    ports:
-      - '53:53/tcp'
-      - '53:53/udp'
-      # - '67:67/udp'
-      - '8182:80'
-      - '8183:443'
-    restart: always
-    volumes:
-      - ${USERDIR}/docker/pihole/pihole:/etc/pihole
-      - ${USERDIR}/docker/pihole/pihole.log:/var/log/pihole.log
-      - ${USERDIR}/docker/pihole/dnsmasq.d:/etc/dnsmasq.d
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - ServerIP=${SERVER_IP}
-      - PROXY_LOCATION=pihole
-      - VIRTUAL_HOST=pihole.${DOMAINNAME}
-      - VIRTUAL_PORT=80
-      - TZ=${TZ}
-      - WEBPASSWORD=${PIHOLEWEBPASSWORD}
-      - DNS1=127.0.0.1
-      - DNS2=8.8.8.8
-
-
-
-
 # Uptime Kuma
   uptime-kuma:
     image: louislam/uptime-kuma:1
@@ -656,6 +601,8 @@ services:
       - ${USERDIR}/docker/ownfoil:/app/config
     ports:
       - "8465:8465"
+
+
 
 
 
