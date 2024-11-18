@@ -241,6 +241,7 @@ services:
 
 
 
+
 # Plex
   plexms:
     container_name: plexms
@@ -432,19 +433,6 @@ services:
 
 
 
-# Uptime Kuma
-  uptime-kuma:
-    image: louislam/uptime-kuma:1
-    container_name: uptime-kuma
-    volumes:
-      - ${USERDIR}/docker/uptime-kuma:/app/data
-    ports:
-      - 3001:3001
-    restart: always
-
-
-
-
 
 # Vaultwarden
   vaultwarden:
@@ -509,41 +497,6 @@ services:
       - LOG_LEVEL=INFO
       - LOG_CLEAR_AT_START=true
       - BACKUP_ON_STARTUP=true
-
-
-
-
-
-# Homarr
-  homarr:
-    container_name: homarr
-    image: ghcr.io/ajnart/homarr:latest
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ${USERDIR}/docker/homarr/configs:/app/data/configs
-      - ${USERDIR}/docker/homarr/icons:/app/public/icons
-      - ${USERDIR}/docker/homarr/data:/data
-    ports:
-      - '7575:7575'
-
-
-
-
-
-# Dash
-  dash:
-    image: mauricenino/dashdot:latest
-    restart: always
-    privileged: true
-    ports:
-      - '3002:3002'
-    volumes:
-      - /:/mnt/host:ro
-    environment:
-      DASHDOT_ENABLE_CPU_TEMPS: 'true'
-      DASHDOT_PORT: 3002
-      DASHDOT_OVERRIDE_STORAGE_TYPES: 'nvme0n1=Main NVMe,sda=Server 1,sdb=Server 2,sdc=Server 4,sdd=Server 3'
 
 
 
