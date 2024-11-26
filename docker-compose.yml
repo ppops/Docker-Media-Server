@@ -327,6 +327,9 @@ services:
       - ${USERDIR}/docker/shared:/shared
     ports:
       - "5055:5055"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
