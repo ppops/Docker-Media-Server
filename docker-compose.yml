@@ -543,8 +543,27 @@ services:
 
 
 
+  
+  # Telly
+  telly:
+    image: tellytv/telly:dev-ffmpeg
+    restart: always
+    ports:
+      - "6077:6077"
+    environment:
+      - TZ=${TZ}
+      - TELLY_IPTV_PLAYLIST=${USERDIR}/docker/telly/myiptv.m3u
+      - TELLY_FILTER_REGEX='.*AU.*'
+      - TELLY_WEB_LISTEN_ADDRESS=telly:6077
+      - TELLY_IPTV_STREAMS=1
+      - TELLY_DISCOVERY_FRIENDLYNAME=Tuner1
+      - TELLY_DISCOVERY_DEVICEID=12345678
+    command: -base=telly:6077
 
 
+
+
+  
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
