@@ -544,21 +544,6 @@ services:
 
 
   
-  # Telly
-  telly:
-    image: tellytv/telly:dev-ffmpeg
-    restart: always
-    ports:
-      - "6077:6077"
-    environment:
-      - TZ=${TZ}
-    volumes:
-      - ${USERDIR}/docker/telly/telly.config.toml:/etc/telly/telly.config.toml
-
-
-
-
-  
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
