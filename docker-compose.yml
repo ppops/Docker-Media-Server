@@ -555,8 +555,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ${USERDIR}/threadfin/conf:/home/threadfin/conf
-      - ${USERDIR}/threadfin/temp:/tmp/threadfin:rw
+      - ${USERDIR}/docker/threadfin/conf:/home/threadfin/conf
+      - ${USERDIR}/docker/threadfin/temp:/tmp/threadfin:rw
     restart: always
 
 
