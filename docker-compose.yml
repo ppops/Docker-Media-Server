@@ -543,6 +543,25 @@ services:
 
 
 
+
+# Threadfin
+  threadfin:
+    image: fyb3roptik/threadfin
+    container_name: threadfin
+    ports:
+      - 34400:34400
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${USERDIR}/threadfin/conf:/home/threadfin/conf
+      - ${USERDIR}/threadfin/temp:/tmp/threadfin:rw
+    restart: always
+
+
+
+
   
   homeassistant:
     container_name: homeassistant
