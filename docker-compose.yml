@@ -293,7 +293,7 @@ services:
       - JELLYFIN_PublishedServerUrl=https://jellyfin.paulamato.com.au
       - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     devices:
-      - /dev/dri/:/dev/dri/
+      - /dev/dri/renderD128:/dev/dri/renderD128 
 
 
 
