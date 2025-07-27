@@ -1,4 +1,4 @@
-#Reference: https://www.smarthomebeginner.com/docker-home-media-server-2018-basic
+  #Reference: https://www.smarthomebeginner.com/docker-home-media-server-2018-basic
 #Reference: https://www.smarthomebeginner.com/traefik-reverse-proxy-tutorial-for-docker/
 #Requirement: Set environmental variables: USERDIR, PUID, PGID, MYSQL_ROOT_PASSWORD, and TZ as explained in the reference.
 
@@ -559,6 +559,21 @@ services:
       - ${USERDIR}/docker/threadfin/conf:/home/threadfin/conf
       - ${USERDIR}/docker/threadfin/temp:/tmp/threadfin:rw
     restart: always
+
+
+
+
+
+# Immich Power Tools
+  power-tools:
+    container_name: immich_power_tools
+    image: ghcr.io/varun-raj/immich-power-tools:latest
+    ports:
+      - "8001:3000"
+    environment:
+      - IMMICH_API_KEY=${IMMICH_API_KEY}
+      - IMMICH_URL=${IMMICH_URL}
+      - EXTERNAL_IMMICH_URL=${EXTERNAL_IMMICH_URL}
 
 
 
