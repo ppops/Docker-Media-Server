@@ -22,6 +22,3 @@ SMTP_USERNAME=postmaster@*****.mailgun.org
 SMTP_PASSWORD=1*****
 OWNFOIL_USERNAME=*****
 OWNFOIL_PASSWORD=*****
-IMMICH_API_KEY=*****
-IMMICH_URL=*****
-EXTERNAL_IMMICH_URL=*****
