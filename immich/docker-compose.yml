@@ -104,6 +104,7 @@ services:
       - DB_HOST=immich_postgres
       - DB_PORT=5432
       - DB_DATABASE_NAME=immich
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
 
 volumes:
   model-cache:
