@@ -105,6 +105,7 @@ services:
       - DB_PORT=5432
       - DB_DATABASE_NAME=immich
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
 
 volumes:
   model-cache:
