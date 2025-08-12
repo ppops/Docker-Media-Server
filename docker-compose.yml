@@ -564,6 +564,29 @@ services:
 
 
 
+# Dispatcharr
+  dispatcharr:
+    image: ghcr.io/dispatcharr/dispatcharr:latest
+    container_name: dispatcharr
+    ports:
+      - 9191:9191
+    volumes:
+      - dispatcharr_data:/data
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - DISPATCHARR_ENV=aio
+      - REDIS_HOST=localhost
+      - CELERY_BROKER_URL=redis://localhost:6379/0
+      - DISPATCHARR_LOG_LEVEL=info
+    devices:
+      - /dev/dri:/dev/dri
+
+
+
+
+
 # Home Assistant
   homeassistant:
     container_name: homeassistant
