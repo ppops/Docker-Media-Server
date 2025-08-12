@@ -607,3 +607,6 @@ services:
 networks:
   default:
     driver: bridge
+
+volumes:
+  dispatcharr_data:
