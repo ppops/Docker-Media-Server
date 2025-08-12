@@ -434,6 +434,7 @@ services:
       - nodeName=MyInternalNode
       - NVIDIA_DRIVER_CAPABILITIES=all
       - NVIDIA_VISIBLE_DEVICES=all
+      - auth=true
     devices:
       - /dev/dri:/dev/dri
 
