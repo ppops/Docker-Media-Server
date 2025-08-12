@@ -69,9 +69,12 @@ services:
       - ${SERVER3}/:/server3
       - ${SERVER4}/:/server4
     environment:
-      - "GLANCES_OPT=-C /glances/conf/glances.conf -w"
+      - "GLANCES_OPT=-C /glances/conf/glances.conf -w --password"
     pid: 'host'
     restart: always
+    secrets:
+      - source: glances_password
+        target: /root/.config/glances/glances.pwd
 
 
 
@@ -584,3 +587,7 @@ services:
 networks:
   default:
     driver: bridge
+
+secrets:
+  glances_password:
+    file: /home/navydons/docker/data/glances_password
