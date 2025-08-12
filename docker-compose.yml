@@ -429,6 +429,7 @@ services:
       - serverPort=8266
       - webUIPort=8265
       - internalNode=true
+      - apiKey=${TDARR_API_KEY}
       - inContainer=true
       - ffmpegVersion=6
       - nodeName=MyInternalNode
