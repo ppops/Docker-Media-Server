@@ -580,6 +580,37 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+
+
+
+
+
+# Ollama
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ${USERDIR}/docker/ollama:/root/.ollama
+    restart: unless-stopped
+
+
+
+
+
+# WebUI
+  webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${USERDIR}/docker/open-webui:/app/backend/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - ollama
+    restart: unless-stopped
       
 
 
