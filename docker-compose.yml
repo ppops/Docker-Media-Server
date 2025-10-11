@@ -625,7 +625,7 @@ services:
     environment:
       - N8N_HOST=n8n.paulamato.com.au
       - WEBHOOK_URL=https://n8n.example.com/
-      - N8N_PROXY_HOPS=1
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - N8N_SECURE_COOKIE=true
