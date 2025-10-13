@@ -649,6 +649,22 @@ services:
       - POSTGRES_PASSWORD=${N8N_POSTGRES_PASSWORD}
     volumes:
       - ${USERDIR}/docker/n8nPostgres:/var/lib/postgresql/data
+
+
+
+
+  ytptube:
+    user: "${PUID}:${PGID}" # change this to your user id and group id, for example: "1000:1000"
+    image: ghcr.io/arabcoders/ytptube:latest
+    container_name: ytptube
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      - ${USERDIR}/ytptube:/config:rw
+      - ${USERDIR}/Downloads/complete:/downloads:rw
+    tmpfs:
+      - ${USERDIR}/ytptube/tmp:/tmp
       
 
 
