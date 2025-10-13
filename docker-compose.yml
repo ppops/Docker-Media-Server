@@ -662,7 +662,7 @@ services:
       - "8081:8081"
     volumes:
       - ${USERDIR}/ytptube:/config:rw
-      - ${USERDIR}/Downloads/complete:/downloads:rw
+      - ${SERVER1}/youtube-videos:/downloads:rw
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
