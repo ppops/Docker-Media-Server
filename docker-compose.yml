@@ -664,7 +664,7 @@ services:
       - ${USERDIR}/ytptube:/config:rw
       - ${USERDIR}/Downloads/complete:/downloads:rw
     tmpfs:
-      - ${USERDIR}/ytptube/tmp:/tmp
+      - /tmp
       
 
 
