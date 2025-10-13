@@ -654,7 +654,7 @@ services:
 
 
   ytptube:
-    user: "${PUID}:${PGID}" # change this to your user id and group id, for example: "1000:1000"
+    user: "0:0"
     image: ghcr.io/arabcoders/ytptube:latest
     container_name: ytptube
     restart: unless-stopped
@@ -663,6 +663,10 @@ services:
     volumes:
       - ${USERDIR}/ytptube:/config:rw
       - ${USERDIR}/Downloads/complete:/downloads:rw
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     tmpfs:
       - /tmp
       
