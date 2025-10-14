@@ -653,6 +653,8 @@ services:
 
 
 
+
+# YTPTube
   ytptube:
     user: "0:0"
     image: ghcr.io/arabcoders/ytptube:latest
@@ -661,7 +663,7 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - ${USERDIR}/ytptube:/config:rw
+      - ${USERDIR}/docker/ytptube:/config:rw
       - ${SERVER1}/youtube-videos:/downloads:rw
     environment:
       - PUID=${PUID}
@@ -669,6 +671,21 @@ services:
       - TZ=${TZ}
     tmpfs:
       - /tmp
+
+
+
+
+
+# Actual Server
+  actual-server:
+    image: actualbudget/actual-server:latest
+    container_name: actual-server
+    ports:
+      - "5006:5006"
+    volumes:
+      - ${USERDIR}/docker/actual-budget:/data
+      - ${USERDIR}/docker/actual-budget/config.json:/app/config.json
+    restart: unless-stopped
       
 
 
