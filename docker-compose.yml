@@ -293,7 +293,7 @@ services:
       - "8920:8920/tcp"
       - "7359:7359/udp"
     environment:
-      - JELLYFIN_PublishedServerUrl=https://jellyfin.paulamato.com.au
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAINNAME}
       - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128 
@@ -454,7 +454,7 @@ services:
       - 8964:80
     user: ${PUID}:${PGID}
     environment:
-      - DOMAIN=https://vaultwarden.paulamato.com.au
+      - DOMAIN=https://vaultwarden.${DOMAINNAME}
       - LOGIN_RATELIMIT_MAX_BURST=10
       - LOGIN_RATELIMIT_SECONDS=60
       - ADMIN_RATELIMIT_MAX_BURST=10
