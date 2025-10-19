@@ -15,7 +15,7 @@ services:
 
   gerbil:
     image: fosrl/gerbil:latest # https://github.com/fosrl/gerbil/releases
-    container_name: gerbil
+    container_name: pangolin_gerbil
     restart: unless-stopped
     depends_on:
       pangolin:
@@ -37,7 +37,7 @@ services:
 
   traefik:
     image: traefik:v3.4.0
-    container_name: traefik
+    container_name: pangolin_traefik
     restart: unless-stopped
     network_mode: service:gerbil # Ports appear on the gerbil service
     depends_on:
@@ -56,7 +56,7 @@ services:
       
   newt:
     image: fosrl/newt
-    container_name: newt
+    container_name: pangolin_newt
     restart: unless-stopped
     environment:
       - PANGOLIN_ENDPOINT=${PANGOLIN_ENDPOINT}
