@@ -645,6 +645,7 @@ services:
 
   n8nPostgres: # Example for PostgreSQL
     image: postgres:15
+    container_name: n8n-postgres
     restart: always
     environment:
       - POSTGRES_DB=n8n
