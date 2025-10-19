@@ -621,12 +621,13 @@ services:
 # n8n
   n8n:
     image: n8nio/n8n
+    container_name: n8n
     restart: always
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=n8n.paulamato.com.au
-      - WEBHOOK_URL=https://n8n.paulamato.com.au/
+      - N8N_HOST=n8n.${DOMAIN}
+      - WEBHOOK_URL=https://n8n.${DOMAIN}/
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
