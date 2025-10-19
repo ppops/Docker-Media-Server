@@ -293,7 +293,7 @@ services:
       - "8920:8920/tcp"
       - "7359:7359/udp"
     environment:
-      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAINNAME}
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAIN_NAME}
       - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128 
@@ -591,8 +591,8 @@ services:
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=n8n.${DOMAINNAME}
-      - WEBHOOK_URL=https://n8n.${DOMAINNAME}/
+      - N8N_HOST=n8n.${DOMAIN_NAME}
+      - WEBHOOK_URL=https://n8n.${DOMAIN_NAME}/
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
