@@ -8,6 +8,7 @@ SERVER3=/media/navydons/Server3
 SERVER4=/media/navydons/Server4
 RAMDRIVE=/dev/shm
 DOMAINNAME=*****.com.au
+DOMAIN_NAME=*****.au
 CLOUDFLARE_EMAIL=*****@gmail.com
 CLOUDFLARE_API_KEY=*****
 SERVER_IP=192.168.1.10
