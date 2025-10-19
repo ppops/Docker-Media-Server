@@ -478,8 +478,10 @@ services:
 
 
 
+# Vaultwarden Backup
   vaultwarden-backup:
     image: bruceforce/vaultwarden-backup
+    container_name: vaultwarden-backup
     restart: always
     init: true
     depends_on:
