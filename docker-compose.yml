@@ -626,8 +626,8 @@ services:
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=n8n.${DOMAIN}
-      - WEBHOOK_URL=https://n8n.${DOMAIN}/
+      - N8N_HOST=n8n.${DOMAINNAME}
+      - WEBHOOK_URL=https://n8n.${DOMAINNAME}/
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
