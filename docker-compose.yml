@@ -342,44 +342,6 @@ services:
 
 
 
-# Bazarr
-  bazarr:
-    container_name: bazarr
-    restart: always
-    image: linuxserver/bazarr:latest
-    volumes:
-      - ${USERDIR}/docker/bazarr:/config
-      - ${SERVER1}/movies:/movies
-      - ${SERVER2}/tvshows:/tv
-    ports:
-      - "6767:6767"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-
-
-
-
-# Bazarr4k
-  bazarr4k:
-    container_name: bazarr4k
-    restart: always
-    image: linuxserver/bazarr:latest
-    volumes:
-      - ${USERDIR}/docker/bazarr4k:/config
-      - ${SERVER4}/4K/movies:/movies
-      - ${SERVER4}/4K/tvshows:/tv
-    ports:
-      - "6768:6767"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-
-
-
-
 # Whisparr
   whisparr:
     container_name: whisparr
