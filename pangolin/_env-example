@@ -1,5 +1,5 @@
-DOMAINNAME=*****.au
-PANGOLIN_DOMAINNAME=pangolin.*****.au
+DOMAIN_NAME=*****.au
+PANGOLIN_DOMAIN_NAME=pangolin.*****.au
 PANGOLIN_ENDPOINT=https://pangolin.*****.au
 CLOUDFLARE_EMAIL=*****@gmail.com
 CLOUDFLARE_DNS_API_TOKEN=*****
