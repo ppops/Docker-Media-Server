@@ -654,29 +654,6 @@ services:
     volumes:
       - ${USERDIR}/docker/actual-budget:/data
     restart: unless-stopped
-
-
-
-
-
-# Onboarderr
-  onboarderr:
-    image: python:3.10-slim
-    container_name: onboarderr
-    working_dir: /app
-    volumes:
-      - ${USERDIR}/docker/onboarderr:/app
-      - ${USERDIR}/docker/onboarderr/media:/media
-      - ./:/main
-      - ${SERVER1}/:/server1
-      - ${SERVER2}/:/server2
-      - ${SERVER3}/:/server3
-      - ${SERVER4}/:/server4
-    ports:
-      - "10000:10000"
-    command: >
-      sh -c "pip install --no-cache-dir -r requirements.txt && python app.py"
-    restart: unless-stopped 
       
 
 
