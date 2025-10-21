@@ -4,9 +4,6 @@ PANGOLIN_ENDPOINT=https://pangolin.*****.au
 CLOUDFLARE_EMAIL=*****@gmail.com
 CLOUDFLARE_DNS_API_TOKEN=*****
 SERVER_IP=192.168.1.10
-SMTP_HOST=smtp.mailgun.org
-SMTP_USERNAME=postmaster@*****.mailgun.org
-SMTP_PASSWORD=*****
 NEWT_ID=*****
 NEWT_SECRET=*****
 
