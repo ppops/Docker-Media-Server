@@ -665,7 +665,7 @@ services:
     container_name: maintainerr
     user: ${PUID}:${PGID}
     volumes:
-      - ${USERDIR}/maintainerr:/opt/data:rw
+      - ${USERDIR}/docker/maintainerr:/opt/data:rw
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
