@@ -654,6 +654,25 @@ services:
     volumes:
       - ${USERDIR}/docker/actual-budget:/data
     restart: unless-stopped
+
+
+
+
+
+# Maintainerr
+  maintainerr:
+    image: ghcr.io/jorenn92/maintainerr:latest # or jorenn92/maintainerr:latest
+    container_name: maintainerr
+    user: ${PUID}:${PGID}
+    volumes:
+      - ${USERDIR}/maintainerr:/opt/data:rw
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - "6246:6246"
+    restart: unless-stopped
       
 
 
