@@ -68,7 +68,7 @@ services:
       - ${SERVER3}/:/server3
       - ${SERVER4}/:/server4
     environment:
-      - "GLANCES_OPT=-C /glances/conf/glances.conf -w --password"
+      - "GLANCES_OPT=-C /glances/conf/glances.conf -w"
     pid: 'host'
     restart: always
 
