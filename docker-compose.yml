@@ -7,19 +7,6 @@ services:
 
 
 
-
-# Cloudflare Tunnel
-  tunnel:
-    container_name: cloudflared-tunnel
-    image: cloudflare/cloudflared
-    restart: always
-    command: tunnel run
-    environment:
-      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-
-
-
-
 # Watchtower
   watchtower:
     container_name: watchtower
@@ -505,6 +492,7 @@ services:
       - ${USERDIR}/docker/ownfoil:/app/config
     ports:
       - "8465:8465"
+    restart: unless-stopped
 
 
 
@@ -523,7 +511,7 @@ services:
     volumes:
       - ${USERDIR}/docker/threadfin/conf:/home/threadfin/conf
       - ${USERDIR}/docker/threadfin/temp:/tmp/threadfin:rw
-    restart: always
+    restart: unless-stopped
 
 
 
@@ -641,20 +629,6 @@ services:
 
 
 
-# Actual Server
-  actual-server:
-    image: actualbudget/actual-server:latest
-    container_name: actual-server
-    ports:
-      - "5006:5006"
-    volumes:
-      - ${USERDIR}/docker/actual-budget:/data
-    restart: unless-stopped
-
-
-
-
-
 # Maintainerr
   maintainerr:
     image: ghcr.io/jorenn92/maintainerr:latest # or jorenn92/maintainerr:latest
@@ -684,10 +658,15 @@ services:
     volumes:
       - ${USERDIR}/docker/homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
+      - ${SERVER1}/:/server1
+      - ${SERVER2}/:/server2
+      - ${SERVER3}/:/server3
+      - ${SERVER4}/:/server4
     environment:
       HOMEPAGE_ALLOWED_HOSTS: ${DOMAIN_NAME}
       PUID: ${PUID}
       PGID: ${PGID}
+    restart: unless-stopped
       
 
 
