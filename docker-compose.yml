@@ -72,9 +72,6 @@ services:
       - "GLANCES_OPT=-C /glances/conf/glances.conf -w --password"
     pid: 'host'
     restart: always
-    secrets:
-      - source: glances_password
-        target: /root/.config/glances/glances.pwd
 
 
 
