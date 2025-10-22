@@ -684,6 +684,7 @@ services:
     container_name: homepage
     ports:
       - 3000:3000
+    user: ${PUID}:${PGID}
     volumes:
       - ${USERDIR}/docker/homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
