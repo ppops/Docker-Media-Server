@@ -690,6 +690,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       HOMEPAGE_ALLOWED_HOSTS: ${DOMAIN_NAME}
+      PUID: ${PUID}
+      PGID: ${PGID}
       
 
 
