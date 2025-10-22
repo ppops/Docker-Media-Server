@@ -2,7 +2,6 @@
 #Reference: https://www.smarthomebeginner.com/traefik-reverse-proxy-tutorial-for-docker/
 #Requirement: Set environmental variables: USERDIR, PUID, PGID, MYSQL_ROOT_PASSWORD, and TZ as explained in the reference.
 
-version: "3.8"
 services:
 
 
