@@ -690,7 +690,7 @@ services:
       - ${USERDIR}/docker/adguardhome/conf:/opt/adguardhome/conf
     restart: unless-stopped
     networks:
-      - adguard-macvlan
+      - adguard_macvlan
 
 
 
