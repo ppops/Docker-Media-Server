@@ -691,7 +691,7 @@ services:
     restart: unless-stopped
     networks:
       adguard_macvlan:
-        ipv4_address: 192.168.1.200
+        ipv4_address: 192.168.1.250
 
 
 
@@ -708,7 +708,7 @@ networks:
       config:
         - subnet: 192.168.1.0/24
           gateway: 192.168.1.1
-          ip_range: 192.168.1.200/29
+          ip_range: 192.168.1.250/29
 
 secrets:
   glances_password:
