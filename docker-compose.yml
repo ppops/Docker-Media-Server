@@ -498,25 +498,6 @@ services:
 
 
 
-# Threadfin
-  threadfin:
-    image: fyb3roptik/threadfin
-    container_name: threadfin
-    ports:
-      - 34400:34400
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${USERDIR}/docker/threadfin/conf:/home/threadfin/conf
-      - ${USERDIR}/docker/threadfin/temp:/tmp/threadfin:rw
-    restart: unless-stopped
-
-
-
-
-
 # Home Assistant
   homeassistant:
     container_name: homeassistant
@@ -562,46 +543,6 @@ services:
     depends_on:
       - ollama
     restart: unless-stopped
-
-
-
-
-
-# n8n
-  n8n:
-    image: n8nio/n8n
-    container_name: n8n
-    restart: always
-    ports:
-      - "5678:5678"
-    environment:
-      - N8N_HOST=n8n.${DOMAIN_NAME}
-      - WEBHOOK_URL=https://n8n.${DOMAIN_NAME}/
-      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=https
-      - N8N_SECURE_COOKIE=true
-      - TZ=${TZ}
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=n8nPostgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=${N8N_POSTGRES_PASSWORD}
-    volumes:
-      - ${USERDIR}/docker/n8n:/home/node/.n8n
-    depends_on:
-      - n8nPostgres
-
-  n8nPostgres: # Example for PostgreSQL
-    image: postgres:15
-    container_name: n8n-postgres
-    restart: always
-    environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=${N8N_POSTGRES_PASSWORD}
-    volumes:
-      - ${USERDIR}/docker/n8nPostgres:/var/lib/postgresql/data
 
 
 
