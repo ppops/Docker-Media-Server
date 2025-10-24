@@ -667,7 +667,30 @@ services:
       PUID: ${PUID}
       PGID: ${PGID}
     restart: unless-stopped
-      
+
+
+
+
+
+# AdGuard Home
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 68:68/udp
+      - 68:68/tcp
+      - 3000:3000/tcp
+      - 80:80/tcp
+      - 443:443/tcp
+    volumes:
+      - ${USERDIR}/docker/adguardhome/work:/opt/adguardhome/work
+      - ${USERDIR}/docker/adguardhome/conf:/opt/adguardhome/conf
+    restart: unless-stopped
+    networks:
+      - adguard-macvlan
 
 
 
@@ -676,6 +699,15 @@ services:
 networks:
   default:
     driver: bridge
+  adguard_macvlan:
+    driver: macvlan
+    driver_opts:
+      parent: enp0s31f6
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
+          ip_range: 192.168.1.200/29
 
 secrets:
   glances_password:
