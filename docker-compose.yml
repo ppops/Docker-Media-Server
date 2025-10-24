@@ -719,7 +719,7 @@ services:
       POSTGRES_PASSWORD: ${VIKUNJA_DATABASE_PASSWORD}
       POSTGRES_USER: ${VIKUNJA_DATABASE_USER}
     volumes:
-      - ${USERDIR}/docker/vikunja/db:/var/lib/postgresql/data
+      - ${USERDIR}/docker/vikunja/db:/var/lib/postgresql
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -h localhost -U $$POSTGRES_USER"]
