@@ -690,7 +690,8 @@ services:
       - ${USERDIR}/docker/adguardhome/conf:/opt/adguardhome/conf
     restart: unless-stopped
     networks:
-      - adguard_macvlan
+      adguard_macvlan:
+        ipv4_address: 192.168.1.200
 
 
 
