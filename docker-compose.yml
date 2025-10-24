@@ -677,7 +677,7 @@ services:
     image: adguard/adguardhome
     container_name: adguardhome
     ports:
-      - 3000:3000/tcp
+      - 3001:3000/tcp
     volumes:
       - ${USERDIR}/docker/adguardhome/work:/opt/adguardhome/work
       - ${USERDIR}/docker/adguardhome/conf:/opt/adguardhome/conf
