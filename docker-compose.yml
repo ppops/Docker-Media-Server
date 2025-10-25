@@ -693,7 +693,7 @@ services:
     image: ghcr.io/nextcloud-releases/all-in-one:latest
     init: true
     restart: always
-    container_name: nextcloud
+    container_name: nextcloud-aio-mastercontainer
     volumes:
       - ${USERDIR}/docker/nextcloud:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
