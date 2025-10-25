@@ -1,0 +1,40 @@
+  #Reference: https://www.smarthomebeginner.com/docker-home-media-server-2018-basic
+#Reference: https://www.smarthomebeginner.com/traefik-reverse-proxy-tutorial-for-docker/
+#Requirement: Set environmental variables: USERDIR, PUID, PGID, MYSQL_ROOT_PASSWORD, and TZ as explained in the reference.
+
+services:
+
+# nextcloud
+  nextcloud-aio-mastercontainer:
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
+    init: true
+    restart: always
+    container_name: nextcloud-aio-mastercontainer
+    volumes:
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    network_mode: bridge
+    ports:
+      - 8082:8080
+    environment:
+      APACHE_PORT: 11000
+      APACHE_IP_BINDING: 127.0.0.1
+      NEXTCLOUD_DATADIR: ${SERVER3}/nextcloud
+      NEXTCLOUD_ENABLE_DRI_DEVICE: true
+
+
+
+
+volumes:
+  nextcloud_aio_mastercontainer:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${USERDIR}/docker/nextcloud
+
+
+
+networks:
+  default:
+    driver: bridge
