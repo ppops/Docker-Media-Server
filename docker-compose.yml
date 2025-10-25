@@ -464,7 +464,6 @@ services:
     restart: always
     container_name: kometa
     environment:
-      - KOMETA_RUN=true
       - KOMETA_CONFIG=/config/config.yml
       - KOMETA_OVERLAYS_ONLY=true
       - KOMETA_TIMES=01:00,07:00,10:00,12:00,16:00,18:30,21:00
