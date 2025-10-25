@@ -522,7 +522,6 @@ services:
       - "11434:11434"
     volumes:
       - ${USERDIR}/docker/ollama:/root/.ollama
-    environment:
     restart: unless-stopped
 
 
