@@ -688,36 +688,6 @@ services:
 
 
 
-# nextcloud
-  nextcloud-aio-mastercontainer:
-    image: ghcr.io/nextcloud-releases/all-in-one:latest
-    init: true
-    restart: always
-    container_name: nextcloud-aio-mastercontainer
-    network_mode: bridge
-    ports:
-      - 8082:8080
-    volumes:
-      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ${USERDIR}/docker/nextcloud:/mnt/docker-aio-config/nextcloud
-    environment:
-      PUID: ${PUID}
-      PGID: ${PGID}
-      TZ: ${TZ}
-      APACHE_PORT: 8080
-      APACHE_IP_BINDING: 0.0.0.0
-      NEXTCLOUD_DATADIR: /mnt/docker-aio-config/nextcloud
-      NEXTCLOUD_ENABLE_DRI_DEVICE: true
-  
-volumes:
-  nextcloud_aio_mastercontainer:
-    name: nextcloud_aio_mastercontainer
-
-
-
-
-
 networks:
   default:
     driver: bridge
