@@ -532,7 +532,7 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     container_name: webui
     ports:
-      - "8080:8080"
+      - "8086:8080"
     volumes:
       - ${USERDIR}/docker/open-webui:/app/backend/data
     extra_hosts:
