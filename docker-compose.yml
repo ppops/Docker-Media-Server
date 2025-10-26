@@ -688,7 +688,7 @@ services:
 
 
 
-# Nextcloud
+services:
   nextcloud-aio-mastercontainer:
     image: ghcr.io/nextcloud-releases/all-in-one:latest
     container_name: nextcloud-aio-mastercontainer
@@ -704,9 +704,8 @@ services:
     environment:
       - APACHE_PORT=8080
       - APACHE_IP_BINDING=0.0.0.0
-      - NEXTCLOUD_DATADIR=/mnt/docker-aio-config/nextcloud
+      - NEXTCLOUD_DATADIR=/mnt/nextcloud_data
       - NEXTCLOUD_ENABLE_DRI_DEVICE=true
-      - NEXTCLOUD_MOUNT=/mnt/docker-aio-config
       - SKIP_DOMAIN_VALIDATION=true
 
 volumes:
