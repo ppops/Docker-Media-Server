@@ -696,7 +696,7 @@ services:
     restart: always
     network_mode: bridge
     ports:
-      - 8082:8080
+      - 8080:8080
     volumes:
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
