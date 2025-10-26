@@ -706,7 +706,6 @@ services:
       - APACHE_IP_BINDING=0.0.0.0
       - NEXTCLOUD_DATADIR=/mnt/nextcloud_data
       - NEXTCLOUD_ENABLE_DRI_DEVICE=true
-      - SKIP_DOMAIN_VALIDATION=true
       - AIO_PASS=${AIO_PASS}
 
 volumes:
