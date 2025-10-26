@@ -710,8 +710,8 @@ services:
       NEXTCLOUD_DATADIR: /mnt/docker-aio-config/nextcloud
       NEXTCLOUD_ENABLE_DRI_DEVICE: true
   
-  volumes:
-    nextcloud_aio_mastercontainer:
+volumes:
+  nextcloud_aio_mastercontainer:
 
 
 
