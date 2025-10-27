@@ -683,6 +683,7 @@ services:
       - DISPATCHARR_LOG_LEVEL=info
     devices:
      - /dev/dri:/dev/dri
+    restart: unless-stopped
 
 
 
