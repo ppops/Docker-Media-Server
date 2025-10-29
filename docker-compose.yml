@@ -707,7 +707,7 @@ services:
         limits:
           memory: 1000M
     volumes:
-      - mealie-data:/app/data/
+      - ${USERDIR}/docker/mealie/:/app/data/
     environment:
       ALLOW_SIGNUP: "false"
       PUID: ${PUID}
