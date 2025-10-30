@@ -719,6 +719,8 @@ services:
       SMTP_FROM_EMAIL: ${SMTP_FROM}
       SMTP_USER: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
+      OPENAI_BASE_URL: http://${SERVER_IP}:11434
+      OPENAI_MODEL: gemma3:12b
       
 
 
