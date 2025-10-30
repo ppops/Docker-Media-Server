@@ -719,6 +719,23 @@ services:
       SMTP_FROM_EMAIL: ${SMTP_FROM}
       SMTP_USER: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
+
+
+
+
+
+# Glance
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/glance/config:/app/config
+      - ${USERDIR}/docker/glance/assets:/app/assets
+      - "/etc/localtime:/etc/localtime:ro"
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8088:8080
       
 
 
