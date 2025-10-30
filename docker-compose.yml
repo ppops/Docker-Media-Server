@@ -734,6 +734,7 @@ services:
       - ${USERDIR}/docker/glance/assets:/app/assets
       - "/etc/localtime:/etc/localtime:ro"
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${SERVER1}/:/mnt/Server1
     ports:
       - 8088:8080
       
