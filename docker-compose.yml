@@ -722,6 +722,10 @@ services:
       OPENAI_BASE_URL: http://${SERVER_IP}:11434/v1
       OPENAI_MODEL: gemma3:12b
       OPENAI_API_KEY: xxx
+      OPENAI_ENABLE_IMAGE_SERVICES: false
+      OPENAI_SEND_DATABASE_DATA: false
+      OPENAI_WORKERS: 1
+      OPENAI_REQUEST_TIMEOUT: 240
       
 
 
