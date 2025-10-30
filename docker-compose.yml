@@ -735,6 +735,10 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${SERVER1}/:/mnt/Server1
+      - ${SERVER2}/:/mnt/Server2
+      - ${SERVER3}/:/mnt/Server3
+      - ${SERVER4}/:/mnt/Server4
+      - ${USERDIR}/:/mnt/
     ports:
       - 8088:8080
       
