@@ -525,6 +525,7 @@ services:
       - /dev/dri:/dev/dri
     environment:
       - OLLAMA_GPU_DEVICE=/dev/dri/renderD128
+      - OLLAMA_INTEL_GPU=true
     restart: unless-stopped
 
 
