@@ -521,6 +521,10 @@ services:
       - "11434:11434"
     volumes:
       - ${USERDIR}/docker/ollama:/root/.ollama
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - OLLAMA_GPU_DEVICE=/dev/dri/renderD128
     restart: unless-stopped
 
 
