@@ -438,6 +438,7 @@ services:
     container_name: vaultwarden-backup
     restart: always
     init: true
+    user: "0:0"
     depends_on:
       - vaultwarden
     volumes:
@@ -453,8 +454,8 @@ services:
       - TIMESTAMP=true
       - CRON_TIME=0 */4 * * *
       - TZ=${TZ}
-      - UID=${PUID}
-      - GID=${PGID}
+      # - UID=${PUID}
+      # - GID=${PGID}
       - BACKUP_DIR=/backup
       - BACKUP_DIR_PERMISSIONS=777
       - DELETE_AFTER=7
