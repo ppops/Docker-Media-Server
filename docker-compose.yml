@@ -716,6 +716,23 @@ services:
       OPENAI_REQUEST_TIMEOUT: 240
       THEME_DARK_PRIMARY: "#6325E5"
       THEME_DARK_SECONDARY: "#BE479D"
+
+
+
+
+
+# Gotify  
+  gotify:
+    image: gotify/server
+    ports:
+      - 8087:80
+    environment:
+      GOTIFY_DEFAULTUSER_NAME: ${GOTIFY_USERNAME}
+      GOTIFY_DEFAULTUSER_PASS: ${GOTIFY_PASSWORD}
+      TZ: ${TZ}
+    volumes:
+      - ${USERDIR}/docker/gotify:/app/data'
+    restart: unless-stopped
       
 
 
