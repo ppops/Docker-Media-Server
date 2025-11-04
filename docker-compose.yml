@@ -752,6 +752,10 @@ services:
       - "8681:8080"
     volumes:
       - ${USERDIR}/docker/gotify:/app/data
+    environment:
+      GOTIFY_URLS: 'http://${SERVER_IP}:8087'
+      GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
+      #SECNTFY_TOKENS:       ''
       
 
 
