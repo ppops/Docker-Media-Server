@@ -753,12 +753,37 @@ services:
     ports:
       - "8681:8080"
     volumes:
-      - ${USERDIR}/docker/gotify:/app/data
+      - ${USERDIR}/docker/igotify:/app/data
     environment:
       GOTIFY_URLS: 'http://gotify:8087'
       GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
-      #SECNTFY_TOKENS:       ''
       TZ: ${TZ}
+
+
+
+
+
+# Scrutiny 
+  scrutiny:
+    restart: unless-stopped
+    container_name: scrutiny
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    cap_add:
+      - SYS_RAWIO
+      - SYS_ADMIN
+    ports:
+      - "8077:8080" # webapp
+      - "8078:8086" # influxDB admin
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ${USERDIR}/docker/scrutiny/config:/opt/scrutiny/config
+      - ${USERDIR}/docker/scrutiny/influxdb:/opt/scrutiny/influxdb
+    devices:
+      - "/dev/nvme0n1"
+      - "/dev/sda"
+      - "/dev/sdb"
+      - "/dev/sdc"
+      - "/dev/sdd"
 
 
 
