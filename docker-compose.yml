@@ -734,6 +734,24 @@ services:
     volumes:
       - ${USERDIR}/docker/gotify:/app/data
     restart: unless-stopped
+
+  igotify:
+    container_name: igotify
+    hostname: igotify
+    image: ghcr.io/androidseb25/igotify-notification-assist:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    pull_policy: always
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://${SERVER_IP}:8087/Version" ]
+      interval: "3s"
+      timeout: "3s"
+      retries: 5
+    ports:
+      - "8681:8080"
+    volumes:
+      - ${USERDIR}/docker/gotify:/app/data
       
 
 
