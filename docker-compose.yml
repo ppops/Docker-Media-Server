@@ -732,7 +732,7 @@ services:
       GOTIFY_DEFAULTUSER_PASS: ${GOTIFY_PASSWORD}
       TZ: ${TZ}
     volumes:
-      - ${USERDIR}/docker/gotify:/app/data'
+      - ${USERDIR}/docker/gotify:/app/data
     restart: unless-stopped
       
 
