@@ -758,7 +758,8 @@ services:
       GOTIFY_URLS: 'http://${SERVER_IP}:8087'
       GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
       #SECNTFY_TOKENS:       ''
-      
+      POLLING_INTERVAL: '3'
+      TZ: ${TZ}
 
 
 
