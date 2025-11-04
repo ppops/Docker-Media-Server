@@ -779,7 +779,7 @@ services:
       - ${USERDIR}/docker/scrutiny/config:/opt/scrutiny/config
       - ${USERDIR}/docker/scrutiny/influxdb:/opt/scrutiny/influxdb
     devices:
-      - "/dev/nvme0n1"
+      - "/dev/nvme0"
       - "/dev/sda"
       - "/dev/sdb"
       - "/dev/sdc"
