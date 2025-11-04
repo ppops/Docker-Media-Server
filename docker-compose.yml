@@ -744,7 +744,7 @@ services:
       - no-new-privileges:true
     pull_policy: always
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://${SERVER_IP}:8087/Version" ]
+      test: [ "CMD", "curl", "-f", "http://${SERVER_IP}:8681/Version" ]
       interval: "3s"
       timeout: "3s"
       retries: 5
