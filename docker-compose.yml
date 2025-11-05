@@ -17,7 +17,7 @@ services:
     command: --schedule "0 0 4 * * *" --cleanup
     environment:
       - WATCHTOWER_NOTIFICATIONS=gotify
-      - WATCHTOWER_NOTIFICATION_GOTIFY_URL="https://gotify.${DOMAIN_NAME}/"
+      - WATCHTOWER_NOTIFICATION_GOTIFY_URL=https://gotify.${DOMAIN_NAME}
       - WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN=${GOTIFY_TOKEN_WATCHTOWER}
 
 
