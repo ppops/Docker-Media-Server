@@ -799,7 +799,7 @@ services:
       - ${SERVER3}/immich-backup:/backups # Local backup storage
       - ${SERVER3}/immich/backups:/source # Source directory for files to backup
     ports:
-      - 8200:8200
+      - 8219:8200
     restart: unless-stopped
 
 
