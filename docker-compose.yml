@@ -146,7 +146,7 @@ services:
       - ${USERDIR}/docker/radarr4k:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
-      - ${SERVER4}/4K:/4K
+      - ${SERVER3}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
@@ -171,7 +171,7 @@ services:
       - ${USERDIR}/docker/sonarr:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER4}/4K:/4K
+      - ${SERVER3}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
@@ -195,7 +195,7 @@ services:
       - ${USERDIR}/docker/sonarr4k:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER4}/4K:/4K
+      - ${SERVER3}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
