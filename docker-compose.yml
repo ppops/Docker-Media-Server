@@ -783,6 +783,28 @@ services:
 
 
 
+
+# Duplicati
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      DUPLICATI__WEBSERVICE_PASSWORD: ${DUPLICATI__WEBSERVICE_PASSWORD}
+      SETTINGS_ENCRYPTION_KEY: ${DUPLICATI__SETTINGS_ENCRYPTION_KEY}
+    volumes:
+      - ${USERDIR}/docker/duplicati/config:/config # Persistent configuration files
+      - ${SERVER3}/immich-backup:/backups # Local backup storage
+      - ${SERVER3}/immich/backups:/source # Source directory for files to backup
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+
+
+
 networks:
   default:
     driver: bridge
