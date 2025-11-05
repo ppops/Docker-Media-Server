@@ -789,7 +789,7 @@ services:
     image: garethgeorge/backrest:latest
     container_name: backrest
     ports:
-      - "8099:9898"
+      - "9898:9898"
     volumes:
       - ${USERDIR}/docker/backrest/data:/app/data # Persistent storage for Backrest configuration and data
       - ${SERVER3}/immich/backups:/data # Mount the data you want to back up
