@@ -796,8 +796,12 @@ services:
       SETTINGS_ENCRYPTION_KEY: ${DUPLICATI__SETTINGS_ENCRYPTION_KEY}
     volumes:
       - ${USERDIR}/docker/duplicati/config:/config # Persistent configuration files
-      - ${SERVER3}/immich-backup:/backups # Local backup storage
-      - ${SERVER3}/immich/backups:/source # Source directory for files to backup
+      - ${SERVER3}/backups:/backups
+      - ${SERVER1}/:/source/server1
+      - ${SERVER2}/:/source/server2
+      - ${SERVER3}/:/source/server3
+      - ${SERVER4}/:/source/server4
+      - ${USERDIR}/:/source/userDir
     ports:
       - 8219:8200
     restart: unless-stopped
