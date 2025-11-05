@@ -121,7 +121,7 @@ services:
       - ${USERDIR}/docker/radarr:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
-      - ${SERVER4}/4K:/4K
+      - ${SERVER3}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
       - ${DATA}/:/data
