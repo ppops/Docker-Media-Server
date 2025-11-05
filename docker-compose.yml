@@ -783,25 +783,6 @@ services:
 
 
 
-
-# Backrest 
-  backrest:
-    image: garethgeorge/backrest:latest
-    container_name: backrest
-    ports:
-      - "9898:9898"
-    volumes:
-      - ${USERDIR}/docker/backrest/data:/app/data # Persistent storage for Backrest configuration and data
-      - ${SERVER3}/immich/backups:/data # Mount the data you want to back up
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - BACKREST_PASSWORD=${BACKREST_PASSWORD}
-
-
-
-
 networks:
   default:
     driver: bridge
