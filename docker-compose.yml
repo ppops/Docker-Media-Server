@@ -750,8 +750,8 @@ services:
     volumes:
       - ${USERDIR}/docker/igotify:/app/data
     environment:
-      # GOTIFY_URLS: 'http://gotify:8087'
-      # GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
+      GOTIFY_URLS: 'http://gotify:80'
+      GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
       TZ: ${TZ}
 
 
