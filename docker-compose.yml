@@ -752,6 +752,7 @@ services:
     environment:
       GOTIFY_URLS: 'http://gotify:80'
       GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
+      SECNTFY_TOKENS: ${GOTIFY_SECNTFY_TOKEN}
       TZ: ${TZ}
 
 
