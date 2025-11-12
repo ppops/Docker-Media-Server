@@ -810,6 +810,29 @@ services:
 
 
 
+
+# Tududi
+  tududi:
+    image: chrisvel/tududi:latest
+    container_name: tududi
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      - TUDUDI_USER_EMAIL=${TUDUDI_USER_EMAIL}
+      - TUDUDI_USER_PASSWORD=${TUDUDI_USER_PASSWORD}
+      - TUDUDI_SESSION_SECRET=${TUDUDI_SESSION_SECRET}
+      - TUDUDI_ALLOWED_ORIGINS=https://tududi.${DOMAIN_NAME}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${USERDIR}/docker/tududi/db:/app/backend/db
+      - ${USERDIR}/docker/tududi/uploads:/app/backend/uploads
+
+
+
+
 networks:
   default:
     driver: bridge
