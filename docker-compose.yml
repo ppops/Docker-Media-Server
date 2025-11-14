@@ -11,7 +11,7 @@ services:
   watchtower:
     container_name: watchtower
     restart: always
-    image: containrrr/watchtower
+    image: nickfedor/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --schedule "0 0 4 * * *" --cleanup
