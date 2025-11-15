@@ -834,6 +834,7 @@ services:
 # Navidrome
   navidrome:
     image: deluan/navidrome:latest
+    container_name: navidrome
     user: ${PUID}:${PGID}
     ports:
       - "4533:4533"
