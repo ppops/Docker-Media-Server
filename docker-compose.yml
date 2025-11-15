@@ -813,7 +813,6 @@ services:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
     environment:
-      - PUID=
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
