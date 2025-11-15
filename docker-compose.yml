@@ -809,6 +809,9 @@ services:
 
 
 
+
+
+# Lidarr
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
@@ -823,6 +826,21 @@ services:
     ports:
       - 8686:8686
     restart: unless-stopped
+
+
+
+
+
+# Navidrome
+  navidrome:
+    image: deluan/navidrome:latest
+    user: ${PUID}:${PGID}
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/navidrome:/data
+      - ${SERVER3}/music:/music:ro
 
 
 
