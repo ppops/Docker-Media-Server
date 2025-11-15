@@ -809,6 +809,26 @@ services:
 
 
 
+lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${USERDIR}/docker/lidarr/config:/config
+      - ${SERVER3}/music:/music
+      - ${USERDIR}/Downloads/complete:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+
+
+
+
+
 
 networks:
   default:
