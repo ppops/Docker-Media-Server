@@ -863,6 +863,8 @@ services:
     volumes:
       - ${USERDIR}/docker/navidrome:/data
       - ${SERVER3}/music:/music:ro
+    environment:
+      - ND_SCANNER_PURGEMISSING=always
 
 
 
