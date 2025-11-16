@@ -108,6 +108,8 @@ services:
       - TZ=${TZ}
       - USER=${TRANSMISSION_USERNAME}
       - PASS=${TRANSMISSION_PASSWORD}
+    networks:
+      - media_bridge
 
 
 
@@ -133,6 +135,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
+    networks:
+      - media_bridge
 
 
 
@@ -158,6 +162,8 @@ services:
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
       - TP_ADDON=radarr-4k-logo
+    networks:
+      - media_bridge
 
 
 
@@ -182,6 +188,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
+    networks:
+      - media_bridge
 
 
 
@@ -207,6 +215,8 @@ services:
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
       - TP_ADDON=sonarr-4k-logo
+    networks:
+      - media_bridge
 
 
 
@@ -227,6 +237,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - DOCKER_MODS=ghcr.io/gilbn/theme.park:prowlarr
+    networks:
+      - media_bridge
 
 
 
@@ -325,6 +337,8 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+    networks:
+      - media_bridge
 
 
 
@@ -347,6 +361,8 @@ services:
       - PGID=${PGID}
       - UMASK_SET=002
       - TZ=${TZ}
+    networks:
+      - media_bridge
       
       
       
@@ -357,7 +373,8 @@ services:
     container_name: tdarr
     image: haveagitgat/tdarr:latest
     restart: always
-    network_mode: bridge
+    networks:
+      - media_bridge
     volumes:
       - ${USERDIR}/docker/tdarr/server:/app/server
       - ${USERDIR}/docker/tdarr/configs:/app/configs
@@ -588,6 +605,8 @@ services:
     ports:
       - "6246:6246"
     restart: unless-stopped
+    networks:
+      - media_bridge
 
 
 
@@ -826,6 +845,8 @@ services:
     ports:
       - 8686:8686
     restart: unless-stopped
+    networks:
+      - media_bridge
 
 
 
@@ -852,6 +873,8 @@ networks:
   default:
     driver: bridge
   adguard_bridge:
+    driver: bridge
+  media_bridge:
     driver: bridge
 
 secrets:
