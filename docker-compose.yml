@@ -877,7 +877,7 @@ services:
     restart: unless-stopped
     volumes:
       - ${USERDIR}/docker/soulseek:/data/.SoulseekQt
-      - ${USERDIR}/Downloads/complete:/data/Soulseek Downloads
+      - ${USERDIR}/Downloads:/data/Soulseek Downloads
       - ${USERDIR}/docker/soulseek/logs:/data/Soulseek Chat Logs
       - ${SERVER3}/music:/data/Soulseek Shared Folder
     environment:
