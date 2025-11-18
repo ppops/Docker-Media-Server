@@ -870,29 +870,6 @@ services:
 
 
 
-# Soulseek
-  soulseek:
-    image: realies/soulseek
-    container_name: soulseek
-    restart: unless-stopped
-    volumes:
-      - ${USERDIR}/docker/soulseek:/data/.SoulseekQt
-      - ${USERDIR}/Downloads:/data/Soulseek Downloads
-      - ${USERDIR}/docker/soulseek/logs:/data/Soulseek Chat Logs
-      - ${SERVER3}/music:/data/Soulseek Shared Folder
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    ports:
-      - 6080:6080
-      - 61122:61122
-      - 61123:61123
-
-
-
-
-
 
 networks:
   default:
