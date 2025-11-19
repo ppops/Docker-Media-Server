@@ -865,6 +865,7 @@ services:
       - ${SERVER3}/music:/music:ro
     environment:
       - ND_SCANNER_PURGEMISSING=always
+      - ND_LASTFM_ENABLED=true
       - ND_LASTFM_APIKEY=${ND_LASTFM_APIKEY}
       - ND_LASTFM_SECRET=${ND_LASTFM_SECRET}
 
