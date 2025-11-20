@@ -110,6 +110,7 @@ services:
       - PASS=${TRANSMISSION_PASSWORD}
     networks:
       - media_bridge
+    profiles: ["manual"]
 
 
 
