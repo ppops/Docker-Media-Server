@@ -873,6 +873,24 @@ services:
 
 
 
+# Metadata Remote
+  metadata-remote:
+    image: ghcr.io/wow-signal-dev/metadata-remote:latest
+    container_name: metadata-remote
+    ports:
+      - "8338:8338"
+    volumes:
+      - ${SERVER3}/music:/music
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    restart: unless-stopped
+
+
+
+
+
 
 networks:
   default:
