@@ -891,6 +891,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     restart: unless-stopped
+    profiles: ["manual"]
 
 
 
