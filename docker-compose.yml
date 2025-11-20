@@ -298,6 +298,7 @@ services:
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128 
       - /dev/dri/card1:/dev/dri/card1
+    profiles: ["manual"]
 
 
 
@@ -517,6 +518,7 @@ services:
     ports:
       - "8465:8465"
     restart: unless-stopped
+    profiles: ["manual"]
 
 
 
@@ -547,6 +549,7 @@ services:
     volumes:
       - ${USERDIR}/docker/ollama:/root/.ollama
     restart: unless-stopped
+    profiles: ["manual"]
 
 
 
@@ -565,6 +568,7 @@ services:
     depends_on:
       - ollama
     restart: unless-stopped
+    profiles: ["manual"]
 
 
 
