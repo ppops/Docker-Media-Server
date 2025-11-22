@@ -902,7 +902,7 @@ services:
     image: nextcloud:latest
     container_name: nextcloud
     ports:
-      - 8080:80
+      - 8088:80
     environment:
       MYSQL_HOST: db
       MYSQL_DATABASE: nextcloud
