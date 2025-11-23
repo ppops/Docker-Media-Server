@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   nextcloud-aio-mastercontainer:
     image: nextcloud/all-in-one:latest
@@ -17,11 +19,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     shm_size: 512m
 
-
 volumes:
-  nextcloud_aio_mastercontainer:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ${USERDIR}/docker/nextcloud/config
+  nextcloud_aio_mastercontainer: {}
