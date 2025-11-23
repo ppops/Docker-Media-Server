@@ -926,6 +926,8 @@ services:
     ports:
       - "8080:80"
     environment:
+      SEAFILE_ADMIN_EMAIL: ${SEAFILE_ADMIN_EMAIL}
+      SEAFILE_ADMIN_PASSWORD: ${SEAFILE_ADMIN_PASSWORD}
       DB_HOST: db
       DB_ROOT_PASSWD: ${SEAFILE_MYSQL_ROOT_PASSWORD}
       TIME_ZONE: ${TZ}
