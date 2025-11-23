@@ -16,6 +16,7 @@ services:
     volumes:
       - ${USERDIR}/docker/nextcloud/config:/mnt/docker-aio-config
       - ${USERDIR}/docker/nextcloud/data:/mnt/data
+      - /var/run/docker.sock:/var/run/docker.sock
     shm_size: 512m
 
 volumes:
