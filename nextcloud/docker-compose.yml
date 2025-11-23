@@ -6,7 +6,7 @@ services:
     container_name: nextcloud-aio-mastercontainer
     restart: unless-stopped
     ports:
-      - 8080:8080   # Nextcloud web interface
+      - 8080:8080
     environment:
       APACHE_DISABLE_REWRITE: "false"
       NEXTCLOUD_ADMIN_USER: ${NEXTCLOUD_ADMIN_USER}
@@ -14,11 +14,15 @@ services:
       NEXTCLOUD_DATA_DIR: "/mnt/data"
       TZ: ${TZ}
     volumes:
-      - ${USERDIR}/docker/nextcloud/config:/mnt/docker-aio-config
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config   # must match this exact volume name
       - ${USERDIR}/docker/nextcloud/data:/mnt/data
       - /var/run/docker.sock:/var/run/docker.sock
     shm_size: 512m
 
 volumes:
   nextcloud_aio_mastercontainer:
-  nextcloud_aio_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${USERDIR}/docker/nextcloud/config   # bind the named volume to your host folder
