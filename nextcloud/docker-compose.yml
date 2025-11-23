@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  nextcloud-aio-mastercontainer:
+    image: nextcloud/all-in-one:latest
+    container_name: nextcloud-aio-mastercontainer
+    restart: unless-stopped
+    ports:
+      - 8080:8080   # Nextcloud web interface
+    environment:
+      APACHE_DISABLE_REWRITE: "false"
+      NEXTCLOUD_ADMIN_USER: ${NEXTCLOUD_ADMIN_USER}
+      NEXTCLOUD_ADMIN_PASSWORD: ${NEXTCLOUD_ADMIN_USER}
+      NEXTCLOUD_DATA_DIR: "/mnt/data"
+      TZ: ${TZ}
+    volumes:
+      - ${USERDIR}/docker/nextcloud/config:/mnt/docker-aio-config
+      - ${USERDIR}/docker/nextcloud/data:/mnt/data
+    shm_size: 512m
+
+volumes:
+  nextcloud_aio_mastercontainer:
+  nextcloud_aio_data:
