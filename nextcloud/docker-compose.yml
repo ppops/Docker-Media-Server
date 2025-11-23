@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   nextcloud-aio-mastercontainer:
     image: nextcloud/all-in-one:latest
