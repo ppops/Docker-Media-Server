@@ -897,6 +897,62 @@ services:
 
 
 
+
+
+
+
+
+# Seafile
+  db:
+    image: mariadb:10.11
+    container_name: seafile-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SEAFILE_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: seafile
+      MYSQL_USER: ${SEAFILE_MYSQL_USER}
+      MYSQL_PASSWORD: ${SEAFILE_MYSQL_PASSWORD}
+    volumes:
+      - ${USERDIR}/docker/seafile/db:/var/lib/mysql
+    restart: unless-stopped
+
+  memcached:
+    image: memcached:1.6
+    container_name: seafile-memcached
+    restart: unless-stopped
+
+  seafile:
+    image: seafileltd/seafile-mc:latest
+    container_name: seafile
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_ROOT_PASSWD: ${SEAFILE_MYSQL_ROOT_PASSWORD}
+      TIME_ZONE: ${TZ}
+      SEAFILE_SERVER_LETSENCRYPT: false
+      SEAFILE_SERVER_HOSTNAME: seafile.${DOMAIN_NAME}
+    volumes:
+      - ${USERDIR}/docker/seafile/seafile-data:/shared
+    depends_on:
+      - db
+      - memcached
+    restart: unless-stopped
+
+  onlyoffice:
+    image: onlyoffice/documentserver
+    container_name: seafile-docs
+    ports:
+      - "8082:80"
+    environment:
+      JWT_ENABLED: "false"
+    volumes:
+      - ${USERDIR}/docker/seafile/onlyoffice:/var/www/onlyoffice/Data
+    restart: unless-stopped
+
+
+
+
+
 networks:
   default:
     driver: bridge
