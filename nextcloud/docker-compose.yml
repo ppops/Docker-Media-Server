@@ -12,10 +12,11 @@ services:
       NEXTCLOUD_DATA_DIR: "/mnt/data"
       TZ: ${TZ}
     volumes:
-      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config   # must match this exact volume name
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - ${USERDIR}/docker/nextcloud/data:/mnt/data
       - /var/run/docker.sock:/var/run/docker.sock
     shm_size: 512m
+
 
 volumes:
   nextcloud_aio_mastercontainer:
@@ -23,4 +24,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ${USERDIR}/docker/nextcloud/config   # bind the named volume to your host folder
+      device: ${USERDIR}/docker/nextcloud/config
