@@ -61,6 +61,7 @@ services:
       - ${USERDIR}/docker/shared:/shared
     environment:
       - TZ=${TZ}
+    profiles: ["manual"]
 
 
 
