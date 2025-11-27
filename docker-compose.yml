@@ -614,6 +614,7 @@ services:
       - TZ=${TZ}
     tmpfs:
       - /tmp
+    profiles: ["manual"]
 
 
 
