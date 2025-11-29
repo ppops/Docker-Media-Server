@@ -67,7 +67,7 @@ services:
         --o:welcome.enable=false \
         --o:net.frame_ancestors=${OC_DOMAIN:-cloud.opencloud.test} \
         --o:net.lok_allow.host[14]=${OC_DOMAIN-cloud.opencloud.test} \
-        --o:home_mode.enable=${COLLABORA_HOME_MODE:-false}
+        --o:home_mode.enable=${COLLABORA_HOME_MODE:-false} \
         --o:logging.disable_server_audit=true
       username: ${COLLABORA_ADMIN_USER:-admin}
       password: ${COLLABORA_ADMIN_PASSWORD:-admin}
