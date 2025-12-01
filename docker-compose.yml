@@ -937,6 +937,25 @@ services:
 
 
 
+# Music Assistant
+  music-assistant-server:
+    image: ghcr.io/music-assistant/server:latest
+    container_name: music-assistant
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ${USERDIR}/docker/music-assistant/data:/data/
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - LOG_LEVEL=info
+
+
+
+
 networks:
   default:
     driver: bridge
