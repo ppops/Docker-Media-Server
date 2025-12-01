@@ -924,6 +924,19 @@ services:
 
 
 
+# iSponsorBlockTV
+  iSponsorBlockTV:
+    image: ghcr.io/dmunozv04/isponsorblocktv
+    container_name: iSponsorBlockTV
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ${USERDIR}/docker/isponsorblocktv:/app/data
+
+
+
+
+
 networks:
   default:
     driver: bridge
