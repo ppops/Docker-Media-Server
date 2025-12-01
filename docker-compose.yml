@@ -946,12 +946,12 @@ services:
     volumes:
       - ${USERDIR}/docker/music-assistant/data:/data/
     cap_add:
-      - SYS_ADMIN
       - DAC_READ_SEARCH
     security_opt:
-      - apparmor:unconfined
+      - no-new-privileges:true
     environment:
       - LOG_LEVEL=info
+      - MASS_STREAM_PORT=8095
 
 
 
