@@ -944,9 +944,8 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ${USERDIR}/docker/music-assistant/data:/data/
-    cap_add:
-      - DAC_READ_SEARCH
+      - ${USERDIR}/docker/music-assistant/data:/data
+    user: "${PUID}:${PGID}"
     security_opt:
       - no-new-privileges:true
     environment:
