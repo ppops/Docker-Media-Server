@@ -802,8 +802,8 @@ services:
       - ${USERDIR}/docker/igotify:/app/data
     environment:
       GOTIFY_URLS: 'http://gotify:80'
-      GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENT_TOKEN}
-      SECNTFY_TOKENS: ${GOTIFY_SECNTFY_TOKEN}
+      GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENTS}
+      SECNTFY_TOKENS: ${NTFY_TOKENS}
       TZ: ${TZ}
 
 
