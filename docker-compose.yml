@@ -955,6 +955,51 @@ services:
 
 
 
+
+# Paperless-ngx
+  paperless-redis:
+    image: docker.io/library/redis:8
+    container_name: paperless-redis
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/paperless-redis:/data
+
+  paperless-db:
+    image: docker.io/library/postgres:18
+    restart: unless-stopped
+    volumes:
+      - ${USERDIR}/docker/paperless-db:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: ${PAPERLESS_POSTGRES_DB}
+      POSTGRES_USER: ${PAPERLESS_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${PAPERLESS_POSTGRES_PASSWORD}
+
+  webserver:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    depends_on:
+      - paperless-db
+      - paperless-redis
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${USERDIR}/docker/paperless-ngx:/usr/src/paperless/data
+      - ${USERDIR}/docker/paperless-media:/usr/src/paperless/media
+      - ${USERDIR}/docker/paperless-export:/usr/src/paperless/export
+      - ${USERDIR}/docker/paperless-consume:/usr/src/paperless/consume
+    environment:
+      PAPERLESS_REDIS: redis://paperless-redis:6379
+      PAPERLESS_DBHOST: paperless-db
+      USERMAP_UID: ${PUID}
+      USERMAP_GID: ${PGID}
+      PAPERLESS_URL: https://paperless.${DOMAIN_NAME}
+      PAPERLESS_SECRET_KEY: ${PAPERLESS_SECRET_KEY}
+      PAPERLESS_TIME_ZONE: ${TZ}
+      PAPERLESS_OCR_LANGUAGE: eng
+
+
+
+
 networks:
   default:
     driver: bridge
