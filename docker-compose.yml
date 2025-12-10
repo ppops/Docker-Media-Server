@@ -801,7 +801,7 @@ services:
     volumes:
       - ${USERDIR}/docker/igotify:/app/data
     environment:
-      GOTIFY_URLS: 'https://gotify.${SERVER_NAME}'
+      GOTIFY_URLS: 'https://gotify.${DOMAIN_NAME}'
       GOTIFY_CLIENT_TOKENS: ${GOTIFY_CLIENTS}
       SECNTFY_TOKENS: ${NTFY_TOKENS}
       TZ: ${TZ}
