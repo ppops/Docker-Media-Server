@@ -1018,7 +1018,7 @@ services:
         max-file: "5"
         max-size: "10m"
     environment:
-      POSTGRES_USER: ${JELLYSTAT_POSTGRES_DB}
+      POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
       POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
     volumes:
       - ${USERDIR}/docker/jellystat-db:/var/lib/postgresql/data
