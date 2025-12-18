@@ -611,6 +611,7 @@ services:
     volumes:
       - ${USERDIR}/docker/ytptube:/config:rw
       - ${SERVER1}/youtube-videos:/downloads:rw
+      - ${SERVER1}/youtube-videos-temp:/tmp:rw
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
