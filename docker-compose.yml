@@ -616,8 +616,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    tmpfs:
-      - /tmp
     profiles: ["manual"]
 
 
