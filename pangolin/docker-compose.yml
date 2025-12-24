@@ -65,6 +65,8 @@ services:
       - NEWT_ID=${NEWT_ID}
       - NEWT_SECRET=${NEWT_SECRET}
       - ACCEPT_CLIENTS=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
   default:
