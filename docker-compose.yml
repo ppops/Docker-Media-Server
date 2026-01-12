@@ -150,7 +150,7 @@ services:
       - ${USERDIR}/docker/radarr:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
-      - ${SERVER3}/4K:/4K
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
       - ${DATA}/:/data
@@ -177,7 +177,7 @@ services:
       - ${USERDIR}/docker/radarr4k:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER1}/movies:/movies
-      - ${SERVER3}/4K:/4K
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
@@ -204,7 +204,7 @@ services:
       - ${USERDIR}/docker/sonarr:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER3}/4K:/4K
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
@@ -230,7 +230,7 @@ services:
       - ${USERDIR}/docker/sonarr4k:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER3}/4K:/4K
+      - ${SERVER4}/4K:/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
@@ -850,7 +850,7 @@ services:
       SETTINGS_ENCRYPTION_KEY: ${DUPLICATI__SETTINGS_ENCRYPTION_KEY}
     volumes:
       - ${USERDIR}/docker/duplicati/config:/config # Persistent configuration files
-      - ${SERVER3}/backups:/backups
+      - ${SERVER4}/backups:/backups
       - ${SERVER1}/:/source/server1
       - ${SERVER2}/:/source/server2
       - ${SERVER3}/:/source/server3
@@ -874,7 +874,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${USERDIR}/docker/lidarr/config:/config
-      - ${SERVER3}/music:/music
+      - ${SERVER4}/music:/music
       - ${USERDIR}/Downloads/complete:/downloads
     ports:
       - 8686:8686
@@ -896,7 +896,7 @@ services:
     restart: unless-stopped
     volumes:
       - ${USERDIR}/docker/navidrome:/data
-      - ${SERVER3}/music:/music:ro
+      - ${SERVER4}/music:/music:ro
     environment:
       - ND_SCANNER_PURGEMISSING=always
       - ND_LASTFM_ENABLED=true
@@ -914,7 +914,7 @@ services:
     ports:
       - "8338:8338"
     volumes:
-      - ${SERVER3}/music:/music
+      - ${SERVER4}/music:/music
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
