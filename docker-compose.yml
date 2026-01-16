@@ -1047,6 +1047,7 @@ services:
       - "3010:3000"
     depends_on:
       - jellystat-db
+    profiles: ["manual"]
 
 
 
