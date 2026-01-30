@@ -564,7 +564,9 @@ services:
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
     privileged: true
-    network_mode: host
+    networks:
+      ha_ipv6_net:
+        ipv6_address: 2401:d002:430b:dc00:1000::10
 
 
 
@@ -1063,6 +1065,14 @@ networks:
     driver: bridge
   media_bridge:
     driver: bridge
+  ha_ipv6_net:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2401:d002:430b:dc00:1000::/80
+          gateway: 2401:d002:430b:dc00:1000::1
 
 secrets:
   glances_password:
