@@ -565,8 +565,7 @@ services:
     restart: unless-stopped
     privileged: true
     networks:
-      ha_ipv6_net:
-        ipv6_address: 2401:d002:430b:dc00:1000::10
+      - ha_ipv6_net
 
 
 
@@ -1071,8 +1070,8 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 2401:d002:430b:dc10::/80
-          gateway: 2401:d002:430b:dc10::1
+        - subnet: 2401:d002:430b:dc00:1000::/112
+          gateway: 2401:d002:430b:dc00:1000::1
 
 secrets:
   glances_password:
