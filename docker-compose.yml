@@ -564,7 +564,6 @@ services:
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
     privileged: true
-    network_mode: "bridge"
     networks:
       ha_ipv6_net:
         ipv6_address: 2401:d002:430b:dc00:2000::10
