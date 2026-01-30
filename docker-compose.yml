@@ -1071,8 +1071,8 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 2401:d002:430b:dc00:1000::/80
-          gateway: 2401:d002:430b:dc00:1000::1
+        - subnet: 2401:d002:430b:dc10::/80
+          gateway: 2401:d002:430b:dc10::1
 
 secrets:
   glances_password:
