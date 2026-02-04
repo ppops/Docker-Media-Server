@@ -1011,51 +1011,6 @@ services:
 
 
 
-
-# Jellystat
-  jellystat-db:
-    image: postgres:15.2
-    shm_size: '1gb'
-    container_name: jellystat-db
-    restart: unless-stopped
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "5"
-        max-size: "10m"
-    environment:
-      POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
-      POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
-    volumes:
-      - ${USERDIR}/docker/jellystat-db:/var/lib/postgresql/data
-
-  jellystat:
-    image: cyfershepard/jellystat:latest
-    container_name: jellystat
-    restart: unless-stopped
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "5"
-        max-size: "10m"
-    environment:
-      POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
-      POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
-      POSTGRES_IP: jellystat-db
-      POSTGRES_PORT: 5432
-      JWT_SECRET: ${JELLYSTAT_JWT_SECRET}
-      TZ: ${TZ}
-    volumes:
-      - ${USERDIR}/docker/jellystat:/app/backend/backup-data
-    ports:
-      - "3010:3000"
-    depends_on:
-      - jellystat-db
-    profiles: ["manual"]
-
-
-
-
 networks:
   default:
     driver: bridge
