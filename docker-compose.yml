@@ -360,6 +360,7 @@ services:
     container_name: seerr
     restart: always
     image: ghcr.io/seerr-team/seerr:latest
+    init: true
     volumes:
       - ${USERDIR}/docker/seerr:/app/config
     ports:
