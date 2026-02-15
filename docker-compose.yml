@@ -355,19 +355,15 @@ services:
 
 
 
-# Overseerr
-  overseerr:
-    container_name: overseerr
+# Seerr
+  seerr:
+    container_name: seerr
     restart: always
-    image: sctx/overseerr:latest
+    image: ghcr.io/seerr-team/seerr:latest
     volumes:
-      - ${USERDIR}/docker/overseerr:/app/config
-      - ${USERDIR}/docker/shared:/shared
+      - ${USERDIR}/docker/seerr:/app/config
     ports:
-      - "5055:5055"
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
+      - 5055:5055
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
