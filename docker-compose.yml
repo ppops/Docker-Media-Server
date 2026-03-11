@@ -382,7 +382,7 @@ services:
   whisparr:
     container_name: whisparr
     restart: always
-    image: ghcr.io/hotio/whisparr
+    image: ghcr.io/hotio/whisparr:latest
     volumes:
       - ${USERDIR}/docker/whisparr:/config
       - ${USERDIR}/docker/shared:/shared
