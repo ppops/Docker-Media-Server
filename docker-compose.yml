@@ -573,20 +573,22 @@ services:
 
 
 
-# Matter Server
+
   matter-server:
     image: ghcr.io/home-assistant-libs/python-matter-server:stable
     container_name: matter-server
+    network_mode: host  # required for mDNS/UDP6
+    restart: unless-stopped
     volumes:
       - ${USERDIR}/docker/matter-server:/data
-    restart: unless-stopped
-    network_mode: host
     environment:
-      TZ: ${TZ}
+      TZ: ${TZ}                       # Australia/Melbourne
       MATTER_SERVER_PORT: 5580
       MATTER_SERVER_LISTEN_INTERFACE: enp2s0
-      MATTER_SERVER_LISTEN_ADDRESS: "::"
-
+      MATTER_SERVER_LISTEN_ADDRESS: 2401:d002:430b:dc00:7f40:c42:2cbd:88e5
+      # optional OTA provider URL (from your previous ENV)
+      chip_example_url: "https://github.com/home-assistant-libs/matter-linux-ota-provider/releases/download/2025.5.0"
+      GPG_KEY: "7169605F62C751356D054A26A821E680E5FA6305"
 
 
 
