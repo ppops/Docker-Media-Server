@@ -582,12 +582,13 @@ services:
     restart: unless-stopped
     network_mode: host
     environment:
-      - TZ=${TZ}
-      - MATTER_SERVER_PORT=5580
-      # Bind to all interfaces (avoids link-local binding issues)
-      - MATTER_SERVER_LISTEN_ADDRESS="::"
-      # Optional: specify interface for advertisement if needed
-      - MATTER_SERVER_LISTEN_INTERFACE=enp2s0
+      TZ: ${TZ}
+      MATTER_SERVER_PORT: 5580
+      MATTER_SERVER_LISTEN_INTERFACE: enp2s0
+      MATTER_SERVER_LISTEN_ADDRESS: "::"
+
+
+
 
 
 # Ollama
