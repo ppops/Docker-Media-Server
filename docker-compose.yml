@@ -581,7 +581,9 @@ services:
       - ${USERDIR}/docker/matter-server:/data
     restart: unless-stopped
     network_mode: host
-
+    environment:
+      - TZ=${TZ}
+      - MATTER_SERVER_PORT=5580
 
 
 
