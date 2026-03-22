@@ -584,7 +584,7 @@ services:
     environment:
       - TZ=${TZ}
       - MATTER_SERVER_PORT=5580
-      - MATTER_SERVER_LISTEN_INTERFACE=enp2s0
+      - MATTER_SERVER_LISTEN_ADDRESS=fe80::aaa1:59ff:fe6b:cf9f
 
 
 
