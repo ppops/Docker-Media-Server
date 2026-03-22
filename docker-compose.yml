@@ -573,6 +573,17 @@ services:
 
 
 
+# Matter Server
+  matter-server:
+    image: ghcr.io/home-assistant-libs/python-matter-server:stable
+    container_name: matter-server
+    restart: unless-stopped
+    network_mode: host
+
+
+
+
+
 # Ollama
   ollama:
     image: ollama/ollama:latest
