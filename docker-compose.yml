@@ -1037,6 +1037,23 @@ services:
 
 
 
+
+# Uptime Kuma
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - "3002:3001"
+    volumes:
+      - {USERDIR}/docker/uptime-kuma/:/app/data  # Configuring persistent storage
+    environment:
+      - TZ=${TZ}
+
+
+
+
+
 networks:
   default:
     driver: bridge
