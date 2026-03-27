@@ -1046,7 +1046,7 @@ services:
     ports:
       - "3002:3001"
     volumes:
-      - {USERDIR}/docker/uptime-kuma/:/app/data
+      - ${USERDIR}/docker/uptime-kuma/:/app/data
     environment:
       - TZ=${TZ}
 
