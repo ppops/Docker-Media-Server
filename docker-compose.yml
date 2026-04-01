@@ -481,7 +481,7 @@ services:
 
 # Vaultwarden Backup
   vaultwarden-backup:
-    image: bruceforce/vaultwarden-backup
+    image: bruceforce/vaultwarden-backup:latest
     container_name: vaultwarden-backup
     restart: always
     init: true
