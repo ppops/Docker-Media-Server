@@ -41,9 +41,7 @@ services:
     image: traefik:v3.4.0
     container_name: pangolin_traefik
     restart: unless-stopped
-    # network_mode: service:gerbil # Ports appear on the gerbil service
-    networks:
-      - pangolin
+    network_mode: service:gerbil # Ports appear on the gerbil service
     depends_on:
       pangolin:
         condition: service_healthy
