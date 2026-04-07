@@ -1040,6 +1040,7 @@ services:
 
   paperless-gpt:
     image: icereed/paperless-gpt:latest
+    container_name: paperless-gpt
     environment:
       PAPERLESS_BASE_URL: http://${SERVER_IP}:8000
       PAPERLESS_API_TOKEN: ${PAPERLESS_API_TOKEN}
