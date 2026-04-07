@@ -1038,6 +1038,37 @@ services:
       PAPERLESS_DBUSER: ${PAPERLESS_POSTGRES_USER}
       PAPERLESS_DBPASS: ${PAPERLESS_POSTGRES_PASSWORD}
 
+  paperless-gpt:
+    image: icereed/paperless-gpt:latest
+    environment:
+      PAPERLESS_BASE_URL: http://${SERVER_IP}:8000
+      PAPERLESS_API_TOKEN: ${PAPERLESS_API_TOKEN}
+      PAPERLESS_PUBLIC_URL: https://paperless.${DOMAIN_NAME}
+      LLM_PROVIDER: "ollama"
+      LLM_MODEL: "qwen3:8b"
+      OLLAMA_HOST: http://${SERVER_IP}:11434
+      OLLAMA_CONTEXT_LENGTH: "8192"
+      TOKEN_LIMIT: 1000
+      OCR_PROVIDER: "llm"
+      VISION_LLM_PROVIDER: "ollama"
+      VISION_LLM_MODEL: "minicpm-v"
+      OLLAMA_HOST: http://${SERVER_IP}:11434
+      OCR_PROCESS_MODE: "image"
+      PDF_SKIP_EXISTING_OCR: "false"
+      CREATE_LOCAL_HOCR: "false"
+      PDF_COPY_METADATA: "true"
+      PDF_OCR_TAGGING: "true"
+      PDF_OCR_COMPLETE_TAG: "paperless-gpt-ocr-complete"
+      AUTO_OCR_TAG: "paperless-gpt-ocr-auto"
+      OCR_LIMIT_PAGES: "5"
+      LOG_LEVEL: "info"
+    volumes:
+      - ${USERDIR}/docker/paperless-gpt:/app/prompts
+    ports:
+      - "8080:8080"
+    depends_on:
+      - paperless-ngx
+
 
 
 
