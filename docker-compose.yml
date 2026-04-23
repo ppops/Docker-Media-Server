@@ -936,6 +936,8 @@ services:
     dns:
       - 1.1.1.1
       - 8.8.8.8
+    networks:
+      - media_bridge
 
 
 
@@ -987,6 +989,8 @@ services:
     environment:
       - LOG_LEVEL=info
       - MASS_STREAM_PORT=8095
+    networks:
+      - media_bridge
 
 
 
