@@ -988,8 +988,7 @@ services:
     environment:
       - LOG_LEVEL=info
       - MASS_STREAM_PORT=8095
-    networks:
-      - media_bridge
+    network_mode: host
 
 
 
