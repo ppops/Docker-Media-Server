@@ -980,7 +980,6 @@ services:
     image: ghcr.io/music-assistant/server:latest
     container_name: music-assistant
     restart: unless-stopped
-    network_mode: host
     volumes:
       - ${USERDIR}/docker/music-assistant/data:/data
     user: "${PUID}:${PGID}"
