@@ -48,6 +48,8 @@ frontend:
   service_account:
     service_account_id: c3e13d38-11bc-4906-903a-1b6f9a832640
     service_account_secret: INhzTUY3JizPDlSKWyT*MbkzLG&bCA-S
+  ocdav:
+    insecure: false
 auth_basic:
   auth_providers:
     ldap:
@@ -64,8 +66,6 @@ groups:
   drivers:
     ldap:
       bind_password: xiBn0xh1UXOCdg=A-bL=8Er0r*PVd7tx
-ocdav:
-  insecure: false
 ocm:
   service_account:
     service_account_id: c3e13d38-11bc-4906-903a-1b6f9a832640
@@ -90,6 +90,9 @@ settings:
 sharing:
   events:
     tls_insecure: false
+  service_account:
+    service_account_id: c3e13d38-11bc-4906-903a-1b6f9a832640
+    service_account_secret: INhzTUY3JizPDlSKWyT*MbkzLG&bCA-S
 storage_users:
   events:
     tls_insecure: false
