@@ -1107,6 +1107,8 @@ services:
     depends_on:
       parser:
         condition: service_healthy
+    networks:
+      - media_bridge
 
   # Optional - only needed for CF/QP testing
   parser:
