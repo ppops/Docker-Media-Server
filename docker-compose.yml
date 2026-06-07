@@ -1086,6 +1086,8 @@ services:
       - ${USERDIR}/docker/uptime-kuma/:/app/data
     environment:
       - TZ=${TZ}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 
 
