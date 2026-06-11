@@ -313,7 +313,7 @@ services:
   jellyfin:
     container_name: jellyfin
     restart: always
-    image: "linuxserver/jellyfin:10.11.2"
+    image: "linuxserver/jellyfin:latest"
     volumes:
       - ${USERDIR}/docker/jellyfin:/config
       - ${RAMDRIVE}/:/transcode
