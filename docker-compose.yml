@@ -330,6 +330,8 @@ services:
       - /dev/dri/renderD128:/dev/dri/renderD128 
       #- /dev/dri/card1:/dev/dri/card1
     profiles: ["manual"]
+    networks:
+      - media_bridge
 
 
 
