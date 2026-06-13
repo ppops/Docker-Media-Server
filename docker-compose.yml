@@ -653,31 +653,6 @@ services:
 
 
 
-
-# Maintainerr
-  maintainerr:
-    image: ghcr.io/jorenn92/maintainerr:latest # or jorenn92/maintainerr:latest
-    container_name: maintainerr
-    user: ${PUID}:${PGID}
-    volumes:
-      - ${USERDIR}/docker/maintainerr:/opt/data:rw
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    ports:
-      - "6246:6246"
-    restart: unless-stopped
-    networks:
-      - media_bridge
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
-
-
-
-
-
 # Homepage
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
