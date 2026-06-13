@@ -1118,7 +1118,7 @@ services:
       - media_bridge
     volumes:
       - ${USERDIR}/docker/posterizarr:/config:rw
-      - ${USERDIR}/docket/posterizarr/assets:/assets:rw
+      - ${USERDIR}/docker/posterizarr/assets:/assets:rw
       - ${USERDIR}/docker/posterizarr/assetsbackup:/assetsbackup:rw
       - ${USERDIR}/docker/posterizarr/manualassets:/manualassets:rw
 
