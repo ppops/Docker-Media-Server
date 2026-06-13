@@ -1097,6 +1097,36 @@ services:
 
 
 
+
+  posterizarr:
+    hostname: posterizarr
+    container_name: posterizarr
+    environment:
+      - TZ=${TZ}
+      - TERM=xterm
+      - RUN_TIME=disabled
+      - APP_PORT=9777     
+      # OPTIONAL: Disable UI
+      #- DISABLE_UI=true   
+      #- ARR_WAIT_TIME=300 # OPTIONAL: Default is 300 seconds (5 minutes). This is the time Posterizarr will wait for the media server to be ready before starting its own startup process.
+    image: ghcr.io/fscorrupt/posterizarr:latest
+    restart: unless-stopped
+    user: ${PUID}:${PGID}
+    ports:
+      - 9777:9777
+    networks:
+      - media_bridge
+    volumes:
+      - ${USERDIR}/posterizarr:/config:rw
+      - ${USERSIR}/posterizarr/assets:/assets:rw
+      - ${USERDIR}/posterizarr/assetsbackup:/assetsbackup:rw
+      - ${USERDIR}/posterizarr/manualassets:/manualassets:rw
+
+
+
+
+
+
 networks:
   default:
     driver: bridge
