@@ -1118,7 +1118,7 @@ services:
       - media_bridge
     volumes:
       - ${USERDIR}/posterizarr:/config:rw
-      - ${USERSIR}/posterizarr/assets:/assets:rw
+      - ${USERDIR}/posterizarr/assets:/assets:rw
       - ${USERDIR}/posterizarr/assetsbackup:/assetsbackup:rw
       - ${USERDIR}/posterizarr/manualassets:/manualassets:rw
 
