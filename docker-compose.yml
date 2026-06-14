@@ -529,10 +529,8 @@ services:
       - KOMETA_OVERLAYS_ONLY=true
       - KOMETA_TIMES=01:00,07:00,10:00,12:00,16:00,18:30,21:00
       - TZ=${TZ}
-      - KOMETA_RUN=true
     volumes:
       - ${USERDIR}/docker/kometa/:/config
-      - ${USERDIR}/docker/posterizarr/assets:/assets
     networks:
       - media_bridge
 
