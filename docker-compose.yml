@@ -532,7 +532,8 @@ services:
     volumes:
       - ${USERDIR}/docker/kometa/:/config
       - ${USERDIR}/docker/posterizarr/assets:/assets
-
+    networks:
+      - media_bridge
 
 
 
