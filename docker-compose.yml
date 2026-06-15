@@ -72,7 +72,7 @@ services:
 
 # Glances
   glances:
-    image: nicolargo/glances:latest-full
+    image: nicolargo/glances:ubuntu-latest-full
     container_name: glances
     ports:
       - "61208:61208"
