@@ -1,6 +1,6 @@
 services:
   pangolin:
-    image: fosrl/pangolin:latest # https://github.com/fosrl/pangolin/releases
+    image: fosrl/pangolin:ee-latest # https://github.com/fosrl/pangolin/releases
     container_name: pangolin
     restart: unless-stopped
     volumes:
