@@ -315,7 +315,7 @@ services:
     restart: always
     image: "jellyfin/jellyfin:latest"
     volumes:
-      - ${USERDIR}/docker/jellyfin/config:/config
+      - ${USERDIR}/docker/jellyfin:/config
       - ${RAMDRIVE}/:/cache
       - /mnt/:/media
       - ${USERDIR}/docker/shared:/shared
