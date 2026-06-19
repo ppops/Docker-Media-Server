@@ -336,6 +336,35 @@ services:
 
 
 
+
+
+
+
+# Jellyfin
+  jellyfin-test:
+    container_name: jellyfin-test
+    restart: always
+    image: "jellyfin/jellyfin:latest"
+    volumes:
+      - ${USERDIR}/docker/jellyfin-official/config:/config
+      - ${RAMDRIVE}/:/cache
+      - /mnt/:/media
+    user: "1000:1000"
+    ports:
+      - "8097:8096"
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - "135"
+    networks:
+      - media_bridge
+
+
+
+
+
+
+
 # Tautulli
   tautulli:
     container_name: tautulli
