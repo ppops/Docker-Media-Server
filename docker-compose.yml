@@ -309,40 +309,11 @@ services:
 
 
 
+
+
 # Jellyfin
   jellyfin:
     container_name: jellyfin
-    restart: always
-    image: "linuxserver/jellyfin:latest"
-    volumes:
-      - ${USERDIR}/docker/jellyfin:/config
-      - ${RAMDRIVE}/:/transcode
-      - /mnt/:/media
-      - ${USERDIR}/docker/shared:/shared
-    ports:
-      - "8096:8096/tcp"
-      - "8920:8920/tcp"
-      - "7359:7359/udp"
-    environment:
-      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAIN_NAME}
-      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
-    devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128 
-      #- /dev/dri/card1:/dev/dri/card1
-    profiles: ["manual"]
-    networks:
-      - media_bridge
-
-
-
-
-
-
-
-
-# Jellyfin
-  jellyfin-test:
-    container_name: jellyfin-test
     restart: always
     image: "jellyfin/jellyfin:latest"
     volumes:
@@ -350,7 +321,7 @@ services:
       - ${RAMDRIVE}/cache:/cache
       - /mnt/:/media
     ports:
-      - "8098:8096"
+      - "8096:8096"
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
     group_add:
