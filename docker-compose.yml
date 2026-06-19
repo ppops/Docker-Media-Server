@@ -349,7 +349,6 @@ services:
       - ${USERDIR}/docker/jellyfin-official/config:/config
       - ${RAMDRIVE}/:/cache
       - /mnt/:/media
-    user: "1000:1000"
     ports:
       - "8098:8096"
     devices:
