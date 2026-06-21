@@ -18,6 +18,20 @@ services:
     - ${USERDIR}/watchstate:/config:rw
 
 
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr
+    ports:
+      - 5690:5690
+    volumes:
+      - ${USERDIR}/docker/wizarr:/data
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - DISABLE_BUILTIN_AUTH=false #Set to true ONLY if you are using another auth provider (Authelia, Authentik, etc)
+      - TZ=${TZ}
+
+
 
 
 # Watchtower
