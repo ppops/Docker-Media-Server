@@ -6,35 +6,6 @@ services:
 
 
 
-  watchstate:
-    image: ghcr.io/arabcoders/watchstate:latest
-    # To change the user/group id associated with the tool change the following line.
-    user: "0:0"
-    container_name: watchstate
-    restart: unless-stopped
-    ports:
-      - "8085:8080" # The port which the watchstate will listen on.
-    volumes:
-    - ${USERDIR}/watchstate:/config:rw
-
-
-  wizarr:
-    container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr
-    ports:
-      - 5690:5690
-    volumes:
-      - ${USERDIR}/docker/wizarr:/data
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - DISABLE_BUILTIN_AUTH=false #Set to true ONLY if you are using another auth provider (Authelia, Authentik, etc)
-      - TZ=${TZ}
-    networks:
-      - media_bridge
-
-
-
 
 # Watchtower
   watchtower:
@@ -1096,6 +1067,8 @@ services:
 
 
 
+
+# Profilarr
   profilarr:
     image: ghcr.io/dictionarry-hub/profilarr:latest
     container_name: profilarr
@@ -1127,6 +1100,7 @@ services:
 
 
 
+# Posterizarr
   posterizarr:
     hostname: posterizarr
     container_name: posterizarr
@@ -1150,6 +1124,25 @@ services:
       - ${USERDIR}/docker/posterizarr/assets:/assets:rw
       - ${USERDIR}/docker/posterizarr/assetsbackup:/assetsbackup:rw
       - ${USERDIR}/docker/posterizarr/manualassets:/manualassets:rw
+
+
+
+
+# Wizarr
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr
+    ports:
+      - 5690:5690
+    volumes:
+      - ${USERDIR}/docker/wizarr:/data
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - DISABLE_BUILTIN_AUTH=false
+      - TZ=${TZ}
+    networks:
+      - media_bridge
 
 
 
