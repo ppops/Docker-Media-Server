@@ -317,11 +317,34 @@ services:
     restart: always
     image: "jellyfin/jellyfin:latest"
     volumes:
-      - ${USERDIR}/docker/jellyfin/config:/config
+      - ${USERDIR}/docker/jellyfin:/config
       - ${RAMDRIVE}/cache:/cache
       - /mnt/:/media
     ports:
       - "8096:8096"
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - "135"
+    networks:
+      - media_bridge
+
+
+
+
+
+
+# Jellyfin Backup
+  jellyfin-backup:
+    container_name: jellyfin-backup
+    restart: always
+    image: "jellyfin/jellyfin:latest"
+    volumes:
+      - ${USERDIR}/docker/jellyfin-backup/config:/config
+      - ${RAMDRIVE}/cache:/cache
+      - /mnt/:/media
+    ports:
+      - "8097:8096"
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
     group_add:
