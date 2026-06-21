@@ -340,7 +340,7 @@ services:
     restart: always
     image: "jellyfin/jellyfin:latest"
     volumes:
-      - ${USERDIR}/docker/jellyfin-backup:/config
+      - ${USERDIR}/docker/jellyfin-backup/config:/config
       - ${RAMDRIVE}/cache:/cache
       - /mnt/:/media
     ports:
