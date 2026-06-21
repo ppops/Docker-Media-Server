@@ -30,6 +30,8 @@ services:
       - PGID=${PGID}
       - DISABLE_BUILTIN_AUTH=false #Set to true ONLY if you are using another auth provider (Authelia, Authentik, etc)
       - TZ=${TZ}
+    networks:
+      - media_bridge
 
 
 
