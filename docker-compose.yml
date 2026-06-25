@@ -10,7 +10,7 @@ services:
   watchstate:
     image: ghcr.io/arabcoders/watchstate:latest
         # To change the user/group id associated with the tool change the following line.
-    user: "${PUID}:${PGID}"
+    user: "0:0"
     container_name: watchstate
     restart: unless-stopped
     ports:
