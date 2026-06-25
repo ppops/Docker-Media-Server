@@ -7,6 +7,19 @@ services:
 
 
 
+  watchstate:
+    image: ghcr.io/arabcoders/watchstate:latest
+        # To change the user/group id associated with the tool change the following line.
+    user: "${PUID}:${PGID}"
+    container_name: watchstate
+    restart: unless-stopped
+    ports:
+      - "8094:8080" # The port which the watchstate will listen on.
+    volumes:
+      - ${USERDIR}/docker/watchstate:/config:rw
+
+
+
 # Watchtower
   watchtower:
     container_name: watchtower
