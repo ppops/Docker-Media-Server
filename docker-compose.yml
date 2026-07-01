@@ -206,7 +206,7 @@ services:
       - ${USERDIR}/docker/sonarr:/config
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
-      - ${SERVER4}/4K:/4K
+      - /mnt/Server2/tvshows:/media/Server2/tvshows
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
