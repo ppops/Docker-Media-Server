@@ -233,6 +233,7 @@ services:
       - ${USERDIR}/Downloads/complete:/downloads
       - ${SERVER2}/tvshows:/tv
       - ${SERVER4}/4K:/4K
+      - /mnt/Server4/4K:/media/Server4/4K
       - "/etc/localtime:/etc/localtime:ro"
       - ${USERDIR}/docker/shared:/shared
     ports:
