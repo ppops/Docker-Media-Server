@@ -362,7 +362,7 @@ services:
   seerr:
     container_name: seerr
     restart: always
-    image: ghcr.io/seerr-team/seerr:preview-media-server-migration
+    image: ghcr.io/seerr-team/seerr:latest
     init: true
     volumes:
       - ${USERDIR}/docker/seerr:/app/config
