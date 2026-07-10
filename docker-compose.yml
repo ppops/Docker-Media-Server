@@ -337,29 +337,6 @@ services:
 
 
 
-
-
-# Tautulli
-  tautulli:
-    container_name: tautulli
-    restart: always
-    image: linuxserver/tautulli
-    volumes:
-      - ${USERDIR}/docker/tautulli/config:/config
-      - '${USERDIR}/docker/plexms/Library/Application Support/Plex Media Server/Logs:/logs:ro'
-      - ${USERDIR}/docker/shared:/shared
-    ports:
-      - "8181:8181"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    networks:
-      - media_bridge
-
-
-
-
 # Seerr
   seerr:
     container_name: seerr
