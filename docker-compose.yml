@@ -330,6 +330,8 @@ services:
       - "135"
     networks:
       - media_bridge
+    environment:
+      - TZ=${TZ}
 
 
 
