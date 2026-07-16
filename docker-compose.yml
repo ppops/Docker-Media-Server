@@ -164,7 +164,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
     networks:
       - media_bridge
 
@@ -191,8 +190,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:radarr
-      - TP_ADDON=radarr-4k-logo
     networks:
       - media_bridge
 
@@ -218,7 +215,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
     networks:
       - media_bridge
 
@@ -245,8 +241,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:sonarr
-      - TP_ADDON=sonarr-4k-logo
     networks:
       - media_bridge
 
