@@ -315,6 +315,7 @@ services:
       - ${USERDIR}/docker/jellyfin:/config
       - ${RAMDRIVE}/cache:/cache
       - /mnt/:/media
+      - ${USERDIR}/docker/posterizarr/assets:/posterizarr
     ports:
       - "8096:8096"
     devices:
