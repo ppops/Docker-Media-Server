@@ -885,6 +885,9 @@ services:
       - ND_LASTFM_APIKEY=${ND_LASTFM_APIKEY}
       - ND_LASTFM_SECRET=${ND_LASTFM_SECRET}
       - ND_ENABLEEXTERNALSERVICES=false
+      - ND_JELLYFIN_ENABLED=true
+      - ND_JELLYFIN_SERVERNAME="Navy Dons Music"
+      - ND_JELLYFIN_EXPOSEDPUBLICUSERS="paul"
     dns:
       - 1.1.1.1
       - 8.8.8.8
