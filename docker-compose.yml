@@ -561,7 +561,6 @@ services:
     volumes:
       - ${USERDIR}/docker/ollama:/root/.ollama
     restart: unless-stopped
-    profiles: ["manual"]
 
 
 
