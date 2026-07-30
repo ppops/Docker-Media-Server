@@ -678,6 +678,7 @@ services:
       vikunja-db:
         condition: service_healthy
     restart: unless-stopped
+    profiles: ["manual"]
 
   vikunja-db:
     image: postgres:18
