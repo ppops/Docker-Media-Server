@@ -78,8 +78,4 @@ services:
     logging:
       driver: ${LOG_DRIVER:-local}
     restart: always
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9980/hosting/discovery" ]
-      interval: 15s
-      timeout: 10s
-      retries: 5
+
