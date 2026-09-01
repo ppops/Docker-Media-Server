@@ -79,6 +79,7 @@ services:
     security_opt:
       - seccomp=unconfined
       - apparmor=unconfined
+    privileged: true
     volumes:
       # Mount local TrueType fonts so the container can use system fonts
       # (e.g. Microsoft fonts like Arial, Calibri, Cambria by installing the `ttf-mscorefonts-installer` package).
