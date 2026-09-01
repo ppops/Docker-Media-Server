@@ -25,6 +25,9 @@ services:
         condition: service_started
       collabora:
         condition: service_started
+    entrypoint:
+      - /bin/sh
+    command: [ "-c", "opencloud collaboration server" ]
     environment:
       COLLABORATION_GRPC_ADDR: 0.0.0.0:9301
       COLLABORATION_HTTP_ADDR: 0.0.0.0:9300
