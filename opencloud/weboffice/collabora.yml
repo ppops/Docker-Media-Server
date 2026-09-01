@@ -22,7 +22,7 @@ services:
       opencloud:
         condition: service_started
       collabora:
-        condition: service_healthy
+        condition: service_started
     entrypoint:
       - /bin/sh
     command: [ "-c", "opencloud collaboration server" ]
@@ -80,9 +80,4 @@ services:
     restart: always
     entrypoint: [ '/bin/bash', '-c' ]
     command: [ 'coolconfig generate-proof-key && /start-collabora-online.sh' ]
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9980/hosting/discovery" ]
-      interval: 15s
-      timeout: 10s
-      retries: 5
-      
+
