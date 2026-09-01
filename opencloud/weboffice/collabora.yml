@@ -25,8 +25,6 @@ services:
         condition: service_started
       collabora:
         condition: service_healthy
-    entrypoint: [ '/bin/sh', '-c' ]
-    command: [ 'coolconfig generate-proof-key && /start-collabora-online.sh' ]
     environment:
       COLLABORATION_GRPC_ADDR: 0.0.0.0:9301
       COLLABORATION_HTTP_ADDR: 0.0.0.0:9300
