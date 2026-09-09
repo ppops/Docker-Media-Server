@@ -1096,6 +1096,7 @@ services:
       - LOG_LEVEL=${LOG_LEVEL:-info}
       # Optional: Customize the port (defaults to 5000 if not set)
       - SUGGESTARR_PORT=5001
+      - TZ=${TZ}
 
 
 
