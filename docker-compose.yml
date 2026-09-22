@@ -1083,24 +1083,6 @@ services:
 
 
 
-  suggestarr:
-    image: ciuse99/suggestarr:latest
-    container_name: SuggestArr
-    restart: always
-    ports:
-      - 5001:5001
-    volumes:
-      - ${USERDIR}/docker/suggestarr:/app/config/config_files
-    environment:
-      # Optional: Only needed if something goes wrong and you need to inspect deeper
-      - LOG_LEVEL=${LOG_LEVEL:-info}
-      # Optional: Customize the port (defaults to 5000 if not set)
-      - SUGGESTARR_PORT=5001
-      - TZ=${TZ}
-
-
-
-
 
 
 
