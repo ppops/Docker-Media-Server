@@ -331,6 +331,8 @@ services:
       - media_bridge
     environment:
       - TZ=${TZ}
+    tmpfs:
+      - /cache/transcodes:size=10g
 
 
 
