@@ -319,7 +319,7 @@ services:
     image: "jellyfin/jellyfin:latest"
     volumes:
       - ${USERDIR}/docker/jellyfin:/config
-      - ${RAMDRIVE}/cache:/cache
+      - ${USERDIR}/docker/jellyfin-cache:/cache
       - /mnt/:/media
     ports:
       - "8096:8096"
