@@ -811,7 +811,7 @@ services:
 
 # Duplicati
   duplicati:
-    image: lscr.io/linuxserver/duplicati:latest
+    image: ghcr.io/linuxserver/duplicati:latest
     container_name: duplicati
     environment:
       PUID: ${PUID}
@@ -837,7 +837,7 @@ services:
 
 # Lidarr
   lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
+    image: ghcr.io/linuxserver/lidarr:latest
     container_name: lidarr
     environment:
       - PUID=${PUID}
