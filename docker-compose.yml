@@ -90,6 +90,19 @@ services:
     restart: always
 
 
+# Beszel
+  beszel:
+    image: henrygd/beszel
+    container_name: beszel
+    restart: unless-stopped
+    environment:
+      - APP_URL=https://beszel.navydons.au
+    ports:
+      - 8091:8090
+    volumes:
+      - ${USERDIR}/docker/beszel:/beszel_data
+
+
 
 
 # SABnzbd
