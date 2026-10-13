@@ -120,6 +120,8 @@ services:
       HUB_URL: 'https://beszel.${DOMAIN_NAME}'
       TOKEN: ${BESZEL_TOKEN}
       INTEL_GPU_DEVICE: drm:/dev/dri/card1
+      GPU_COLLECTOR: intel_gpu_top
+      LOG_LEVEL: debug
     cap_add:
       - NET_ADMIN
       - CAP_PERFMON
