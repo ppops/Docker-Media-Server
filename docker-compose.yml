@@ -119,6 +119,7 @@ services:
       KEY: ${BESZEL_KEY}
       HUB_URL: 'https://beszel.${DOMAIN_NAME}'
       TOKEN: ${BESZEL_TOKEN}
+      INTEL_GPU_DEVICE: drm:/dev/dri/renderD128
     cap_add:
       - NET_ADMIN
       - CAP_PERFMON
