@@ -125,7 +125,7 @@ services:
       - SYS_RAWIO
       - SYS_ADMIN
     devices:
-      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri:/dev/dri
 
 
 
