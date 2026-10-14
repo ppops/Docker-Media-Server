@@ -128,7 +128,12 @@ services:
       - SYS_RAWIO
       - SYS_ADMIN
     devices:
+      - /dev/nvme0:/dev/nvme0
       - /dev/dri:/dev/dri
+      - /dev/sda:/dev/sda
+      - /dev/sdb:/dev/sdb
+      - /dev/sdc:/dev/sdc
+      - /dev/sdd:/dev/sdd
     pid: host
 
 
