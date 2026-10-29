@@ -365,28 +365,6 @@ services:
 
 # Whisparr
   whisparr:
-    container_name: whisparr
-    restart: always
-    image: ghcr.io/hotio/whisparr:latest
-    volumes:
-      - ${USERDIR}/docker/whisparr:/config
-      - ${USERDIR}/docker/shared:/shared
-      - ${SERVER2}/whisparr:/whisparr
-      - ${SERVER2}/nrop:/nrop
-      - ${USERDIR}/Downloads/complete:/downloads
-    ports:
-      - "6969:6969"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - UMASK_SET=002
-      - TZ=${TZ}
-    networks:
-      - media_bridge
-
-
-
-  whisparr-v3:
     container_name: whisparr-v3
     restart: always
     image: ghcr.io/hotio/whisparr:v3
