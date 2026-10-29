@@ -365,11 +365,11 @@ services:
 
 # Whisparr
   whisparr:
-    container_name: whisparr-v3
+    container_name: whisparr
     restart: always
     image: ghcr.io/hotio/whisparr:v3
     volumes:
-      - ${USERDIR}/docker/whisparr-v3:/config
+      - ${USERDIR}/docker/whisparr:/config
       - ${USERDIR}/docker/shared:/shared
       - ${SERVER2}/whisparr:/whisparr
       - ${SERVER2}/nrop:/nrop
