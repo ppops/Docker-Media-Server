@@ -383,6 +383,28 @@ services:
       - TZ=${TZ}
     networks:
       - media_bridge
+
+
+
+  whisparr-v3:
+    container_name: whisparr-v3
+    restart: always
+    image: ghcr.io/hotio/whisparr:v3
+    volumes:
+      - ${USERDIR}/docker/whisparr-v3:/config
+      - ${USERDIR}/docker/shared:/shared
+      - ${SERVER2}/whisparr:/whisparr
+      - ${SERVER2}/nrop:/nrop
+      - ${USERDIR}/Downloads/complete:/downloads
+    ports:
+      - "6970:6969"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UMASK=002
+      - TZ=${TZ}
+    networks:
+      - media_bridge
       
       
       
