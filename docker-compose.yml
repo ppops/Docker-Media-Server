@@ -1105,6 +1105,19 @@ services:
       - DISPATCHARR_LOG_LEVEL=info
 
 
+      
+  daddylive:
+    build: .
+    image: daddylive-stream-resolver
+    container_name: daddylive
+    ports:
+      - "3030:3000"
+    environment:
+      PORT: "3000"
+      DLHD_BASE: "https://thedaddy.pk/"  # upstream base, override if it moves again
+    restart: unless-stopped
+
+
 
 
 
