@@ -985,6 +985,7 @@ services:
       PAPERLESS_DBUSER: ${PAPERLESS_POSTGRES_USER}
       PAPERLESS_DBPASS: ${PAPERLESS_POSTGRES_PASSWORD}
       PAPERLESS_DBENGINE: postgresql
+      PAPERLESS_ALLOWED_HOSTS: paperless.${DOMAIN_NAME},paperless-webserver,${SERVER_IP},localhost
 
   paperless-gpt:
     image: icereed/paperless-gpt:latest
